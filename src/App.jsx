@@ -45,6 +45,15 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > 100) document.body.classList.add('scrolled')
+    else document.body.classList.remove('scrolled')
+  }
+  window.addEventListener('scroll', handleScroll)
+  return () => window.removeEventListener('scroll', handleScroll)
+}, [])
+
   const handleIntroComplete = () => {
     sessionStorage.setItem('intro-seen', 'true')
     setShowIntro(false)

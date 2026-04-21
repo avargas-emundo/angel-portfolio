@@ -696,3 +696,71 @@ body.dark-mode .container.py-5 form {
 body:not(.dark-mode) .container.py-5 form {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
+
+.progress-label {
+  position: absolute;
+  right: -105px;           /* moved to the right side */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #6c8ec4;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.progress-dot:hover .progress-label,
+.progress-dot.active .progress-label {
+  opacity: 1;
+  right: -115px;
+}
+
+/* Better spacing for timeline */
+.experience-timeline {
+  padding-bottom: 5rem;
+}
+
+.timeline-track {
+  padding: 4rem 0;
+}
+
+body.dark-mode .gradient-card {
+  background: linear-gradient(145deg, #1f2937, #111827) !important;
+}
+
+body.dark-mode .timeline-bubble {
+  background: rgba(108, 142, 196, 0.18) !important;
+  border-color: rgba(108, 142, 196, 0.45) !important;
+}
+
+@media (max-width: 768px) {
+  .timeline-bubble-left,
+  .timeline-bubble-right {
+    left: auto;
+    right: auto;
+    width: 160px;
+    top: 1.5rem;
+  }
+  .timeline-event-left .timeline-bubble { left: 20px; }
+  .timeline-event-right .timeline-bubble { right: 20px; }
+}
+
+.floating-dock {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 992px) {
+  .floating-dock {
+    right: 2rem;
+  }
+}
+
+/* Slight collapse on scroll (optional nice touch) */
+body.scrolled .floating-dock {
+  transform: translateY(-50%) scale(0.92);
+  opacity: 0.95;
+}

@@ -138,27 +138,23 @@ const timelineEvents = [
 export default function Home() {
   const [modalCard, setModalCard] = useState(null)
 
-  // ←←← ADD THIS useEffect HERE (right after the state)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          const fill = entry.target.querySelector('.timeline-fill')
-          if (fill) fill.style.height = 'calc(100% - 2rem)'
-        }
-      },
-      { threshold: 0.6 }
-    )
-
-    const track = document.querySelector('.timeline-track')
-    if (track) observer.observe(track)
-
-    return () => observer.disconnect()
-  }, [])
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        const fill = entry.target.querySelector('.timeline-fill')
+        if (fill) fill.style.height = 'calc(100% - 2rem)'
+      }
+    },
+    { threshold: 0.65, rootMargin: '0px' }
+  )
+  const track = document.querySelector('.timeline-track')
+  if (track) observer.observe(track)
+  return () => observer.disconnect()
+}, [])
 
   return (
     <main>
-      {/* ... rest of your return stays exactly the same ... */}
       <Hero />
       <ProgressIndicator />
 
@@ -215,82 +211,6 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="container"><div className="section-rule"></div></div>
-
-      {/* TECHNICAL SHOWCASE */}
-      <section id="technical-showcase" className="technical-showcase container">
-        <span className="section-eyebrow">Selected Work</span>
-        <h2>Technical Showcase</h2>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-          {showcaseCards.map((card, i) => (
-            <motion.div className="col" key={card.title} {...fadeUp(i * 0.12)}>
-              <article className="glass-showcase-card h-100">
-                <div className="project-header-img">
-                  <img src={card.img} alt={card.title} />
-                </div>
-                <div className="card-body d-flex flex-column p-4">
-                  <span className={`card-category ${card.categoryColor} mb-2`} style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' }}>
-                    {card.category}
-                  </span>
-                  <h3 className="mb-2">{card.title}</h3>
-                  <div className="kpi-grid mb-3">
-                    <div className="kpi-item"><span>{card.kpi1.value}{card.kpi1.suffix}</span><label>{card.kpi1.label}</label></div>
-                    <div className="kpi-item"><span>{card.kpi2.value}{card.kpi2.suffix || ''}</span><label>{card.kpi2.label}</label></div>
-                  </div>
-                  <p className="mb-4">{card.desc}</p>
-                  <div className="tag-row d-flex flex-wrap gap-2 mb-4">
-                    {card.tags.map(t => <span className="method-tag" key={t}>{t}</span>)}
-                  </div>
-                  <button className="deep-dive-btn btn btn-sm mt-auto w-100" onClick={() => setModalCard(card)}>
-                    Deep Dive →
-                  </button>
-                </div>
-              </article>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <div className="container"><div className="section-rule"></div></div>
-
-      {/* CAREER TIMELINE */}
-      <section id="timeline" className="experience-timeline container">
-        <span className="section-eyebrow">Experience</span>
-        <h2>Career Timeline</h2>
-        <div className="timeline-track">
-          <div className="timeline-fill"></div>
-          {timelineEvents.map((ev) => (
-            <TimelineCard key={ev.title} ev={ev} />
-          ))}
-        </div>
-      </section>
-
-      <div className="container"><div className="section-rule"></div></div>
-
-      {/* OLD CONTACT SECTION */}
-      <section id="contact" className="container">
-        <div className="row g-4">
-          <motion.div className="col-md-5" {...fadeUp()}>
-            <span className="section-eyebrow">Contact</span>
-            <h2 style={{ fontFamily: 'Lora,serif', fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 500, marginBottom: '0.5rem' }}>Let's Connect.</h2>
-            <p className="text-muted mb-4">Open to engineering collaborations, systems consulting, and graduate program conversations. Based in México — open to relocation.</p>
-            <div className="d-flex flex-column gap-3">
-              <a href="mailto:avargas.emundo@gmail.com" className="contact-link">
-                <i className="bi bi-envelope-fill"></i>avargas.emundo@gmail.com
-              </a>
-              <a href="https://www.linkedin.com/in/av-m/" target="_blank" rel="noreferrer" className="contact-link">
-                <i className="bi bi-linkedin"></i>LinkedIn Profile
-              </a>
-              <span className="contact-link non-link">
-                <i className="bi bi-geo-alt-fill"></i>Naucalpan de Juárez, México · Open to relocation
-              </span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <div className="container"><div className="section-rule"></div></div>
-
       {/* SUMMARY / SKILL CLOUD */}
       <section id="summary" className="split-summary container mb-5">
         <div className="row align-items-center g-4">
@@ -328,7 +248,83 @@ export default function Home() {
         </div>
       </section>
 
-            {/* FINAL VISUAL CONTACT PROMPT */}
+      <div className="container"><div className="section-rule"></div></div>
+
+      {/* TECHNICAL SHOWCASE with gradient accent */}
+      <section id="technical-showcase" className="technical-showcase container">
+        <span className="section-eyebrow">Selected Work</span>
+        <h2>Technical Showcase</h2>
+        <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+          {showcaseCards.map((card, i) => (
+            <motion.div className="col" key={card.title} {...fadeUp(i * 0.12)}>
+              <article className="glass-showcase-card h-100 gradient-card">
+                <div className="project-header-img">
+                  <img src={card.img} alt={card.title} />
+                </div>
+                <div className="card-body d-flex flex-column p-4">
+                  <span className={`card-category ${card.categoryColor} mb-2`} style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' }}>
+                    {card.category}
+                  </span>
+                  <h3 className="mb-2">{card.title}</h3>
+                  <div className="kpi-grid mb-3">
+                    <div className="kpi-item"><span>{card.kpi1.value}{card.kpi1.suffix}</span><label>{card.kpi1.label}</label></div>
+                    <div className="kpi-item"><span>{card.kpi2.value}{card.kpi2.suffix || ''}</span><label>{card.kpi2.label}</label></div>
+                  </div>
+                  <p className="mb-4">{card.desc}</p>
+                  <div className="tag-row d-flex flex-wrap gap-2 mb-4">
+                    {card.tags.map(t => <span className="method-tag" key={t}>{t}</span>)}
+                  </div>
+                  <button className="deep-dive-btn btn btn-sm mt-auto w-100" onClick={() => setModalCard(card)}>
+                    Deep Dive →
+                  </button>
+                </div>
+              </article>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <div className="container"><div className="section-rule"></div></div>
+
+{/* CAREER TIMELINE — REFINED WITH BUBBLE ON OPPOSITE SIDE */}
+      <section id="timeline" className="experience-timeline container">
+        <span className="section-eyebrow">Experience</span>
+        <h2>Career Timeline</h2>
+        <div className="timeline-track">
+          <div className="timeline-fill"></div>
+          {timelineEvents.map((ev) => (
+            <TimelineCard key={ev.title} ev={ev} />
+          ))}
+        </div>
+      </section>
+
+      <div className="container"><div className="section-rule"></div></div>
+
+      {/* OLD CONTACT SECTION */}
+      <section id="contact" className="container">
+        <div className="row g-4">
+          <motion.div className="col-md-5" {...fadeUp()}>
+            <span className="section-eyebrow">Contact</span>
+            <h2 style={{ fontFamily: 'Lora,serif', fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 500, marginBottom: '0.5rem' }}>Let's Connect.</h2>
+            <p className="text-muted mb-4">Open to engineering collaborations, systems consulting, and graduate program conversations. Based in México — open to relocation.</p>
+            <div className="d-flex flex-column gap-3">
+              <a href="mailto:avargas.emundo@gmail.com" className="contact-link">
+                <i className="bi bi-envelope-fill"></i>avargas.emundo@gmail.com
+              </a>
+              <a href="https://www.linkedin.com/in/av-m/" target="_blank" rel="noreferrer" className="contact-link">
+                <i className="bi bi-linkedin"></i>LinkedIn Profile
+              </a>
+              <span className="contact-link non-link">
+                <i className="bi bi-geo-alt-fill"></i>Naucalpan de Juárez, México · Open to relocation
+              </span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="container"><div className="section-rule"></div></div>
+
+      {/* FINAL VISUAL CONTACT PROMPT */}
       <section className="container py-5">
         <div className="row justify-content-center">
           <div className="col-lg-9">
@@ -385,30 +381,44 @@ export default function Home() {
   )
 }
 
+/* ── REFINED TIMELINE CARD WITH BETTER BUBBLE POSITIONING ── */
 function TimelineCard({ ev }) {
   const [open, setOpen] = useState(false)
+
   return (
     <motion.div
       className={`timeline-event timeline-event-${ev.side}`}
       initial={{ x: ev.side === 'left' ? -50 : 50, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
-      data-year={ev.year}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
       onClick={() => setOpen(!open)}
       style={{ cursor: 'pointer' }}
     >
-      <div className="timeline-content card">
-        <div className="card-body">
-          <div className="timeline-metadata">
-            <span>{ev.dates}</span> | <span>{ev.location}</span>
-          </div>
-          <h3 className="h5 fw-bold">{ev.title}</h3>
-          <p className="text-primary mb-1">{ev.company}</p>
+      {/* Bubble on opposite side - improved positioning */}
+      <div className={`timeline-bubble timeline-bubble-${ev.side === 'left' ? 'right' : 'left'}`}>
+        <div className="timeline-dates">{ev.dates}</div>
+        <div className="timeline-location">{ev.location}</div>
+        <div className="timeline-year-badge">{ev.year}</div>
+      </div>
+
+      {/* Main card with gradient */}
+      <div 
+        className="timeline-content card gradient-card"
+        style={{
+          boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.25)',
+          borderRadius: '20px',
+          border: '1px solid rgba(108,142,196,0.25)',
+        }}
+      >
+        <div className="card-body p-5">
+          <h3 className="h5 fw-bold mb-2">{ev.title}</h3>
+          <p className="text-primary mb-3 fw-medium">{ev.company}</p>
           <p className="mb-0">{ev.summary}</p>
+
           {open && (
-            <ul className="mt-2 ps-3">
-              {ev.bullets.map((b, i) => <li key={i}>{b}</li>)}
+            <ul className="mt-4 ps-3" style={{ fontSize: '0.95rem' }}>
+              {ev.bullets.map((b, i) => <li key={i} className="mb-2">{b}</li>)}
             </ul>
           )}
         </div>

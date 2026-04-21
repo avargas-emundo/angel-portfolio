@@ -86,5 +86,21 @@ body.dark-mode .btn-read-more { color: #e2e8f0; border-color: rgba(255,255,255,0
 
 /* ── Section spacing ── */
 #about, #technical-showcase, #timeline, #contact, #summary { padding: 5rem 0; }
-.section-rule { height: 1px; background: rgba(0,0,0,0.07); margin: 0; }
+.section-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(108, 142, 196, 0.18) 30%,
+    rgba(108, 142, 196, 0.18) 70%,
+    transparent 100%
+  );
+  margin: 0;
+}
 body.dark-mode .section-rule { background: rgba(255,255,255,0.05); }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+

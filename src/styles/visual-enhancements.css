@@ -269,3 +269,98 @@ body:not(.dark-mode)::after {
 body::before, body::after {
   filter: blur(160px);
 }
+
+/* Subtle gradient fade between sections */
+.section-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(108, 142, 196, 0.15),
+    transparent
+  );
+  margin: 0;
+}
+
+/* Extra breathing room after timeline */
+.experience-timeline {
+  padding-bottom: 4rem;
+}
+
+/* Gradient accent for cards */
+.gradient-card {
+  background: linear-gradient(145deg, #1f2937, #111827) !important;
+  transition: all 0.4s ease;
+}
+
+body:not(.dark-mode) .gradient-card {
+  background: linear-gradient(145deg, #ffffff, #f8fafc) !important;
+}
+
+/* Timeline Bubble - Closer to the central line */
+.timeline-bubble {
+  position: absolute;
+  top: 2rem;
+  width: 190px;
+  padding: 1rem 1.25rem;
+  background: rgba(108, 142, 196, 0.12);
+  border: 1px solid rgba(108, 142, 196, 0.35);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.timeline-bubble-left {
+  left: 280px;   /* closer to the line */
+}
+
+.timeline-bubble-right {
+  right: 280px;  /* closer to the line */
+}
+
+.timeline-dates {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #6c8ec4;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-location {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.timeline-year-badge {
+  margin-top: 0.8rem;
+  display: inline-block;
+  background: #6c8ec4;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+}
+
+/* Gradient accent for showcase cards */
+.gradient-card {
+  background: linear-gradient(145deg, #4e243c 0%, #12113c 100%) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body:not(.dark-mode) .gradient-card {
+  background: linear-gradient(145deg, #fec6c6 0%, #b8d4f1 100%) !important;
+}
+
+.gradient-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important;
+}
+
+.glass-showcase-card.gradient-card:hover {
+  box-shadow: 
+    0 25px 50px -12px rgb(0 0 0 / 0.3),
+    0 0 0 1px rgba(108,142,196,0.4),
+    0 0 35px rgba(108,142,196,0.25) !important;
+}

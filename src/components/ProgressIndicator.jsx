@@ -26,22 +26,23 @@ export default function ProgressIndicator() {
       setActive(current)
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <div className="scroll-progress">
       <div className="scroll-progress-fill" style={{ height: `${(active / (sections.length - 1)) * 100}%` }} />
+
       {sections.map((section, i) => (
         <div
           key={section.id}
           className={`progress-dot ${i === active ? 'active' : ''}`}
           style={{ top: `${(i / (sections.length - 1)) * 100}%` }}
-          onClick={() => {
-            document.getElementById(section.id).scrollIntoView({ behavior: 'smooth' })
-          }}
-        />
+          onClick={() => document.getElementById(section.id).scrollIntoView({ behavior: 'smooth' })}
+        >
+          <span className="progress-label">{section.label}</span>
+        </div>
       ))}
     </div>
   )
