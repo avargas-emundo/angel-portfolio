@@ -1,0 +1,271 @@
+/* ═══════════════════════════════════════════════════════
+   VISUAL ENHANCEMENTS — paste at bottom of base.css
+   Covers: ambient background lights, card hover gradients,
+   button glow borders, deep-dive button glow
+════════════════════════════════════════════════════════ */
+
+/* ── Ambient background lights ────────────────────────
+   Creates Gemini-style soft orbs behind the page.
+   These are fixed, so they follow the viewport.
+────────────────────────────────────────────────────── */
+/* ── Ambient background lights — final premium version ── */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(140px);
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+body.dark-mode::before {
+  width: 720px;
+  height: 720px;
+  top: -200px;
+  left: -200px;
+  background: radial-gradient(circle, rgba(108, 142, 196, 0.24) 0%, transparent 65%);
+  opacity: 1;
+}
+
+body.dark-mode::after {
+  width: 580px;
+  height: 580px;
+  bottom: -160px;
+  right: -160px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.16) 0%, rgba(59, 130, 246, 0.10) 48%, transparent 75%);
+  opacity: 1;
+}
+
+body:not(.dark-mode)::before {
+  width: 740px;
+  height: 740px;
+  top: -240px;
+  left: -240px;
+  background: radial-gradient(circle, rgba(108, 142, 196, 0.11) 0%, transparent 72%);
+  opacity: 1;
+}
+
+body:not(.dark-mode)::after {
+  width: 540px;
+  height: 540px;
+  bottom: -150px;
+  right: -150px;
+  background: radial-gradient(circle, rgba(180, 160, 120, 0.10) 0%, transparent 75%);
+  opacity: 1;
+}
+
+/* Ensure content sits above ambient lights */
+main, footer, nav {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Card hover gradient overlay ──────────────────────
+   Electric blue shimmer on card hover in dark mode.
+   Subtle in light mode.
+────────────────────────────────────────────────────── */
+.glass-showcase-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-showcase-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(108, 142, 196, 0) 0%,
+        rgba(108, 142, 196, 0) 100%
+    );
+    transition: background 0.4s ease;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+.glass-showcase-card:hover::before {
+    background: linear-gradient(
+        135deg,
+        rgba(108, 142, 196, 0.08) 0%,
+        rgba(99, 102, 241, 0.06) 50%,
+        rgba(139, 92, 246, 0.04) 100%
+    );
+}
+
+body.dark-mode .glass-showcase-card:hover::before {
+    background: linear-gradient(
+        135deg,
+        rgba(108, 142, 196, 0.15) 0%,
+        rgba(99, 102, 241, 0.1) 50%,
+        rgba(139, 92, 246, 0.08) 100%
+    );
+}
+
+/* Keep card content above the overlay */
+.glass-showcase-card .card-body,
+.glass-showcase-card .project-header-img {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Card border glow on hover ────────────────────────
+   Electric blue border light — replaces the flat border
+────────────────────────────────────────────────────── */
+body.dark-mode .glass-showcase-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .glass-showcase-card:hover {
+    border-color: rgba(108, 142, 196, 0.5) !important;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(108, 142, 196, 0.25),
+        0 0 30px rgba(108, 142, 196, 0.12) !important;
+}
+
+/* ── Deep Dive button glow ────────────────────────────
+   Pulsing border light on the clickable CTA buttons
+────────────────────────────────────────────────────── */
+.deep-dive-btn {
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s ease, box-shadow 0.3s ease, transform 0.2s ease !important;
+}
+
+.deep-dive-btn:hover {
+    box-shadow:
+        0 0 0 1px rgba(108, 142, 196, 0.6),
+        0 0 20px rgba(108, 142, 196, 0.3),
+        0 4px 12px rgba(0, 55, 128, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Animated shimmer sweep on hover */
+.deep-dive-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        transparent
+    );
+    transition: left 0.5s ease;
+    pointer-events: none;
+}
+
+.deep-dive-btn:hover::after {
+    left: 150%;
+}
+
+/* ── Primary hero buttons glow ────────────────────────
+────────────────────────────────────────────────────── */
+.btn-hero-primary:hover {
+    box-shadow: 0 0 20px rgba(108, 142, 196, 0.25), 0 4px 12px rgba(0,0,0,0.2) !important;
+}
+
+body.dark-mode .btn-hero-primary:hover {
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0,0,0,0.3) !important;
+}
+
+.btn-hero-secondary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hero-secondary:hover {
+    box-shadow: 0 0 16px rgba(108, 142, 196, 0.2) !important;
+}
+
+/* ── Contact link hover glow ──────────────────────────
+────────────────────────────────────────────────────── */
+.contact-link:hover {
+    box-shadow: 0 0 20px rgba(0, 55, 128, 0.2), 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+body.dark-mode .contact-link:hover {
+    box-shadow: 0 0 20px rgba(108, 142, 196, 0.2) !important;
+}
+
+/* ── Value card hover glow (about page) ──────────────
+────────────────────────────────────────────────────── */
+body.dark-mode .value-card:hover {
+    border-color: rgba(108, 142, 196, 0.3) !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2), 0 0 20px rgba(108, 142, 196, 0.08) !important;
+}
+
+/* ── Timeline card hover glow ─────────────────────────
+────────────────────────────────────────────────────── */
+body.dark-mode .timeline-content.card {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+body.dark-mode .timeline-content.card:hover {
+    border-color: rgba(108, 142, 196, 0.4) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 20px rgba(108, 142, 196, 0.1) !important;
+}
+
+/* ── KPI block hover glow (projects page) ─────────────
+────────────────────────────────────────────────────── */
+.kpi-block:hover {
+    background: rgba(108, 142, 196, 0.08) !important;
+}
+
+body.dark-mode .kpi-block:hover {
+    background: rgba(108, 142, 196, 0.1) !important;
+    box-shadow: inset 0 0 20px rgba(108, 142, 196, 0.05) !important;
+}
+
+body:not(.dark-mode)::before {
+  width: 740px;
+  height: 740px;
+  top: -240px;
+  left: -240px;
+  background: radial-gradient(circle, rgba(108, 142, 196, 0.16) 0%, transparent 68%);
+  opacity: 1;
+}
+
+body:not(.dark-mode)::after {
+  width: 540px;
+  height: 540px;
+  bottom: -150px;
+  right: -150px;
+  background: radial-gradient(circle, rgba(180, 160, 120, 0.14) 0%, transparent 72%);
+  opacity: 1;
+}
+
+/* ── Dock — active page indicator + hover lift ── */
+.floating-dock {
+    transition: box-shadow 0.3s ease !important;
+}
+
+.dock-link {
+    position: relative;
+    transition: all 0.3s ease !important;
+}
+
+.dock-link:hover {
+    transform: scale(1.15) !important;
+    box-shadow:
+        0 0 20px rgba(108, 142, 196, 0.4),
+        0 8px 20px rgba(0,0,0,0.2) !important;
+}
+
+.dock-link.active {
+    background: rgba(108, 142, 196, 0.4) !important;
+    border-color: rgba(108, 142, 196, 0.6) !important;
+    box-shadow: 0 0 16px rgba(108, 142, 196, 0.35) !important;
+}
+
+/* Final ambient light polish */
+body::before, body::after {
+  filter: blur(160px);
+}

@@ -1,0 +1,124 @@
+:root {
+    --bg-main: #f5f4ef;
+    --bg-header: #25314a;
+    --text-primary: #1f2937;
+    --text-muted: #595f6d;
+    --accent: #6c8ec4;
+    --border: rgba(34, 47, 77, 0.12);
+    --card-bg: #ffffff;
+    --timeline-bg: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background-color 0.8s ease-in-out, color 0.8s ease-in-out;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f4f4f5;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+body.dark-mode header {
+    background-color: #111827;
+}
+
+body.dark-mode .card {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .navbar-dark .navbar-nav .nav-link {
+    color: #e5e7eb;
+}
+
+body.dark-mode .navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+/* ── Dark Mode Text Fixes ── */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode p,
+body.dark-mode .lead {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .text-muted {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .hero-highlights span,
+body.dark-mode .hero-highlights i {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode #about p {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .summary-copy p {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .summary-copy h2 {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode footer {
+    border-color: rgba(255,255,255,0.05) !important;
+}
+
+/* Fallback if JS fails */
+body.js-loaded {
+    opacity: 1;
+}
