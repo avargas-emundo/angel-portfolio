@@ -47,7 +47,7 @@ const cases = [
     title: 'E2E ECU\nDiagnostics\nRobustness',
     subtitle: 'Diagnostics Design Engineer — Standard Creation',
     lead: 'Built a diagnostic reasoning framework from first principles — not to prevent failures, but to ensure every failure mode can be detected, flagged, and resolved with precision. Now the operating standard for a newly established team.',
-    img: `${import.meta.env.BASE_URL}images/BMW2021.jpg`,
+    img: `${import.meta.env.BASE_URL}images/TBD-Bronco.jpg`,
     imgCaption: 'E2E Diagnostics Robustness — Active Program',
     tags: ['Diagnostics Architecture','Gap Analysis','DFMEA Integration','DTC Methodology','Requirements Engineering','Noisy DTC Investigation'],
     kpis: [

@@ -34,16 +34,17 @@ function App() {
   const [showIntro, setShowIntro] = useState(false)
 
   useEffect(() => {
-    // Dark mode
-    const saved = localStorage.getItem('theme')
-    if (saved === 'dark') document.body.classList.add('dark-mode')
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        document.body.classList.add('scrolled');
+      } else {
+        document.body.classList.remove('scrolled');
+      }
+    };
 
-    // Show intro only once per session
-    const seen = sessionStorage.getItem('intro-seen')
-    if (!seen) {
-      setShowIntro(true)
-    }
-  }, [])
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
   const handleScroll = () => {

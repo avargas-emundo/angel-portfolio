@@ -14,7 +14,7 @@ const fadeUp = (delay = 0) => ({
 
 const showcaseCards = [
   {
-    img: `${import.meta.env.BASE_URL}images/Expedition-Wall.jpg`,
+    img: `${import.meta.env.BASE_URL}images/F150-Wall.jpg`,
     category: '2025 Navigator/Expedition Launch',
     categoryColor: 'text-info',
     title: '2025 Program Launch',
@@ -138,20 +138,29 @@ const timelineEvents = [
 export default function Home() {
   const [modalCard, setModalCard] = useState(null)
 
-useEffect(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        const fill = entry.target.querySelector('.timeline-fill')
-        if (fill) fill.style.height = 'calc(100% - 2rem)'
-      }
-    },
-    { threshold: 0.65, rootMargin: '0px' }
-  )
-  const track = document.querySelector('.timeline-track')
-  if (track) observer.observe(track)
-  return () => observer.disconnect()
-}, [])
+  // Timeline fill animation - more stable
+  useEffect(() => {
+    let timeout;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          timeout = setTimeout(() => {
+            const fill = entry.target.querySelector('.timeline-fill');
+            if (fill) fill.style.height = 'calc(100% - 2rem)';
+          }, 300); // small delay to let Framer Motion finish
+        }
+      },
+      { threshold: 0.6 }
+    );
+
+    const track = document.querySelector('.timeline-track');
+    if (track) observer.observe(track);
+
+    return () => {
+      if (timeout) clearTimeout(timeout);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <main>

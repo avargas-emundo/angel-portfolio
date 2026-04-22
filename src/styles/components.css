@@ -699,24 +699,31 @@ body:not(.dark-mode) .container.py-5 form {
 
 .progress-label {
   position: absolute;
-  right: -105px;           /* moved to the right side */
+  right: -82px;           /* closer to the bar */
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.73rem;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   color: #6c8ec4;
   white-space: nowrap;
   opacity: 0;
   transition: all 0.3s ease;
   pointer-events: none;
   text-transform: uppercase;
+  line-height: 1.1;
 }
 
 .progress-dot:hover .progress-label,
 .progress-dot.active .progress-label {
   opacity: 1;
-  right: -115px;
+  left: 90px;
+}
+
+/* Two-word labels get a line break */
+.progress-label {
+  max-width: 50px;
+  text-align: right;
 }
 
 /* Better spacing for timeline */

@@ -60,6 +60,12 @@ img {
     display: block;
 }
 
+body:not(.dark-mode) h1,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3 {
+  color: #191923 !important;
+}
+
 body.dark-mode header {
     background-color: #111827;
 }
@@ -122,3 +128,4 @@ body.dark-mode footer {
 body.js-loaded {
     opacity: 1;
 }
+

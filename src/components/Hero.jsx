@@ -6,17 +6,15 @@ export default function Hero() {
 
   return (
     <section 
-      id="hero" 
+      id="hero"
       style={{
         minHeight: '100vh',
         backgroundImage: `url(${import.meta.env.BASE_URL}images/landscape-hero.jpg)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         position: 'relative',
-        display: 'flex',
-        alignItems: 'center',
-        paddingTop: '0',           
-        marginTop: '-80px'
+        paddingTop: '80px',     // restored proper top space
+        marginTop: '0'
       }}
     >
       {/* Dark overlay for readability */}
