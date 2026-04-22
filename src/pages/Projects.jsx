@@ -15,7 +15,7 @@ const cases = [
     eyebrow: 'Ford Motor Company · 2021–2025',
     title: 'Power Running\nBoards',
     subtitle: 'Feature Systems Engineer — Full Ownership',
-    lead: 'Inherited a feature in early technical maturity. Delivered a complete systems engineering design to the 2025 Navigator & Expedition global launch — including the first-ever calibration framework for the feature.',
+    lead: 'Took full ownership of a feature at the start of its systems engineering journey. Delivered a complete design to the 2025 Navigator & Expedition global launch — including the first-ever calibration framework for the feature.',
     img: `${import.meta.env.BASE_URL}images/Expedition-Wall.jpg`,
     imgCaption: '2025 Lincoln Navigator / Ford Expedition — Global Launch Program',
     tags: ['Requirements Engineering','Calibration Design','NVH Analysis','Thermal Testing','DFMEA','Supplier Integration'],
@@ -28,7 +28,7 @@ const cases = [
       { value: 0, label: 'Open Critical Issues at Launch' }
     ],
     story: [
-      { label: 'The Situation', text: 'Joined a newly formed Feature Systems Engineering team inheriting a feature with 2+ years of accumulated technical debt — requirements scattered, documentation in early stages, no calibration standard in place.' },
+      { label: 'The Situation', text: 'Joined a newly formed Feature Systems Engineering team at an early stage of maturity — requirements were being established, documentation was nascent, and no calibration standard had yet been defined for the feature.' },
       { label: 'The Ownership', text: 'Took full systems engineering ownership: requirements authoring, calibration framework definition, testing execution, and supplier alignment — roles that historically spanned multiple engineers, now consolidated into one accountable point of contact.' },
       { label: 'The Outcome', text: 'Delivered all three features — PRB, OBS/SH, and AVS — to global launch with zero open critical issues. Filed 12 innovation disclosures. Mentored 6 engineers. Still the primary technical contact for the feature across organizational moves.' }
     ],
