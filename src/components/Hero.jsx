@@ -14,7 +14,10 @@ export default function Hero() {
         backgroundPosition: 'center',
         position: 'relative',
         paddingTop: '80px',     // restored proper top space
-        marginTop: '0'
+        marginTop: '0',
+        backgroundColor: 'var(--bg-page)',
+        display: 'flex', 
+        alignItems: 'center'
       }}
     >
       {/* Dark overlay for readability */}
@@ -44,7 +47,7 @@ export default function Hero() {
               transition={{ duration: 1, delay: 0.1 }}
               style={{ fontSize: 'clamp(3.5rem, 8vw, 6.5rem)', lineHeight: 1.05 }}
             >
-              Angel<br /><em style={{ color: '#6c8ec4' }}>Vargas.</em>
+              Angel<br /><em style={{ color: '#618fbb' }}>Vargas</em>
             </motion.h1>
 
             <motion.p
@@ -63,8 +66,13 @@ export default function Hero() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >
+              
               <Link to="/projects" className="btn-hero-primary">Explore My Work</Link>
-              <a href="#contact" className="btn-hero-secondary">Get in Touch</a>
+              <a href="/path-to-your-cv.pdf" 
+                className="btn btn-hero-secondary px-4 py-3 fw-bold" 
+                style={{ borderColor: 'var(--accent-primary)', color: 'var(--text-main)' }}>
+                <i className="bi bi-file-earmark-pdf me-2"></i>Download CV
+              </a>
             </motion.div>
           </div>
 

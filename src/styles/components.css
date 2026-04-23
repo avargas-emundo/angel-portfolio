@@ -265,47 +265,27 @@ body.dark-mode .timeline-content.card h3 {
     color: #8ab4f8 !important;
 }
 
-/* --- High-Priority Viewport Dock --- */
+/* components.css - Responsive Navigation */
 .floating-dock {
-    position: fixed !important; 
-    top: 50% !important;
-    right: 2rem !important; 
-    transform: translateY(-50%) !important;
-    z-index: 9999 !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.25rem !important;
-    padding: 1rem !important;
-    
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 50px !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+  position: fixed !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem !important;
+  transition: all 0.3s ease;
 }
 
 .dock-link {
-    width: 3.2rem !important;
-    height: 3.2rem !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-radius: 50% !important;
-    color: white !important;
-    text-decoration: none !important;
-    transition: all 0.3s ease !important;
-    background: rgba(255, 255, 255, 0.22) !important;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12) !important;
-    border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    backdrop-filter: blur(8px) !important;
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  transition: color 0.2s ease;
 }
 
-.dock-link:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
-    transform: scale(1.1);
-    color: #fff !important;
+.dock-link:hover, .dock-link.active {
+  color: var(--accent-primary);
 }
 
 /* Dark Mode Override for Dock */
@@ -314,21 +294,26 @@ body.dark-mode .floating-dock {
     border-color: rgba(255, 255, 255, 0.05) !important;
 }
 
-@media (max-width: 768px) {
-    .floating-dock {
-        top: auto !important;
-        right: 50% !important;
-        bottom: 2rem !important;
-        left: auto !important;
-        transform: translateX(50%) !important; /* Center it horizontally */
-        flex-direction: row !important; /* Flip to horizontal */
-        padding: 0.75rem 1.5rem !important;
-        border-radius: 30px !important;
-    }
-
-    .dock-tooltip {
-        display: none !important; /* Tooltips don't work well on touch */
-    }
+/* Desktop View */
+@media (min-width: 769px) {
+  .floating-dock {
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    flex-direction: column;
+    border-radius: 40px;
+  }
+}
+/* Desktop View */
+@media (min-width: 769px) {
+  .floating-dock {
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    flex-direction: column;
+    border-radius: 40px;
+  }
+.dock-tooltip { display: none !important; } /* Hide tooltips on mobile */
 }
 
 /* Timeline Metadata (Dates & Locations) */

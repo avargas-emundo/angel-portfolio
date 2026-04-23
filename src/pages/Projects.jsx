@@ -97,7 +97,7 @@ const cases = [
 
 export default function Projects() {
   return (
-    <main style={{ backgroundColor: '#0d0f14', color: '#e8eaf0', minHeight: '100vh' }}>
+    <main style={{ backgroundColor: 'var(--text-main)', color: '#e8eaf0', minHeight: '100vh' }}>
       <div className="container">
         <header style={{ padding: '6rem 0 4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
           <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}

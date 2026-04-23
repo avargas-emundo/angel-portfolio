@@ -1,12 +1,14 @@
+/* base.css */
 :root {
-    --bg-main: #f5f4ef;
-    --bg-header: #25314a;
-    --text-primary: #1f2937;
-    --text-muted: #595f6d;
-    --accent: #6c8ec4;
-    --border: rgba(34, 47, 77, 0.12);
-    --card-bg: #ffffff;
-    --timeline-bg: #ffffff;
+    /* Light Mode - High Contrast Professional */
+    --bg-page: #f8f9fa;
+    --bg-surface: #ffffff;
+    --text-main: #1a202c;
+    --text-muted: #4a5568;
+    --accent-primary: #2b5a9e; /* Deeper blue for legibility */
+    --accent-soft: rgba(43, 90, 158, 0.1);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -20,19 +22,26 @@ html {
 body {
     margin: 0;
     font-family: "Inter", "Segoe UI", Roboto, sans-serif;
-    background-color: var(--bg-main);
-    color: var(--text-primary);
+    background-color: var(--bg-page);
+    color: var(--text-main);
     line-height: 1.6;
     transition: background-color 0.8s ease-in-out, color 0.8s ease-in-out;
 }
 
 body.dark-mode {
-    background-color: #121212;
-    color: #f4f4f5;
+    /* Dark Mode - Engineering Slate */
+    --bg-page: #0d1117;
+    --bg-surface: #161b22;
+    --text-main: #e6edf3;
+    --text-muted: #8b949e;
+    --accent-primary: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.15);
+    --border-color: rgba(240, 246, 252, 0.1);
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
 }
 
 a {
-    color: var(--accent);
+    color: var(--accent-primary);
     text-decoration: none;
 }
 
@@ -133,4 +142,18 @@ body.dark-mode footer {
 /* Fallback if JS fails */
 body.js-loaded {
     opacity: 1;
+}
+
+/* Phone Mode Optimization */
+/* Add to base.css */
+@media (max-width: 768px) {
+    .timeline-event {
+        width: 100% !important;
+        padding-left: 40px !important; /* Space for the line */
+        text-align: left !important;
+    }
+    .timeline-bubble {
+        left: 0 !important; /* Move all bubbles to the left */
+        right: auto !important;
+    }
 }
