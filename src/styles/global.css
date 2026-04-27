@@ -2,8 +2,10 @@
 @import './components.css';
 @import './pages.css';
 @import './visual-enhancements.css';
+@import './industrial-theme.css';
 
 /* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap');
 
 .hero-cta-group {
@@ -285,4 +287,83 @@ body.dark-mode .section-rule { background: rgba(255,255,255,0.05); }
 
 @media (max-width: 768px) {
     .scroll-progress { display: none; }
+}
+
+/* Fix mobile container overflow & right-side gap */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100% !important;
+  }
+  
+  main, section {
+    overflow-x: hidden !important;
+  }
+  
+  .floating-dock {
+    right: 1rem !important;
+  }
+  
+  /* Timeline mobile polish */
+  .timeline-track {
+    padding: 2rem 0 !important;
+  }
+}
+
+.bubble-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+body.dark-mode .bubble-card {
+  background: #1f2937 !important;
+  border-color: rgba(108,142,196,0.25) !important;
+}
+
+.bubble-card:hover {
+  border-color: #6c8ec4 !important;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .project-picker .d-flex {
+    padding: 0 0.5rem;
+  }
+}
+
+/* Tighter project & skill cards in dark mode */
+.glass-showcase-card {
+  transition: all 0.3s ease !important;
+}
+
+body.dark-mode .glass-showcase-card {
+  background: var(--bg-surface) !important;
+  border-color: rgba(108,142,196,0.25) !important;
+}
+
+body.dark-mode .glass-showcase-card .progress {
+  background: rgba(108,142,196,0.2) !important;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 1rem;
+    max-height: 90vh;
+  }
+  .modal-content .p-5 {
+    padding: 1.5rem !important;
+  }
+}
+
+/* ── Industrial Theme Visual Enhancements ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+#skills .glass-showcase-card {
+  background: #161B22 !important;
+  border: 1px solid rgba(59, 130, 246, 0.25) !important;
 }

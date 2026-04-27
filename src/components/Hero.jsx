@@ -37,17 +37,18 @@ export default function Hero() {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              Automotive Systems Engineer
             </motion.span>
+
+            <motion.span className="section-eyebrow">Automotive Systems & Diagnostics Engineer</motion.span>
 
             <motion.h1
               className="hero-name"
               initial={{ y: 60, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.1 }}
-              style={{ fontSize: 'clamp(3.5rem, 8vw, 6.5rem)', lineHeight: 1.05 }}
+              style={{ fontSize: 'clamp(3.2rem, 8vw, 6.2rem)', lineHeight: 1.05 }}
             >
-              Angel<br /><em style={{ color: '#618fbb' }}>Vargas</em>
+              Angel Vargas
             </motion.h1>
 
             <motion.p
@@ -57,9 +58,35 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.4 }}
               style={{ fontSize: '1.35rem', maxWidth: '620px' }}
             >
-              Building diagnostic systems that matter — from legacy documentation to global launch.
+              Architecting robust ECU diagnostics for global platforms. Delivering measurable cost savings and system resilience.
             </motion.p>
 
+            {/* Impact Ribbon */}
+            <motion.div 
+              className="impact-ribbon d-flex flex-wrap gap-4 justify-content-start mt-4 mb-5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              style={{ 
+                background: 'rgba(16,18,24,0.8)', 
+                border: '1px solid rgba(250,204,21,0.2)', 
+                padding: '1rem 1.5rem', 
+                borderRadius: '8px' 
+              }}
+            >
+              {[
+                { value: '$3.4M', label: 'Warranty Cost Reduced' },
+                { value: '12', label: 'Innovation Disclosures' },
+                { value: '700+', label: 'Requirements Authored' },
+                { value: '3', label: 'Global OEM Programs' }
+              ].map((stat, i) => (
+                <div key={i} className="text-center">
+                  <div className="caution-yellow" style={{ fontSize: '1.45rem', fontWeight: 700, lineHeight: 1 }}>{stat.value}</div>
+                  <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 500 }}>{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+            
             <motion.div
               className="hero-cta-group"
               initial={{ y: 20, opacity: 0 }}
@@ -68,9 +95,9 @@ export default function Hero() {
             >
               
               <Link to="/projects" className="btn-hero-primary">Explore My Work</Link>
-              <a href="/path-to-your-cv.pdf" 
+              <a href={`${import.meta.env.BASE_URL}assets/Curriculum Vitae_Id2026.pdf`} 
                 className="btn btn-hero-secondary px-4 py-3 fw-bold" 
-                style={{ borderColor: 'var(--accent-primary)', color: 'var(--text-main)' }}>
+                download>
                 <i className="bi bi-file-earmark-pdf me-2"></i>Download CV
               </a>
             </motion.div>

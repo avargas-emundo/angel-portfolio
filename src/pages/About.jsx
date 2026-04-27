@@ -1,5 +1,17 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
+import L from 'leaflet'
+
+delete L.Icon.Default.prototype._getIconUrl
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+})
 
 const fadeUp = (delay = 0) => ({
   initial: { y: 40, opacity: 0 },
@@ -35,10 +47,20 @@ const passions = [
 ]
 
 export default function About() {
-  return (
+  const [isDarkMap, setIsDarkMap] = useState(false)
+
+  useEffect(() => {
+    const checkDark = () => setIsDarkMap(document.body.classList.contains('dark-mode'))
+    checkDark()
+    const observer = new MutationObserver(checkDark)
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] })
+    return () => observer.disconnect()
+  }, [])
+
+return (
     <main className="container">
 
-      {/* Opening */}
+      {/* Opening — Rewritten */}
       <section style={{ padding: '7rem 0 5rem', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
         <motion.span initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}
           style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#6c8ec4', marginBottom: '1.5rem', display: 'block' }}>
@@ -46,12 +68,28 @@ export default function About() {
         </motion.span>
         <motion.h1 initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.9, delay: 0.1 }}
           style={{ fontFamily: 'Lora,serif', fontSize: 'clamp(2.5rem,6vw,4.5rem)', fontWeight: 400, lineHeight: 1.15, marginBottom: '2rem' }}>
-          A life spent<br />in <em style={{ fontStyle: 'italic', color: '#6c8ec4' }}>motion,</em><br />building roots.
+          I build systems that move.<br />I lead teams that deliver.
         </motion.h1>
         <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}
-          style={{ fontSize: '1.15rem', lineHeight: 1.85, color: '#4a5568', maxWidth: 600 }}>
-          Born in Guerrero. Raised across five cities. Shaped by movement, family, and the quiet discipline of showing up — in every new classroom, on every tennis court, and in every engineering challenge that mattered.
+          style={{ fontSize: '1.15rem', lineHeight: 1.85, color: '#4a5568', maxWidth: 620 }}>
+          I am Angel Vargas — an Automotive Systems Engineer who has <strong>spearheaded</strong> diagnostic robustness programs, <strong>orchestrated</strong> global launches, and <strong>standardized</strong> engineering processes across Ford and BMW. 
+          From authoring 700+ requirements to neutralizing high-warranty risks, I bridge deep technical execution with cross-functional leadership.
         </motion.p>
+      </section>
+
+      {/* Professional Intro / Summary Section — Add or replace the existing summary section */}
+      <section style={{ padding: '4rem 0', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
+        <div className="row justify-content-center">
+          <div className="col-lg-8 text-center">
+            <h2 style={{ fontFamily: 'Lora,serif', fontSize: '2.1rem', lineHeight: 1.3 }}>
+              I turn complex system challenges into measurable, scalable solutions.
+            </h2>
+            <p style={{ fontSize: '1.1rem', color: '#4a5568', maxWidth: '680px', margin: '1.5rem auto 0' }}>
+              Whether <strong>neutralizing</strong> noisy DTCs through structured diagnostic frameworks or <strong>orchestrating</strong> Power Running Board launches that delivered millions in savings, 
+              I deliver with technical rigor and collaborative energy. My work consistently strengthens both products and the teams behind them.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Pull Quote */}
@@ -80,7 +118,54 @@ export default function About() {
         </div>
       </section>
 
-      {/* Origin Story */}
+      {/* Interactive Map */}
+      <section style={{ padding: '3rem 0' }}>
+        <h3 style={{ textAlign: 'center', marginBottom: '1rem', color: '#6c8ec4' }}>
+          My Journey in Cities – An Interactive Map
+        </h3>
+        <div style={{ height: '500px', width: '100%', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+          <MapContainer
+            center={[23.6345, -102.5528]}   // Centered on Mexico
+            zoom={5}
+            style={{ height: '100%', width: '100%' }}
+            scrollWheelZoom={true}
+          >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> | &copy; <a href="https://stadiamaps.com/">Stadia Maps</a>'
+          url={isDarkMap 
+            ? "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png"
+            : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          }
+        />
+            
+            {/* City markers */}
+            {[
+              { name: 'Ciudad Altamirano', pos: [18.3544, -100.6626], note: 'Balsas riverbank. My mother\'s family roots.' },
+              { name: 'Acapulco', pos: [16.8531, -99.8238], note: 'Where my brother arrived.' },
+              { name: 'Hermosillo', pos: [29.0729, -110.9559], note: 'Desert heat, new faces.' },
+              { name: 'Mérida', pos: [20.9671, -89.6237], note: 'Pyramids, cenotes — and my first tennis racket.' },
+              { name: 'Morelia', pos: [19.7058, -101.1843], note: 'Most of my life. Where I became who I am.' },
+              { name: 'Mexico City', pos: [19.4326, -99.1332], note: 'IPN. Where engineering became identity.' },
+              { name: 'San Luis Potosí', pos: [22.1565, -100.9855], note: 'BMW Group. First role. Zero audit findings.' },
+              { name: 'Naucalpan', pos: [19.4785, -99.2376], note: 'Ford GTBC. Four years. Three features. Global launches.' },
+              { name: 'Sweden', pos: [59.3293, 18.0686], note: 'Vehicle Engineering MSc. Applications open mid-2025.', isGoal: true }
+            ].map(city => (
+              <Marker key={city.name} position={city.pos}>
+                <Popup>
+                  <strong>{city.name}</strong><br />
+                  {city.note}
+                  {city.isGoal && <span style={{ color: '#ef4444', fontWeight: 'bold' }}> 🎯 Goal</span>}
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
+        </div>
+        <p style={{ fontSize: '0.75rem', textAlign: 'center', marginTop: '1rem', color: '#4a5568' }}>
+          📍 Click any marker to see the story behind each city.
+        </p>
+      </section>
+
+       {/* Origin Story */}
       <section style={{ padding: '5rem 0', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
         <div className="row">
           <motion.div className="col-lg-7" {...fadeUp()}>
@@ -141,6 +226,28 @@ export default function About() {
         </p>
       </section>
 
+      <section style={{ padding: '3rem 0' }}>
+        <h3 style={{ textAlign: 'center', marginBottom: '2rem', color: '#6c8ec4' }}>Soft Skills – What I've learned along the way</h3>
+        <ResponsiveContainer width="100%" height={350}>
+          <RadarChart data={[
+            { skill: 'Leadership / Mentoring', value: 88 },
+            { skill: 'Assertive Communication', value: 85 },
+            { skill: 'Conflict Resolution', value: 90 },
+            { skill: 'Adaptability', value: 92 },
+            { skill: 'Resilience', value: 89 },
+            { skill: 'Teamwork', value: 91 }
+          ]}>
+            <PolarGrid />
+            <PolarAngleAxis dataKey="skill" tick={{ fontSize: 10 }} />
+            <PolarRadiusAxis domain={[0, 100]} />
+            <Radar dataKey="value" stroke="#6c8ec4" fill="#6c8ec4" fillOpacity={0.4} />
+          </RadarChart>
+        </ResponsiveContainer>
+        <p style={{ fontSize: '0.75rem', textAlign: 'center', color: '#8892a4', marginTop: '1rem' }}>
+          Based on feedback from colleagues, mentors, and self‑reflection.
+        </p>
+      </section>
+
       {/* Passions */}
       <section style={{ padding: '5rem 0', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
         <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#9ca3af', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -159,6 +266,17 @@ export default function About() {
         ))}
       </section>
 
+      {/* Key Skills Summary */}
+      <section style={{ padding: '3rem 0', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
+          {['Requirements Engineering', 'Diagnostics Design', 'DFMEA', 'NVH Analysis', 'Mentorship', 'Global Launches'].map(skill => (
+            <div key={skill} style={{ padding: '1rem', background: 'rgba(108,142,196,0.08)', borderRadius: '8px', textAlign: 'center', fontWeight: 600 }}>
+              {skill}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* What Drives Me */}
       <section style={{ padding: '5rem 0' }}>
         <motion.div {...fadeUp()} style={{ background: '#0d0f14', borderRadius: 16, padding: '4rem', color: '#e2e8f0' }}>
@@ -175,6 +293,53 @@ export default function About() {
           </div>
         </motion.div>
       </section>
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="scroll-to-top"
+        style={{
+          position: 'fixed',
+          bottom: '2rem',
+          left: '2rem',          // changed from right to left
+          background: '#6c8ec4',
+          border: 'none',
+          borderRadius: '50%',
+          width: '48px',
+          height: '48px',
+          fontSize: '1.5rem',
+          color: 'white',
+          cursor: 'pointer',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+          zIndex: 99
+        }}
+      >
+        ↑
+      </button>
+      {/* Centered Floating Download Resume */}
+      <a 
+        href={`${import.meta.env.BASE_URL}assets/Curriculum Vitae_Id2026.pdf`} 
+        download="Angel-Vargas-CV-2026.pdf"
+        style={{
+          position: 'fixed',
+          bottom: '30px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 10006,
+          background: '#3B82F6',
+          color: 'white',
+          padding: '14px 28px',
+          borderRadius: '9999px',
+          fontSize: '1rem',
+          fontWeight: 600,
+          boxShadow: '0 12px 30px rgba(59, 130, 246, 0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px',
+          textDecoration: 'none',
+          whiteSpace: 'nowrap'
+        }}
+      >
+        <i className="bi bi-download"></i> Download Resume
+      </a>
 
     </main>
   )

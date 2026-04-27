@@ -69,18 +69,6 @@ img {
     display: block;
 }
 
-body:not(.dark-mode) p,
-body:not(.dark-mode) .lead,
-body:not(.dark-mode) .text-muted {
-  color: #e7ecf3 !important;
-}
-
-body:not(.dark-mode) h1,
-body:not(.dark-mode) h2,
-body:not(.dark-mode) h3 {
-  color: #ececed !important;
-}
-
 body.dark-mode header {
     background-color: #111827;
 }
@@ -147,13 +135,17 @@ body.js-loaded {
 /* Phone Mode Optimization */
 /* Add to base.css */
 @media (max-width: 768px) {
-    .timeline-event {
-        width: 100% !important;
-        padding-left: 40px !important; /* Space for the line */
-        text-align: left !important;
-    }
-    .timeline-bubble {
-        left: 0 !important; /* Move all bubbles to the left */
-        right: auto !important;
-    }
+  .timeline-event {
+    padding: 1rem 0 1rem 2rem !important;
+  }
+  .timeline-bubble {
+    position: relative !important;
+    width: 100% !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+html, body, #root, main {
+  overflow-x: hidden;
+  width: 100%;
 }

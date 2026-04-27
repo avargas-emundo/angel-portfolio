@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import Hero from '../components/Hero'
 import ProgressIndicator from '../components/ProgressIndicator'
 import AnimatedCounter from '../components/AnimatedCounter'
+import SkillStack from '../components/SkillStack'
+import ProjectPicker from '../components/ProjectPicker'
 
 const fadeUp = (delay = 0) => ({
   initial: { y: 40, opacity: 0 },
@@ -103,7 +105,8 @@ const timelineEvents = [
     bullets: [
       'Authored 23+ requirements eliminating false-positive DTC triggers.',
       'Bridging Architecture, SW, and Module D&R teams to close diagnostic coverage gaps.',
-      'Designing next-gen Enhanced Data Recording methods.'
+      'Designing next-gen Enhanced Data Recording methods.',
+      'Managed cross-functional alignment between Mexico and US-based teams for global vehicle launches.'
     ]
   },
   {
@@ -133,6 +136,7 @@ const timelineEvents = [
       'Launched "Quality Mindset" campaign training 120+ process leaders.'
     ]
   }
+
 ]
 function StatsGrid() {
   const [started, setStarted] = useState(false)
@@ -199,6 +203,19 @@ export default function Home() {
     <main>
       <Hero />
       <ProgressIndicator />
+
+      <div className="container"><div className="section-rule"></div></div>
+
+      {/* CORE PILLARS - FIXED DARK MODE */}
+      <section id="skills" className="py-5" style={{ background: 'var(--bg-primary, #11151e)' }}>
+        <div className="container">
+          <div className="text-center mb-5">
+            <span className="section-eyebrow">Technical Mastery</span>
+            <h2 style={{ fontFamily: 'Lora, serif', color: '#e6edf3' }}>Core Pillars of My Expertise</h2>
+          </div>
+          <SkillStack />
+        </div>
+      </section>
 
       <div className="container"><div className="section-rule"></div></div>
 
@@ -280,37 +297,24 @@ export default function Home() {
 
       <div className="container"><div className="section-rule"></div></div>
 
-      {/* TECHNICAL SHOWCASE with gradient accent */}
-      <section id="technical-showcase" className="technical-showcase container">
-        <span className="section-eyebrow">Selected Work</span>
-        <h2>Technical Showcase</h2>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-          {showcaseCards.map((card, i) => (
-            <motion.div className="col" key={card.title} {...fadeUp(i * 0.12)}>
-              <article className="glass-showcase-card h-100 gradient-card">
-                <div className="project-header-img">
-                  <img src={card.img} alt={card.title} />
-                </div>
-                <div className="card-body d-flex flex-column p-4">
-                  <span className={`card-category ${card.categoryColor} mb-2`} style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' }}>
-                    {card.category}
-                  </span>
-                  <h3 className="mb-2">{card.title}</h3>
-                  <div className="kpi-grid mb-3">
-                    <div className="kpi-item"><span>{card.kpi1.value}{card.kpi1.suffix}</span><label>{card.kpi1.label}</label></div>
-                    <div className="kpi-item"><span>{card.kpi2.value}{card.kpi2.suffix || ''}</span><label>{card.kpi2.label}</label></div>
-                  </div>
-                  <p className="mb-4">{card.desc}</p>
-                  <div className="tag-row d-flex flex-wrap gap-2 mb-4">
-                    {card.tags.map(t => <span className="method-tag" key={t}>{t}</span>)}
-                  </div>
-                  <button className="deep-dive-btn btn btn-sm mt-auto w-100" onClick={() => setModalCard(card)}>
-                    Deep Dive →
-                  </button>
-                </div>
-              </article>
-            </motion.div>
-          ))}
+      {/* INTERACTIVE PROJECT PICKER */}
+      <section id="technical-showcase" className="container py-5">
+        <ProjectPicker 
+          onDeepDive={(proj) => {
+            const cardMap = {
+              "Power Running Boards": showcaseCards[1],
+              "E2E ECU Diagnostics": showcaseCards[2],
+              "BMW Quality System": showcaseCards[0]
+            };
+            const matchedCard = cardMap[proj.title] || showcaseCards[1];
+            setModalCard(matchedCard);
+          }} 
+        />
+        
+        <div className="text-center mt-4">
+          <Link to="/projects" className="btn-read-more">
+            View All Projects →
+          </Link>
         </div>
       </section>
 
@@ -329,6 +333,49 @@ export default function Home() {
       </section>
 
       <div className="container"><div className="section-rule"></div></div>
+
+<section style={{ padding: '5rem 0', background: 'var(--bg-primary, #0A0C10)' }}>
+  <div className="container">
+    <h3 style={{ textAlign: 'center', marginBottom: '3rem', color: '#3B82F6', fontFamily: 'Lora, serif' }}>
+      Certifications and Continuous Learning
+    </h3>
+    <div className="row g-4 justify-content-center" style={{ maxWidth: '1100px', margin: '0 auto' }}>
+      {[
+        { title: 'Six Sigma Green Belt', org: 'Ford', year: '2023', icon: '🏆' },
+        { title: 'Feature/Platform Systems Engineering', org: 'Ford', year: '2023', icon: '🔧' },
+        { title: 'VECTOR CAPL Initialization', org: 'Vector', year: '2024', icon: '📟' },
+        { title: 'AUTOSAR Architecture', org: 'Udemy', year: '2025', icon: '🛠️' },
+        { title: 'Machine Learning A-Z', org: 'Udemy', year: '2025', icon: '🤖' },
+        { title: 'Google Project Management', org: 'Coursera', year: '2026', icon: '📋' },
+        { title: 'EF SET English C1', org: '', year: '2026', icon: '🌍' }
+      ].map((cert, i) => (
+        <div key={i} className="col-md-6 col-lg-4">
+          <div style={{
+            background: '#161B22',
+            border: '1px solid rgba(59,130,246,0.35)',
+            borderRadius: '16px',
+            padding: '1.75rem',
+            height: '100%',
+            transition: 'all 0.3s ease',
+          }}
+          onMouseEnter={e => e.currentTarget.style.borderColor = '#3B82F6'}
+          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(59,130,246,0.35)'}
+          >
+            <div style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>{cert.icon}</div>
+            <h5 style={{ color: '#e6edf3', marginBottom: '0.4rem' }}>{cert.title}</h5>
+            <p style={{ color: '#94a3b8', fontSize: '0.95rem', margin: 0 }}>
+              {cert.org} {cert.year && `· ${cert.year}`}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+        <p className="text-center mt-5 text-muted">
+          Currently based in México • Open to relocation for Global Senior Roles & MSc opportunities
+        </p>
 
       {/* OLD CONTACT SECTION */}
       <section id="contact" className="container">
@@ -396,63 +443,146 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* MODAL */}
+      {/* RICHER MODAL */}
       {modalCard && (
         <div className="modal-backdrop show" onClick={() => setModalCard(null)}>
-          <div className="modal-content" onClick={e => e.stopImmediatePropagation()}>
+          <div className="modal-content" onClick={e => e.stopImmediatePropagation()} style={{ maxWidth: '920px' }}>
             <div className="d-flex justify-content-end p-3 border-bottom">
               <button className="btn-close" onClick={() => setModalCard(null)}></button>
             </div>
-            {modalCard.modalContent}
+            
+            <div className="p-4">
+              {modalCard.img && (
+                <img 
+                  src={modalCard.img} 
+                  alt={modalCard.title} 
+                  style={{ width: '100%', height: '260px', objectFit: 'cover', borderRadius: '12px', marginBottom: '1.5rem' }} 
+                />
+              )}
+              
+              <h2 className="display-6 fw-bold mb-3">{modalCard.title}</h2>
+              
+              <div className="row g-4 mb-5">
+                <div className="col-md-6">
+                  <div className="kpi-item"><span><AnimatedCounter end={modalCard.kpi1.value} suffix={modalCard.kpi1.suffix} /></span><label>{modalCard.kpi1.label}</label></div>
+                </div>
+                <div className="col-md-6">
+                  <div className="kpi-item"><span><AnimatedCounter end={modalCard.kpi2.value} suffix={modalCard.kpi2.suffix || ''} /></span><label>{modalCard.kpi2.label}</label></div>
+                </div>
+              </div>
+              
+              <p className="lead mb-4">{modalCard.desc}</p>
+              
+              {modalCard.tags && (
+                <div className="tag-row d-flex flex-wrap gap-2 mb-4">
+                  {modalCard.tags.map(t => <span className="method-tag" key={t}>{t}</span>)}
+                </div>
+              )}
+              
+              <div className="text-center mt-4">
+                <Link 
+                  to="/projects" 
+                  className="btn-hero-primary"
+                  onClick={() => setModalCard(null)}
+                >
+                  Read Full Case Study →
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       )}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="scroll-to-top"
+        style={{
+          position: 'fixed',
+          bottom: '2rem',
+          left: '2rem',          // changed from right to left
+          background: '#6c8ec4',
+          border: 'none',
+          borderRadius: '50%',
+          width: '48px',
+          height: '48px',
+          fontSize: '1.5rem',
+          color: 'white',
+          cursor: 'pointer',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+          zIndex: 99
+        }}
+      >
+        ↑
+      </button>
+        {/* Centered Floating Download Resume */}
+        <a 
+          href={`${import.meta.env.BASE_URL}assets/Curriculum Vitae_Id2026.pdf`} 
+          download="Angel-Vargas-CV-2026.pdf"
+          style={{
+            position: 'fixed',
+            bottom: '30px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 10006,
+            background: '#3B82F6',
+            color: 'white',
+            padding: '14px 28px',
+            borderRadius: '9999px',
+            fontSize: '1rem',
+            fontWeight: 600,
+            boxShadow: '0 12px 30px rgba(59, 130, 246, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            textDecoration: 'none',
+            whiteSpace: 'nowrap'
+          }}
+        >
+          <i className="bi bi-download"></i> Download Resume
+        </a>
     </main>
   )
 }
 
-/* ── REFINED TIMELINE CARD WITH BETTER BUBBLE POSITIONING ── */
+/* ── IMPROVED MOBILE-FRIENDLY TIMELINE CARD ── */
 function TimelineCard({ ev }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <motion.div
       className={`timeline-event timeline-event-${ev.side}`}
-      initial={{ x: ev.side === 'left' ? -50 : 50, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.6 }}
       onClick={() => setOpen(!open)}
       style={{ cursor: 'pointer' }}
     >
-      {/* Bubble on opposite side - improved positioning */}
       <div className={`timeline-bubble timeline-bubble-${ev.side === 'left' ? 'right' : 'left'}`}>
         <div className="timeline-dates">{ev.dates}</div>
         <div className="timeline-location">{ev.location}</div>
         <div className="timeline-year-badge">{ev.year}</div>
       </div>
 
-      {/* Main card with gradient */}
       <div 
         className="timeline-content card gradient-card"
         style={{
-          boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.25)',
           borderRadius: '20px',
-          border: '1px solid rgba(108,142,196,0.25)',
+          border: '1px solid rgba(59, 130, 246, 0.25)',
+          background: 'var(--card-bg)',
         }}
       >
         <div className="card-body p-5">
-          <h3 className="h5 fw-bold mb-2">{ev.title}</h3>
+          <h3 className="h5 fw-bold mb-2" style={{ color: '#3B82F6' }}>{ev.title}</h3>
           <p className="text-primary mb-3 fw-medium">{ev.company}</p>
-          <p className="mb-0">{ev.summary}</p>
+          <p className="mb-3">{ev.summary}</p>
 
           {open && (
-            <ul className="mt-4 ps-3" style={{ fontSize: '0.95rem' }}>
+            <ul className="mt-3 ps-3" style={{ fontSize: '0.95rem', color: '#cbd5e1' }}>
               {ev.bullets.map((b, i) => <li key={i} className="mb-2">{b}</li>)}
             </ul>
           )}
         </div>
       </div>
     </motion.div>
-  )
+  );
 }

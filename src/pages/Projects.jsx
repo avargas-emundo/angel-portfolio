@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import AnimatedCounter from '../components/AnimatedCounter'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+
 
 const fadeUp = (delay = 0) => ({
   initial: { y: 40, opacity: 0 },
@@ -95,9 +97,76 @@ const cases = [
   }
 ]
 
+const additionalAchievements = [
+  // Feature Systems Engineer - Ford (2021–2025)
+  {
+    role: "Feature Systems Engineer - Ford",
+    icon: "bi-graph-up",
+    title: "Feature Usage & Failure-Mode Dashboards",
+    impact: "Drove millions in cost savings",
+    description: "Built dashboards analyzing in-use data and DFMEA modes that justified OBS/SH deletion on low-spec F-Series and reinforced PRB optimizations."
+  },
+  {
+    role: "Feature Systems Engineer - Ford",
+    icon: "bi-gear",
+    title: "US Plant Rotations (DTP/KTP)",
+    impact: "98%+ First-Time-Through build quality for Job #1",
+    description: "Managed on-site launch support, triage, and supplier coordination across multiple U.S. plants."
+  },
+  {
+    role: "Feature Systems Engineer - Ford",
+    icon: "bi-people",
+    title: "Mentored 6 Onboard Engineers",
+    impact: "Successfully integrated into Systems Engineering & Validation",
+    description: "Provided hands-on coaching in requirements engineering, validation methodology, and cross-functional collaboration."
+  },
+
+  // Diagnostics Design Engineer - Ford (2025–Present)
+  {
+    role: "Diagnostics Design Engineer - Ford",
+    icon: "bi-lightbulb",
+    title: "12 Innovation Disclosures & 1 Patent",
+    impact: "Patent application approved and in prosecution",
+    description: "Creative contributions in diagnostics robustness, enhanced data recording, and ECU troubleshooting."
+  },
+  {
+    role: "Diagnostics Design Engineer - Ford",
+    icon: "bi-shield-check",
+    title: "Standardized E2E Diagnostics Framework",
+    impact: "Operating standard for the new diagnostics team",
+    description: "Developed 3-tier taxonomy with 150+ requirements from DFMEAs and ECU specs."
+  },
+  {
+    role: "Diagnostics Design Engineer - Ford",
+    icon: "bi-clock-history",
+    title: "Enhanced Data Recording Strategies",
+    impact: "Improving remote troubleshooting capability",
+    description: "Designing next-gen methods for better field issue resolution and engineering diagnostics."
+  },
+
+  // Quality Management Engineer - BMW (2020–2021)
+  {
+    role: "Quality Management Engineer - BMW",
+    icon: "bi-bar-chart",
+    title: "Power BI / Power Apps QMS Deployment",
+    impact: "Reduced issue-closure time by 30%",
+    description: "Replaced manual processes with a connected quality management suite across the plant."
+  },
+  {
+    role: "Quality Management Engineer - BMW",
+    icon: "bi-heart",
+    title: "Quality Mindset Campaign",
+    impact: "Trained 120+ process leaders • +25% proactive containment",
+    description: "Led cultural transformation from reactive to proactive quality culture during G42 and ISO 9001 audits (zero major findings)."
+  }
+];
+
 export default function Projects() {
+  const [activeTab, setActiveTab] = useState(0);
+  const [modalAchievement, setModalAchievement] = useState(null);
+
   return (
-    <main style={{ backgroundColor: 'var(--text-main)', color: '#e8eaf0', minHeight: '100vh' }}>
+    <main style={{ minHeight: '100vh' }}>
       <div className="container">
         <header style={{ padding: '6rem 0 4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
           <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}
@@ -110,14 +179,56 @@ export default function Projects() {
           </motion.h1>
           <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}
             style={{ maxWidth: 520, color: '#8892a4', fontSize: '1.05rem', lineHeight: 1.7, marginTop: '1.5rem' }}>
-            Three roles. Six years. A trail of measurable outcomes — in warranty savings, quality systems, and diagnostic standards that outlived each program.
+            Three flagship programs. Six years. Hundreds of sprints. Measurable impact across diagnostics, features, quality systems and innovation.
           </motion.p>
         </header>
+        <section style={{ margin: '4rem 0', padding: '2rem', background: 'rgba(108,142,196,0.05)', borderRadius: '24px' }}>
+          <h3 style={{ textAlign: 'center', marginBottom: '2rem', color: '#6c8ec4' }}>Technical Proficiency (Self‑Assessment)</h3>
+          <ResponsiveContainer width="100%" height={350}>
+            <RadarChart data={[
+              { skill: 'Requirements Engineering', value: 95 },
+              { skill: 'Diagnostics Design', value: 92 },
+              { skill: 'Cross‑functional Leadership', value: 88 },
+              { skill: 'NVH / Thermal Validation', value: 82 },
+              { skill: 'Mentorship & Coaching', value: 90 },
+              { skill: 'Problem Solving', value: 96 }
+            ]}>
+              <PolarGrid />
+              <PolarAngleAxis dataKey="skill" tick={{ fontSize: 10 }} />
+              <PolarRadiusAxis domain={[0, 100]} />
+              <Radar dataKey="value" stroke="#6c8ec4" fill="#6c8ec4" fillOpacity={0.5} />
+            </RadarChart>
+          </ResponsiveContainer>
+          <p style={{ fontSize: '0.75rem', textAlign: 'center', color: '#8892a4', marginTop: '1rem' }}>
+            Based on my experience at Ford, BMW, and personal projects – always evolving.
+          </p>
+        </section>
 
         {cases.map((cs) => (
           <CaseStudy key={cs.num} cs={cs} />
         ))}
-      </div>
+
+       </div>
+
+      {/* ADDITIONAL ACHIEVEMENT MODAL */}
+      {modalAchievement && (
+        <div className="modal-backdrop show" onClick={() => setModalAchievement(null)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()} style={{ maxWidth: '720px' }}>
+            <div className="d-flex justify-content-end p-3 border-bottom">
+              <button className="btn-close" onClick={() => setModalAchievement(null)}></button>
+            </div>
+            <div className="p-5 text-center">
+              <div style={{ fontSize: '4rem', marginBottom: '1.5rem', color: '#6c8ec4' }}>
+                <i className={`bi ${modalAchievement.icon}`}></i>
+              </div>
+              <h3 className="fw-bold mb-4">{modalAchievement.title}</h3>
+              <p className="lead mb-4" style={{ color: '#8ab4f8' }}>{modalAchievement.impact}</p>
+              <p style={{ color: '#cbd5e1', lineHeight: 1.7 }}>{modalAchievement.description}</p>
+              <small className="text-muted d-block mt-4">{modalAchievement.role}</small>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 }
@@ -125,6 +236,18 @@ export default function Projects() {
 function CaseStudy({ cs }) {
   const [activeTab, setActiveTab] = useState(0)
   const s = { color: '#8892a4', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }
+
+  // Better role matching
+  const getRoleKey = (eyebrow) => {
+    if (eyebrow.includes("2021–2025") || eyebrow.includes("Feature Systems")) return "Feature Systems Engineer - Ford";
+    if (eyebrow.includes("2025–Present") || eyebrow.includes("Diagnostics Design")) return "Diagnostics Design Engineer - Ford";
+    if (eyebrow.includes("BMW") || eyebrow.includes("Quality Management")) return "Quality Management Engineer - BMW";
+    return "";
+  };
+
+  const roleHighlights = additionalAchievements.filter(
+    ach => ach.role === getRoleKey(cs.eyebrow)
+  );
 
   return (
     <section style={{ padding: '6rem 0', borderBottom: '1px solid rgba(255,255,255,0.05)', position: 'relative' }}>
@@ -150,6 +273,7 @@ function CaseStudy({ cs }) {
         </motion.div>
       </div>
 
+      {/* KPI STRIP, STORY GRID, TAXONOMY, CALIBRATION, QUOTE — unchanged */}
       {/* ANIMATED KPI STRIP */}
       <motion.div {...fadeUp(0.1)} style={{ display: 'flex', flexWrap: 'wrap', gap: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, overflow: 'hidden', margin: '2.5rem 0' }}>
         {cs.kpis.map((k, i) => (
@@ -176,7 +300,7 @@ function CaseStudy({ cs }) {
         ))}
       </motion.div>
 
-      {/* INTERACTIVE TAXONOMY TABS (E2E Diagnostics only) */}
+      {/* TAXONOMY, CALIBRATION, QUOTE — keep as is */}
       {cs.taxonomy && (
         <motion.div {...fadeUp(0.1)}>
           <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#4a5568', marginBottom: '1rem' }}>Original Diagnostic Reasoning Taxonomy</p>
@@ -192,7 +316,6 @@ function CaseStudy({ cs }) {
         </motion.div>
       )}
 
-      {/* CALIBRATION FRAMEWORK (Power Running Boards only) */}
       {cs.methods && (
         <motion.div {...fadeUp(0.1)} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: '2rem', marginBottom: '2rem' }}>
           <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#4a5568', marginBottom: '1.5rem' }}>Calibration Framework — Original Design</p>
@@ -208,10 +331,105 @@ function CaseStudy({ cs }) {
         </motion.div>
       )}
 
-      {/* QUOTE */}
       <motion.blockquote {...fadeUp(0.1)} style={{ borderLeft: '3px solid #6c8ec4', padding: '1.25rem 1.75rem', margin: '2rem 0 0', background: 'rgba(108,142,196,0.04)', borderRadius: '0 8px 8px 0' }}>
         <p style={{ fontStyle: 'italic', color: '#8892a4', lineHeight: 1.7, margin: 0 }}>{cs.quote}</p>
       </motion.blockquote>
+
+      {/* MORE HIGHLIGHTS FROM THIS ROLE */}
+      {roleHighlights.length > 0 && (
+        <div style={{ marginTop: '4rem', paddingTop: '3rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+          <h4 style={{ color: '#6c8ec4', marginBottom: '1.5rem', textAlign: 'center' }}>
+            More Highlights from this Role
+          </h4>
+          
+          <div className="row row-cols-1 row-cols-md-2 g-3">
+            {roleHighlights.map((ach, i) => (
+              <motion.div key={i} className="col" {...fadeUp(i * 0.1)}>
+                <div 
+                  className="glass-showcase-card p-4 text-center h-100"
+                  style={{ borderRadius: '14px', cursor: 'pointer' }}
+                  onClick={() => setModalAchievement(ach)}
+                >
+                  <div style={{ fontSize: '2rem', marginBottom: '1rem', color: '#6c8ec4' }}>
+                    <i className={`bi ${ach.icon}`}></i>
+                  </div>
+                  <h5 className="fw-bold mb-2" style={{ color: '#ffffff', fontSize: '1.1rem' }}>{ach.title}</h5>
+                  <p className="small mb-0" style={{ color: '#8ab4f8' }}>{ach.impact}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
+        <section style={{ padding: '3rem 0', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
+          <h3 style={{ textAlign: 'center', marginBottom: '2rem', color: '#6c8ec4' }}>Tools & Technologies</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', justifyContent: 'center' }}>
+            {[
+              'CANalyzer / CAPL', 'Diagnostic Engineering Tool', 'MagicDraw / JAMA',
+              'Power BI / Tableau', 'VS Code (Python, C++)', 'Minitab', 'Siemens TestLab',
+              'Jira (Atlassian)', 'Microsoft 365', 'AUTOSAR (básico)', 'Machine Learning (básico)'
+            ].map(tool => (
+              <span key={tool} style={{
+                background: 'rgba(108,142,196,0.1)',
+                border: '1px solid rgba(108,142,196,0.25)',
+                borderRadius: '40px',
+                padding: '0.4rem 1.2rem',
+                fontSize: '0.8rem',
+                fontWeight: 500,
+                color: '#6c8ec4'
+              }}>
+                {tool}
+              </span>
+            ))}
+          </div>
+        </section>
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="scroll-to-top"
+        style={{
+          position: 'fixed',
+          bottom: '2rem',
+          left: '2rem',          // changed from right to left
+          background: '#6c8ec4',
+          border: 'none',
+          borderRadius: '50%',
+          width: '48px',
+          height: '48px',
+          fontSize: '1.5rem',
+          color: 'white',
+          cursor: 'pointer',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+          zIndex: 99
+        }}
+      >
+        ↑
+      </button>
+      {/* Centered Floating Download Resume */}
+      <a 
+        href={`${import.meta.env.BASE_URL}assets/Curriculum Vitae_Id2026.pdf`} 
+        download="Angel-Vargas-CV-2026.pdf"
+        style={{
+          position: 'fixed',
+          bottom: '30px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 10006,
+          background: '#3B82F6',
+          color: 'white',
+          padding: '14px 28px',
+          borderRadius: '9999px',
+          fontSize: '1rem',
+          fontWeight: 600,
+          boxShadow: '0 12px 30px rgba(59, 130, 246, 0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px',
+          textDecoration: 'none',
+          whiteSpace: 'nowrap'
+        }}
+      >
+        <i className="bi bi-download"></i> Download Resume
+      </a>
     </section>
   )
 }

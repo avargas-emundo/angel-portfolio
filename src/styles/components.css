@@ -268,7 +268,7 @@ body.dark-mode .timeline-content.card h3 {
 /* components.css - Responsive Navigation */
 .floating-dock {
   position: fixed !important;
-  z-index: 9999 !important;
+  z-index: 10005 !important;
   display: flex !important;
   background: var(--bg-surface) !important;
   border: 1px solid var(--border-color) !important;
@@ -755,4 +755,39 @@ body.dark-mode .timeline-bubble {
 body.scrolled .floating-dock {
   transform: translateY(-50%) scale(0.92);
   opacity: 0.95;
+}
+
+/* Remove all previous .timeline-bubble media queries, then: */
+@media (max-width: 768px) {
+  .timeline-track::before {
+    left: 1.5rem !important;
+  }
+@media (max-width: 768px) {
+  .timeline-event {
+    flex-direction: column !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .timeline-bubble {
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin-bottom: 1rem !important;
+    left: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+  }
+}
+}
+
+.timeline-content.card {
+  background: #161B22 !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  transition: all 0.3s ease;
+}
+
+.timeline-content.card:hover {
+  border-color: #3B82F6 !important;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
 }

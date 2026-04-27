@@ -364,3 +364,33 @@ body:not(.dark-mode) .gradient-card {
     0 0 0 1px rgba(108,142,196,0.4),
     0 0 35px rgba(108,142,196,0.25) !important;
 }
+
+#skills .glass-showcase-card {
+  background: #161B22 !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+}
+
+.timeline-content.card {
+  background: #161B22 !important;
+  border: 1px solid rgba(59,130,246,0.3) !important;
+  transition: all 0.3s ease;
+}
+
+.timeline-content.card:hover {
+  border-color: #3B82F6;
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.dock-link {
+  color: #94a3b8;
+  font-size: 1.4rem;
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.dock-link:hover, .dock-link.active {
+  color: #3B82F6;
+  background: rgba(59,130,246,0.15);
+}
