@@ -60,22 +60,29 @@ export default function About() {
 return (
     <main className="container">
 
-      {/* Opening — Rewritten */}
-      <section style={{ padding: '7rem 0 5rem', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
-        <motion.span initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}
-          style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#6c8ec4', marginBottom: '1.5rem', display: 'block' }}>
-          The Human Behind the Engineer
-        </motion.span>
-        <motion.h1 initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.9, delay: 0.1 }}
-          style={{ fontFamily: 'Lora,serif', fontSize: 'clamp(2.5rem,6vw,4.5rem)', fontWeight: 400, lineHeight: 1.15, marginBottom: '2rem' }}>
-          I build systems that move.<br />I lead teams that deliver.
-        </motion.h1>
-        <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}
-          style={{ fontSize: '1.15rem', lineHeight: 1.85, color: '#4a5568', maxWidth: 620 }}>
-          I am Angel Vargas — an Automotive Systems Engineer who has <strong>spearheaded</strong> diagnostic robustness programs, <strong>orchestrated</strong> global launches, and <strong>standardized</strong> engineering processes across Ford and BMW. 
-          From authoring 700+ requirements to neutralizing high-warranty risks, I bridge deep technical execution with cross-functional leadership.
-        </motion.p>
-      </section>
+    {/* Opening — Rewritten with more presence */}
+    <section style={{ padding: '7rem 0 5rem', borderBottom: '1px solid rgba(59,130,246,0.1)' }}>
+      <motion.span initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}
+        style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#3B82F6', marginBottom: '1.5rem', display: 'block' }}>
+        The Human Behind the Engineer
+      </motion.span>
+      <motion.h1 initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.9, delay: 0.1 }}
+        style={{ 
+          fontFamily: 'Lora,serif', 
+          fontSize: 'clamp(2.8rem,6.5vw,4.8rem)', 
+          fontWeight: 400, 
+          lineHeight: 1.1, 
+          marginBottom: '2rem',
+          color: '#e6edf3'
+        }}>
+        I build systems that move.<br />I lead teams that deliver.
+      </motion.h1>
+      <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}
+        style={{ fontSize: '1.2rem', lineHeight: 1.8, color: '#cbd5e1', maxWidth: 680 }}>
+        I am Angel Vargas — an Automotive Systems Engineer who has <strong style={{color: '#3B82F6'}}>spearheaded</strong> diagnostic robustness programs, 
+        <strong style={{color: '#3B82F6'}}>orchestrated</strong> global launches, and <strong style={{color: '#3B82F6'}}>standardized</strong> engineering processes across Ford and BMW.
+      </motion.p>
+    </section>
 
       {/* Professional Intro / Summary Section — Add or replace the existing summary section */}
       <section style={{ padding: '4rem 0', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
@@ -102,7 +109,7 @@ return (
 
       {/* Cities */}
       <section style={{ padding: '5rem 0', borderTop: '1px solid rgba(0,0,0,0.07)', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
-        <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#9ca3af', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#3B82F6', marginBottom: '1.5rem', display: 'block' }}>
           A Life in Motion <span style={{ flex: 1, height: 1, background: 'rgba(0,0,0,0.08)' }}></span>
         </p>
         <div style={{ display: 'flex', gap: 0, overflowX: 'auto', paddingBottom: '1rem', scrollbarWidth: 'none' }}>
@@ -169,7 +176,7 @@ return (
       <section style={{ padding: '5rem 0', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
         <div className="row">
           <motion.div className="col-lg-7" {...fadeUp()}>
-            <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#9ca3af', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#3B82F6', marginBottom: '1.5rem', display: 'block' }}>
               Origin <span style={{ flex: 1, height: 1, background: 'rgba(0,0,0,0.08)' }}></span>
             </p>
             <h2 style={{ fontFamily: 'Lora,serif', fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 500, lineHeight: 1.2, marginBottom: '1.5rem' }}>
@@ -204,7 +211,7 @@ return (
 
       {/* Values */}
       <section style={{ padding: '5rem 0', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
-        <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#9ca3af', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#3B82F6', marginBottom: '1.5rem', display: 'block' }}>
           Foundations <span style={{ flex: 1, height: 1, background: 'rgba(0,0,0,0.08)' }}></span>
         </p>
         <h2 style={{ fontFamily: 'Lora,serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', fontWeight: 500, marginBottom: '3rem' }}>
@@ -213,8 +220,8 @@ return (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: '1.5rem' }}>
           {values.map((v, i) => (
             <motion.div key={v.source} {...fadeUp(i * 0.1)}
-              className="value-card"
-              style={{ padding: '2rem', background: '#ffffff', border: '1px solid rgba(0,0,0,0.06)', borderRadius: 12, transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}>
+              className="value-card p-4"
+              style={{ padding: '2rem', background: '#3f3c3c', border: '1px solid rgba(0,0,0,0.06)', borderRadius: 12, transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}>
               <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: '#6c8ec4', marginBottom: '0.75rem' }}>{v.source}</div>
               <div style={{ fontFamily: 'Lora,serif', fontSize: '1.2rem', fontWeight: 500, marginBottom: '0.5rem' }}>{v.label}</div>
               <div style={{ fontSize: '0.85rem', color: '#9ca3af', lineHeight: 1.6 }}>{v.desc}</div>
@@ -250,7 +257,7 @@ return (
 
       {/* Passions */}
       <section style={{ padding: '5rem 0', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
-        <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#9ca3af', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#3B82F6', marginBottom: '1.5rem', display: 'block' }}>
           Outside the Office <span style={{ flex: 1, height: 1, background: 'rgba(0,0,0,0.08)' }}></span>
         </p>
         {passions.map((p, i) => (
@@ -280,7 +287,7 @@ return (
       {/* What Drives Me */}
       <section style={{ padding: '5rem 0' }}>
         <motion.div {...fadeUp()} style={{ background: '#0d0f14', borderRadius: 16, padding: '4rem', color: '#e2e8f0' }}>
-          <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#6c8ec4', marginBottom: '1.5rem' }}>What Drives Me</p>
+          <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#3B82F6', marginBottom: '1.5rem' }}>What Drives Me</p>
           <h2 style={{ fontFamily: 'Lora,serif', fontSize: 'clamp(1.6rem,4vw,2.5rem)', fontWeight: 400, fontStyle: 'italic', color: '#ffffff', lineHeight: 1.3, marginBottom: '2rem' }}>
             "Next-generation vehicles are not about technology. They are about delivering experiences, stories, and life."
           </h2>

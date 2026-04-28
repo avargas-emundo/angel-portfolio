@@ -207,11 +207,19 @@ export default function Home() {
       <div className="container"><div className="section-rule"></div></div>
 
       {/* CORE PILLARS - FIXED DARK MODE */}
-      <section id="skills" className="py-5" style={{ background: 'var(--bg-primary, #11151e)' }}>
+      <section id="skills" className="py-5 spotlight-section">
         <div className="container">
           <div className="text-center mb-5">
             <span className="section-eyebrow">Technical Mastery</span>
-            <h2 style={{ fontFamily: 'Lora, serif', color: '#e6edf3' }}>Core Pillars of My Expertise</h2>
+            <h2 style={{ 
+              fontFamily: 'Lora, serif', 
+              fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', 
+              fontWeight: 500, 
+              color: '#e6edf3',
+              letterSpacing: '-0.5px'
+            }}>
+              Core Pillars of My Expertise
+            </h2>
           </div>
           <SkillStack />
         </div>
@@ -334,44 +342,44 @@ export default function Home() {
 
       <div className="container"><div className="section-rule"></div></div>
 
-<section style={{ padding: '5rem 0', background: 'var(--bg-primary, #0A0C10)' }}>
-  <div className="container">
-    <h3 style={{ textAlign: 'center', marginBottom: '3rem', color: '#3B82F6', fontFamily: 'Lora, serif' }}>
-      Certifications and Continuous Learning
-    </h3>
-    <div className="row g-4 justify-content-center" style={{ maxWidth: '1100px', margin: '0 auto' }}>
-      {[
-        { title: 'Six Sigma Green Belt', org: 'Ford', year: '2023', icon: '🏆' },
-        { title: 'Feature/Platform Systems Engineering', org: 'Ford', year: '2023', icon: '🔧' },
-        { title: 'VECTOR CAPL Initialization', org: 'Vector', year: '2024', icon: '📟' },
-        { title: 'AUTOSAR Architecture', org: 'Udemy', year: '2025', icon: '🛠️' },
-        { title: 'Machine Learning A-Z', org: 'Udemy', year: '2025', icon: '🤖' },
-        { title: 'Google Project Management', org: 'Coursera', year: '2026', icon: '📋' },
-        { title: 'EF SET English C1', org: '', year: '2026', icon: '🌍' }
-      ].map((cert, i) => (
-        <div key={i} className="col-md-6 col-lg-4">
-          <div style={{
-            background: '#161B22',
-            border: '1px solid rgba(59,130,246,0.35)',
-            borderRadius: '16px',
-            padding: '1.75rem',
-            height: '100%',
-            transition: 'all 0.3s ease',
-          }}
-          onMouseEnter={e => e.currentTarget.style.borderColor = '#3B82F6'}
-          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(59,130,246,0.35)'}
-          >
-            <div style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>{cert.icon}</div>
-            <h5 style={{ color: '#e6edf3', marginBottom: '0.4rem' }}>{cert.title}</h5>
-            <p style={{ color: '#94a3b8', fontSize: '0.95rem', margin: 0 }}>
-              {cert.org} {cert.year && `· ${cert.year}`}
-            </p>
+      <section className="spotlight-section" style={{ padding: '5rem 0' }}>
+        <div className="container">
+          <h3 style={{ textAlign: 'center', marginBottom: '3rem', color: '#3B82F6', fontFamily: 'Lora, serif' }}>
+            Certifications and Continuous Learning
+          </h3>
+          <div className="row g-4 justify-content-center" style={{ maxWidth: '1100px', margin: '0 auto' }}>
+            {[
+              { title: 'Six Sigma Green Belt', org: 'Ford', year: '2023', icon: '🏆' },
+              { title: 'Feature/Platform Systems Engineering', org: 'Ford', year: '2023', icon: '🔧' },
+              { title: 'VECTOR CAPL Initialization', org: 'Vector', year: '2024', icon: '📟' },
+              { title: 'AUTOSAR Architecture', org: 'Udemy', year: '2025', icon: '🛠️' },
+              { title: 'Machine Learning A-Z', org: 'Udemy', year: '2025', icon: '🤖' },
+              { title: 'Google Project Management', org: 'Coursera', year: '2026', icon: '📋' },
+              { title: 'EF SET English C1', org: '', year: '2026', icon: '🌍' }
+            ].map((cert, i) => (
+              <div key={i} className="col-md-6 col-lg-4">
+                <div style={{
+                  background: '#161B22',
+                  border: '1px solid rgba(59,130,246,0.35)',
+                  borderRadius: '16px',
+                  padding: '1.75rem',
+                  height: '100%',
+                  transition: 'all 0.3s ease',
+                }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = '#3B82F6'}
+                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(59,130,246,0.35)'}
+                >
+                  <div style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>{cert.icon}</div>
+                  <h5 style={{ color: '#e6edf3', marginBottom: '0.4rem' }}>{cert.title}</h5>
+                  <p style={{ color: '#94a3b8', fontSize: '0.95rem', margin: 0 }}>
+                    {cert.org} {cert.year && `· ${cert.year}`}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
         <p className="text-center mt-5 text-muted">
           Currently based in México • Open to relocation for Global Senior Roles & MSc opportunities
@@ -544,45 +552,86 @@ export default function Home() {
 }
 
 /* ── IMPROVED MOBILE-FRIENDLY TIMELINE CARD ── */
+/* ── PREMIUM TIMELINE CARD ── */
 function TimelineCard({ ev }) {
   const [open, setOpen] = useState(false);
 
   return (
     <motion.div
       className={`timeline-event timeline-event-${ev.side}`}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       onClick={() => setOpen(!open)}
       style={{ cursor: 'pointer' }}
     >
-      <div className={`timeline-bubble timeline-bubble-${ev.side === 'left' ? 'right' : 'left'}`}>
-        <div className="timeline-dates">{ev.dates}</div>
-        <div className="timeline-location">{ev.location}</div>
-        <div className="timeline-year-badge">{ev.year}</div>
+      <div 
+        className={`timeline-bubble timeline-bubble-${ev.side === 'left' ? 'right' : 'left'}`} 
+        style={{ 
+          borderColor: '#3B82F6',
+          background: 'rgba(22, 27, 34, 0.95)',
+          boxShadow: '0 0 20px rgba(59, 130, 246, 0.35)',
+          borderWidth: '2px'
+        }}
+      >
+        <div className="timeline-dates" style={{ color: '#94a3b8' }}>{ev.dates}</div>
+        <div className="timeline-location" style={{ color: '#cbd5e1' }}>{ev.location}</div>
+        <div className="timeline-year-badge" style={{ 
+          background: '#3B82F6', 
+          color: 'white', 
+          fontWeight: 700,
+          boxShadow: '0 0 12px rgba(59, 130, 246, 0.6)'
+        }}>
+          {ev.year}
+        </div>
       </div>
 
-      <div 
-        className="timeline-content card gradient-card"
+      <motion.div 
+        className="timeline-content card"
+        whileHover={{ y: -8 }}
+        transition={{ type: "spring", stiffness: 400, damping: 25 }}
         style={{
           borderRadius: '20px',
-          border: '1px solid rgba(59, 130, 246, 0.25)',
-          background: 'var(--card-bg)',
+          border: '1px solid rgba(59, 130, 246, 0.5)',
+          background: '#161B22',
+          overflow: 'hidden',
+          boxShadow: '0 15px 35px rgba(0,0,0,0.5)'
         }}
       >
         <div className="card-body p-5">
-          <h3 className="h5 fw-bold mb-2" style={{ color: '#3B82F6' }}>{ev.title}</h3>
-          <p className="text-primary mb-3 fw-medium">{ev.company}</p>
-          <p className="mb-3">{ev.summary}</p>
+          <h3 style={{ color: '#3B82F6', marginBottom: '0.5rem', fontFamily: 'Lora, serif' }}>{ev.title}</h3>
+          <p style={{ color: '#60a5fa', fontWeight: 600, marginBottom: '1.2rem' }}>{ev.company}</p>
+          <p style={{ color: '#cbd5e1', lineHeight: 1.65 }}>{ev.summary}</p>
 
-          {open && (
-            <ul className="mt-3 ps-3" style={{ fontSize: '0.95rem', color: '#cbd5e1' }}>
-              {ev.bullets.map((b, i) => <li key={i} className="mb-2">{b}</li>)}
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: open ? 'auto' : 0, opacity: open ? 1 : 0 }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+            style={{ overflow: 'hidden' }}
+          >
+            <ul style={{ color: '#e6edf3', paddingLeft: '1.3rem', margin: '1.4rem 0' }}>
+              {ev.bullets.map((b, i) => (
+                <li key={i} style={{ marginBottom: '0.9rem', position: 'relative' }}>
+                  <span style={{ color: '#3B82F6', position: 'absolute', left: '-1.35rem', fontSize: '1.1rem' }}>▸</span> 
+                  {b}
+                </li>
+              ))}
             </ul>
-          )}
+          </motion.div>
+
+          <div style={{ 
+            textAlign: 'right', 
+            color: open ? '#60a5fa' : '#3B82F6', 
+            fontSize: '0.95rem', 
+            fontWeight: 600,
+            cursor: 'pointer',
+            userSelect: 'none'
+          }}>
+            {open ? '− Hide details' : '+ Show technical details'}
+          </div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

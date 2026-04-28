@@ -103,7 +103,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Scrolling skill marquee - polished */}
+          {/* Improved Mobile Marquee */}
           <div className="col-12 mt-5">
             <motion.div
               initial={{ opacity: 0 }}
@@ -114,8 +114,8 @@ export default function Hero() {
               <div 
                 style={{
                   display: 'inline-flex',
-                  gap: '3rem',
-                  animation: 'marquee 30s linear infinite',
+                  gap: '2.5rem',
+                  animation: 'marquee 25s linear infinite',
                   padding: '0.75rem 0'
                 }}
                 onMouseEnter={e => e.currentTarget.style.animationPlayState = 'paused'}
@@ -124,26 +124,23 @@ export default function Hero() {
                 {skills.map(skill => (
                   <span key={skill} style={{
                     fontFamily: 'Barlow Condensed, sans-serif',
-                    fontSize: '1.15rem',
+                    fontSize: '1.05rem',
                     fontWeight: 600,
-                    letterSpacing: '3px',
+                    letterSpacing: '2px',
                     textTransform: 'uppercase',
-                    color: 'rgba(255,255,255,0.85)',
-                    textShadow: '0 0 15px rgba(108,142,196,0.4)',
+                    color: 'rgba(255,255,255,0.9)',
                   }}>
                     {skill}
                   </span>
                 ))}
-                {/* Duplicate for seamless loop */}
                 {skills.map(skill => (
                   <span key={skill + '2'} style={{
                     fontFamily: 'Barlow Condensed, sans-serif',
-                    fontSize: '1.15rem',
+                    fontSize: '1.05rem',
                     fontWeight: 600,
-                    letterSpacing: '3px',
+                    letterSpacing: '2px',
                     textTransform: 'uppercase',
-                    color: 'rgba(255,255,255,0.85)',
-                    textShadow: '0 0 15px rgba(108,142,196,0.4)',
+                    color: 'rgba(255,255,255,0.9)',
                   }}>
                     {skill}
                   </span>

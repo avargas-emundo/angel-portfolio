@@ -1,21 +1,22 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import AnimatedCounter from '../components/AnimatedCounter'
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import AnimatedCounter from '../components/AnimatedCounter';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
-
+import { Link } from 'react-router-dom';
 
 const fadeUp = (delay = 0) => ({
   initial: { y: 40, opacity: 0 },
   whileInView: { y: 0, opacity: 1 },
   viewport: { once: true, margin: '-60px' },
   transition: { duration: 0.7, ease: 'easeOut', delay }
-})
+});
 
 const cases = [
   {
     num: '01',
+    id: 'power-running-boards',
     eyebrow: 'Ford Motor Company · 2021–2025',
-    title: 'Power Running\nBoards',
+    title: 'Power Running Boards',
     subtitle: 'Feature Systems Engineer — Full Ownership',
     lead: 'Took full ownership of a feature at the start of its systems engineering journey. Delivered a complete design to the 2025 Navigator & Expedition global launch — including the first-ever calibration framework for the feature.',
     img: `${import.meta.env.BASE_URL}images/Expedition-Wall.jpg`,
@@ -162,33 +163,40 @@ const additionalAchievements = [
 ];
 
 export default function Projects() {
-  const [activeTab, setActiveTab] = useState(0);
-  const [modalAchievement, setModalAchievement] = useState(null);
-
   return (
-    <main style={{ minHeight: '100vh' }}>
+    <main style={{ 
+      minHeight: '100vh', 
+      background: 'var(--bg-page)', 
+      color: 'var(--text-main)' 
+    }}>
       <div className="container">
         <header style={{ padding: '6rem 0 4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-          <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}
-            style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#6c8ec4', marginBottom: '1rem' }}>
+          <motion.p 
+            initial={{ y: 20, opacity: 0 }} 
+            animate={{ y: 0, opacity: 1 }} 
+            transition={{ duration: 0.5 }}
+            style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#3B82F6', marginBottom: '1rem' }}
+          >
             Engineering Case Studies
           </motion.p>
-          <motion.h1 initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.9, delay: 0.1 }}
-            style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: 'clamp(3rem,8vw,6rem)', fontWeight: 900, lineHeight: 0.95, color: '#ffffff', textTransform: 'uppercase', letterSpacing: -1 }}>
-            The <em style={{ fontStyle: 'italic', fontWeight: 300, color: '#6c8ec4' }}>Work</em><br />Speaks.
+          <motion.h1 
+            initial={{ y: 50, opacity: 0 }} 
+            animate={{ y: 0, opacity: 1 }} 
+            transition={{ duration: 0.9, delay: 0.1 }}
+            style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: 'clamp(3rem,8vw,6rem)', fontWeight: 900, lineHeight: 0.95, color: '#ffffff', textTransform: 'uppercase', letterSpacing: -1 }}
+          >
+            The <em style={{ fontStyle: 'italic', fontWeight: 300, color: '#3B82F6' }}>Work</em><br />Speaks.
           </motion.h1>
-          <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}
-            style={{ maxWidth: 520, color: '#8892a4', fontSize: '1.05rem', lineHeight: 1.7, marginTop: '1.5rem' }}>
-            Three flagship programs. Six years. Hundreds of sprints. Measurable impact across diagnostics, features, quality systems and innovation.
-          </motion.p>
         </header>
-        <section style={{ margin: '4rem 0', padding: '2rem', background: 'rgba(108,142,196,0.05)', borderRadius: '24px' }}>
-          <h3 style={{ textAlign: 'center', marginBottom: '2rem', color: '#6c8ec4' }}>Technical Proficiency (Self‑Assessment)</h3>
+
+        {/* Radar Chart Section */}
+        <section style={{ margin: '4rem 0', padding: '2rem', background: 'rgba(59,130,246,0.05)', borderRadius: '24px' }}>
+          <h3 style={{ textAlign: 'center', marginBottom: '2rem', color: '#3B82F6' }}>Technical Proficiency (Self‑Assessment)</h3>
           <ResponsiveContainer width="100%" height={350}>
             <RadarChart data={[
               { skill: 'Requirements Engineering', value: 95 },
               { skill: 'Diagnostics Design', value: 92 },
-              { skill: 'Cross‑functional Leadership', value: 88 },
+              { skill: 'Cross-functional Leadership', value: 88 },
               { skill: 'NVH / Thermal Validation', value: 82 },
               { skill: 'Mentorship & Coaching', value: 90 },
               { skill: 'Problem Solving', value: 96 }
@@ -196,45 +204,23 @@ export default function Projects() {
               <PolarGrid />
               <PolarAngleAxis dataKey="skill" tick={{ fontSize: 10 }} />
               <PolarRadiusAxis domain={[0, 100]} />
-              <Radar dataKey="value" stroke="#6c8ec4" fill="#6c8ec4" fillOpacity={0.5} />
+              <Radar dataKey="value" stroke="#3B82F6" fill="#3B82F6" fillOpacity={0.4} />
             </RadarChart>
           </ResponsiveContainer>
-          <p style={{ fontSize: '0.75rem', textAlign: 'center', color: '#8892a4', marginTop: '1rem' }}>
-            Based on my experience at Ford, BMW, and personal projects – always evolving.
-          </p>
         </section>
 
+        {/* Case Studies with Deep Dive Links */}
         {cases.map((cs) => (
           <CaseStudy key={cs.num} cs={cs} />
         ))}
-
-       </div>
-
-      {/* ADDITIONAL ACHIEVEMENT MODAL */}
-      {modalAchievement && (
-        <div className="modal-backdrop show" onClick={() => setModalAchievement(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()} style={{ maxWidth: '720px' }}>
-            <div className="d-flex justify-content-end p-3 border-bottom">
-              <button className="btn-close" onClick={() => setModalAchievement(null)}></button>
-            </div>
-            <div className="p-5 text-center">
-              <div style={{ fontSize: '4rem', marginBottom: '1.5rem', color: '#6c8ec4' }}>
-                <i className={`bi ${modalAchievement.icon}`}></i>
-              </div>
-              <h3 className="fw-bold mb-4">{modalAchievement.title}</h3>
-              <p className="lead mb-4" style={{ color: '#8ab4f8' }}>{modalAchievement.impact}</p>
-              <p style={{ color: '#cbd5e1', lineHeight: 1.7 }}>{modalAchievement.description}</p>
-              <small className="text-muted d-block mt-4">{modalAchievement.role}</small>
-            </div>
-          </div>
-        </div>
-      )}
+      </div>
     </main>
-  )
+  );
 }
 
 function CaseStudy({ cs }) {
   const [activeTab, setActiveTab] = useState(0)
+  const [modalAchievement, setModalAchievement] = useState(null)
   const s = { color: '#8892a4', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }
 
   // Better role matching
@@ -270,6 +256,12 @@ function CaseStudy({ cs }) {
             onMouseEnter={e => e.target.style.filter = 'grayscale(0%) contrast(1.1)'}
             onMouseLeave={e => e.target.style.filter = 'grayscale(20%) contrast(1.05)'} />
           <p style={{ fontSize: '0.7rem', color: '#3a4455', textTransform: 'uppercase', letterSpacing: 1, marginTop: '0.75rem' }}>{cs.imgCaption}</p>
+            <Link 
+            to={`/projects/${cs.id}`} 
+            className="btn-hero-primary mt-4 d-inline-flex align-items-center gap-2"
+          >
+            Read Full Deep Dive →
+          </Link>
         </motion.div>
       </div>
 
@@ -277,9 +269,9 @@ function CaseStudy({ cs }) {
       {/* ANIMATED KPI STRIP */}
       <motion.div {...fadeUp(0.1)} style={{ display: 'flex', flexWrap: 'wrap', gap: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, overflow: 'hidden', margin: '2.5rem 0' }}>
         {cs.kpis.map((k, i) => (
-          <div key={i} style={{ flex: 1, minWidth: 100, padding: '1.5rem 1.25rem', background: '#0d0f14', textAlign: 'center', transition: 'background 0.2s ease', cursor: 'default' }}
+          <div key={i} style={{ flex: 1, minWidth: 100, padding: '1.5rem 1.25rem', background: '#var(--bg-page)', textAlign: 'center', transition: 'background 0.2s ease', cursor: 'default' }}
             onMouseEnter={e => e.currentTarget.style.background = 'rgba(108,142,196,0.08)'}
-            onMouseLeave={e => e.currentTarget.style.background = '#0d0f14'}>
+            onMouseLeave={e => e.currentTarget.style.background = '#var(--bg-page)'}>
             <span style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '2.2rem', fontWeight: 900, color: '#6c8ec4', lineHeight: 1, display: 'block' }}>
               <AnimatedCounter end={k.value} suffix={k.suffix || ''} />
             </span>
@@ -291,7 +283,7 @@ function CaseStudy({ cs }) {
       {/* STORY GRID */}
       <motion.div {...fadeUp(0.1)} style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, overflow: 'hidden', marginBottom: '2.5rem' }}>
         {cs.story.map((col, i) => (
-          <div key={i} style={{ padding: '2rem 1.75rem', background: '#0d0f14' }}>
+          <div key={i} style={{ padding: '2rem 1.75rem', background: '#var(--bg-page)' }}>
             <div style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#4a5568', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <span style={{ display: 'inline-block', width: 20, height: 1, background: '#6c8ec4' }}></span>{col.label}
             </div>
@@ -309,7 +301,7 @@ function CaseStudy({ cs }) {
               <button key={i} className={`btn ${activeTab === i ? 'btn-primary' : 'btn-outline-light'}`} onClick={() => setActiveTab(i)}>{t.tier}</button>
             ))}
           </div>
-          <div style={{ padding: '2rem', background: '#0d0f14', borderRadius: 12 }}>
+          <div style={{ padding: '2rem', background: '#var(--bg-page)', borderRadius: 12 }}>
             <h4 className="fw-bold text-white">{cs.taxonomy[activeTab].title}</h4>
             <p style={{ color: '#c8d0e0', lineHeight: 1.7 }}>{cs.taxonomy[activeTab].desc}</p>
           </div>
@@ -346,15 +338,39 @@ function CaseStudy({ cs }) {
             {roleHighlights.map((ach, i) => (
               <motion.div key={i} className="col" {...fadeUp(i * 0.1)}>
                 <div 
-                  className="glass-showcase-card p-4 text-center h-100"
-                  style={{ borderRadius: '14px', cursor: 'pointer' }}
-                  onClick={() => setModalAchievement(ach)}
+                  className="glass-showcase-card p-4"
+                  style={{
+                    borderRadius: '14px',
+                    cursor: 'default',
+                    minHeight: 'auto',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.75rem',
+                  }}
                 >
-                  <div style={{ fontSize: '2rem', marginBottom: '1rem', color: '#6c8ec4' }}>
-                    <i className={`bi ${ach.icon}`}></i>
+                  {/* Icon + Title row */}
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                    <div style={{
+                      width: '44px', height: '44px', flexShrink: 0,
+                      borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.2)',
+                      fontSize: '1.3rem', color: '#3B82F6'
+                    }}>
+                      <i className={`bi ${ach.icon}`}></i>
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <h5 className="fw-bold mb-1" style={{ color: '#ffffff', fontSize: '1rem', lineHeight: 1.3 }}>{ach.title}</h5>
+                      <p className="mb-0" style={{ color: '#3B82F6', fontSize: '0.82rem', fontWeight: 600 }}>{ach.impact}</p>
+                    </div>
                   </div>
-                  <h5 className="fw-bold mb-2" style={{ color: '#ffffff', fontSize: '1.1rem' }}>{ach.title}</h5>
-                  <p className="small mb-0" style={{ color: '#8ab4f8' }}>{ach.impact}</p>
+
+                  {/* Divider */}
+                  <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
+
+                  {/* Description */}
+                  <p style={{ color: '#8892a4', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>
+                    {ach.description}
+                  </p>
                 </div>
               </motion.div>
             ))}

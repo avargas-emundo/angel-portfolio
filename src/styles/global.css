@@ -7,6 +7,11 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap');
+/* Add to global.css imports */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Use only for impact numbers */
+.impact-number { font-family: 'Bebas Neue', sans-serif; }
 
 .hero-cta-group {
     display: flex;
@@ -366,4 +371,197 @@ body.dark-mode .glass-showcase-card .progress {
 #skills .glass-showcase-card {
   background: #161B22 !important;
   border: 1px solid rgba(59, 130, 246, 0.25) !important;
+}
+
+.accent-glow {
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+.timeline-bubble {
+  border: 2px solid #3B82F6 !important;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+
+/* ==================== MOBILE FLOATING ELEMENTS FIX ==================== */
+
+@media (max-width: 768px) {
+  
+  /* Stack floating elements vertically with proper spacing */
+  .scroll-to-top {
+    bottom: 1.25rem !important;
+    left: 1.25rem !important;
+    right: auto !important;
+  }
+
+  /* Move Download Resume higher and make it smaller on mobile */
+  a[href*="Curriculum Vitae_Id2026.pdf"] {
+    bottom: 5.5rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 10px 18px !important;
+    font-size: 0.9rem !important;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4) !important;
+  }
+
+  /* Dock becomes horizontal pill at bottom on very small screens */
+  .floating-dock {
+    right: 1rem !important;
+    bottom: 1rem !important;
+    top: auto !important;
+    transform: none !important;
+    flex-direction: row !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+
+  /* Reduce dock icon size slightly on mobile */
+  .floating-dock .dock-link {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Prevent overlap when keyboard opens (iOS Safari) */
+@media (max-width: 768px) and (orientation: portrait) {
+  .floating-dock,
+  .scroll-to-top,
+  a[href*="Curriculum Vitae_Id2026.pdf"] {
+    position: fixed !important;
+  }
+}
+
+/* LIGHT MODE TEXT IMPROVEMENTS */
+body:not(.dark-mode) .hero-lead,
+body:not(.dark-mode) #about p,
+body:not(.dark-mode) .summary-copy p,
+body:not(.dark-mode) .text-muted {
+  color: #334155 !important;           /* Much better contrast */
+}
+
+body:not(.dark-mode) h1,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3 {
+  color: #0f172a !important;
+}
+
+/* About page specific fixes */
+body:not(.dark-mode) .about-visual,
+body:not(.dark-mode) .value-card {
+  background: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+body:not(.dark-mode) .section-eyebrow {
+  color: #3b82f6 !important;
+}
+
+/* Fix light grey texts that were too faint */
+body:not(.dark-mode) .text-muted,
+body:not(.dark-mode) p.text-muted {
+  color: #475569 !important;
+}
+
+/* GENERAL MOBILE POLISH */
+@media (max-width: 768px) {
+  #hero {
+    padding-top: 4rem !important;
+    min-height: 85vh !important;
+  }
+
+  .hero-name {
+    font-size: clamp(2.8rem, 10vw, 4.8rem) !important;
+  }
+
+  .hero-lead {
+    font-size: 1.2rem !important;
+  }
+
+  .impact-ribbon {
+    padding: 1rem !important;
+    gap: 1.25rem !important;
+  }
+
+  .timeline-track {
+    padding: 1.5rem 0 !important;
+  }
+
+  .glass-showcase-card {
+    min-height: auto !important;
+    margin-bottom: 1.5rem;
+  }
+
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Better dark mode card contrast */
+body.dark-mode .glass-showcase-card {
+  background: #161B22 !important;
+  border-color: rgba(59, 130, 246, 0.35) !important;
+}
+
+/* ====================== LIGHT + DARK MODE CARD FIXES ====================== */
+
+/* Base glass card - works in both modes */
+.glass-showcase-card {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .glass-showcase-card {
+    background: #161B22 !important;
+    border-color: rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Tag pills */
+.tag-pill {
+    background: var(--accent-soft) !important;
+    color: var(--accent-primary) !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    font-size: 0.82rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+}
+
+/* Timeline cards */
+.timeline-content.card {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+body.dark-mode .timeline-content.card {
+    background: #161B22 !important;
+    border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Value cards in About.jsx */
+.value-card {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+body.dark-mode .value-card {
+    background: #1f2937 !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Projects page dark mode override fix */
+body:not(.dark-mode) #projects main,
+body:not(.dark-mode) .Projects main {
+    background: var(--bg-page) !important;
+    color: var(--text-main) !important;
+}
+
+/* Fix white cards staying white in dark mode */
+body.dark-mode .glass-showcase-card,
+body.dark-mode .value-card,
+body.dark-mode .timeline-content.card {
+    background: #161B22 !important;
 }
