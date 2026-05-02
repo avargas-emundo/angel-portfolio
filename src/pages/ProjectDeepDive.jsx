@@ -86,18 +86,14 @@ export default function ProjectDeepDive() {
   }
 
   return (
-    <main style={{ 
-        minHeight: '100vh', 
-        background: 'var(--bg-page)', 
-        color: 'var(--text-main)' 
-        }}>
+    <main style={{ background: '#080808', minHeight: '100vh', color: '#EAE8E2' }}>
       <div className="container py-5">
         
         {/* Back Button */}
         <Link 
           to="/projects" 
           className="d-flex align-items-center gap-2 text-decoration-none mb-5" 
-          style={{ color: '#3B82F6', fontSize: '1.1rem' }}
+          style={{ color: '#4A7A5C', fontSize: '1.1rem' }}
         >
           <i className="bi bi-arrow-left fs-4"></i> Back to All Projects
         </Link>
@@ -132,24 +128,27 @@ export default function ProjectDeepDive() {
           </h1>
           
           <p style={{ 
-            color: '#60a5fa', 
-            fontSize: '1.35rem', 
+            color: '#4A7A5C', 
             marginBottom: '3.5rem',
-            fontWeight: 500
+            fontWeight: 500,
+            fontFamily: 'Michroma, monospace',
+            letterSpacing: '2px',
+            fontSize: '1rem',
+            textTransform: 'uppercase'
           }}>
             {project.program}
           </p>
 
           {/* THE CHALLENGE */}
           <section style={{ marginBottom: '4.5rem' }}>
-            <h2 style={{ color: '#3B82F6', fontFamily: 'Lora, serif', marginBottom: '1.6rem' }}>
+            <h2 style={{ color: '#C6D840', fontFamily: 'Michroma, monospace', letterSpacing: '2px', fontSize: '0.85rem', textTransform: 'uppercase', marginBottom: '1.6rem' }}>
               The Challenge
             </h2>
             <div style={{ 
-              background: '#161B22', 
+              background: '#0E100F', 
               padding: '2.75rem', 
               borderRadius: '16px', 
-              borderLeft: '5px solid #3B82F6' 
+              borderLeft: '3px solid rgba(44,110,68,0.80)' 
             }}>
               <p style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>{project.challenge}</p>
             </div>
@@ -157,11 +156,11 @@ export default function ProjectDeepDive() {
 
           {/* SYSTEMS APPROACH */}
           <section style={{ marginBottom: '4.5rem' }}>
-            <h2 style={{ color: '#3B82F6', fontFamily: 'Lora, serif', marginBottom: '1.6rem' }}>
+            <h2 style={{ color: '#C6D840', fontFamily: 'Michroma, monospace', letterSpacing: '2px', fontSize: '0.85rem', textTransform: 'uppercase', marginBottom: '1.6rem' }}>
               The Systems Approach
             </h2>
             <div style={{ 
-              background: '#161B22', 
+              background: '#0E100F', 
               padding: '2.75rem', 
               borderRadius: '16px' 
             }}>
@@ -182,11 +181,11 @@ export default function ProjectDeepDive() {
 
           {/* COLLABORATION & LEADERSHIP */}
           <section style={{ marginBottom: '4.5rem' }}>
-            <h2 style={{ color: '#3B82F6', fontFamily: 'Lora, serif', marginBottom: '1.6rem' }}>
+            <h2 style={{ color: '#C6D840', fontFamily: 'Michroma, monospace', letterSpacing: '2px', fontSize: '0.85rem', textTransform: 'uppercase', marginBottom: '1.6rem' }}>
               Collaboration & Leadership
             </h2>
             <div style={{ 
-              background: '#161B22', 
+              background: '#0E100F', 
               padding: '2.75rem', 
               borderRadius: '16px' 
             }}>
@@ -196,15 +195,15 @@ export default function ProjectDeepDive() {
 
           {/* SUCCESS CARD */}
           <section style={{ marginBottom: '5rem' }}>
-            <h2 style={{ color: '#3B82F6', fontFamily: 'Lora, serif', marginBottom: '2rem' }}>
+            <h2 style={{ color: '#C6D840', fontFamily: 'Michroma, monospace', letterSpacing: '2px', fontSize: '0.85rem', textTransform: 'uppercase', marginBottom: '2rem' }}>
               The Final Result
             </h2>
             
             <div style={{ 
-              background: 'linear-gradient(135deg, #161B22 0%, #0f141a 100%)', 
+              background: 'linear-gradient(135deg, #0E100F 0%, #080808 100%)', 
               padding: '3.5rem 3rem', 
               borderRadius: '20px',
-              border: '1px solid rgba(59,130,246,0.5)'
+              border: '1px solid rgba(28,72,46,0.60)'
             }}>
               <div className="row g-5">
                 {project.results.map((r, i) => (
@@ -235,7 +234,7 @@ export default function ProjectDeepDive() {
                   fontStyle: 'italic', 
                   color: '#e6edf3', 
                   fontSize: '1.2rem',
-                  borderLeft: '5px solid #3B82F6',
+                  borderLeft: '3px solid rgba(44,110,68,0.80)',
                   paddingLeft: '2rem',
                   lineHeight: 1.7
                 }}>

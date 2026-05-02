@@ -51,8 +51,7 @@ export default function SkillStack() {
               color: '#e6edf3'
             }}
           >
-            
-            <div className="d-flex align-items-center gap-3 mb-4">
+                        <div className="d-flex align-items-center gap-3 mb-4">
               <i className={`bi ${group.icon} fs-3`} style={{ color: '#3B82F6' }}></i>
               <h3 className="h5 mb-0 fw-bold">{group.category}</h3>
             </div>

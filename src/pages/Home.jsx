@@ -138,6 +138,11 @@ const timelineEvents = [
   }
 
 ]
+const skills = [
+  'Requirements Engineering', 'Diagnostics Design', 'DFMEA', 'MBSE',
+  'CANalyzer', 'UDS Protocol', 'NVH Analysis', 'Thermal Validation',
+  'Cross-functional Leadership', 'Six Sigma', 'Traceability', 'Calibration'
+];
 function StatsGrid() {
   const [started, setStarted] = useState(false)
   const ref = useRef(null)
@@ -199,17 +204,167 @@ export default function Home() {
     };
   }, []);
 
-  return (
-    <main>
-      <Hero />
-      <ProgressIndicator />
+return (
+  <main className="rimac-hero">
+{/* === HERO - Bugatti/Rimac Dashboard Style === */}
+<section 
+  id="hero"
+  style={{
+    minHeight: '100vh',
+    backgroundImage: `url(${import.meta.env.BASE_URL}images/landscape-hero.jpg)`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    position: 'relative',
+    paddingTop: '80px',
+    display: 'flex', 
+    alignItems: 'center',
+    overflow: 'hidden'
+  }}
+>
+  {/* Dark overlay */}
+  <div style={{
+    position: 'absolute',
+    inset: 0,
+    background: 'linear-gradient(135deg, rgba(10,12,16,0.85) 0%, rgba(26,31,46,0.92) 100%)',
+  }} />
 
+  {/* Subtle performance grid overlay */}
+  <div style={{
+    position: 'absolute',
+    inset: 0,
+    backgroundImage: `
+      linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px)
+    `,
+    backgroundSize: '60px 60px',
+    pointerEvents: 'none'
+  }} />
+
+  <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+    <div className="row align-items-center gy-5">
+
+      <div className="col-md-7">
+        <motion.span
+          className="section-eyebrow rimac-accent"
+          initial={{ x: -30, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          AUTOMOTIVE SYSTEMS ENGINEER
+        </motion.span>
+
+        <motion.h1
+          className="hero-name rimac-title"
+          initial={{ y: 60, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.1 }}
+          style={{ 
+            fontSize: 'clamp(3.2rem, 8vw, 6.2rem)', 
+            lineHeight: 1.05,
+            fontWeight: 600 
+          }}
+        >
+          ANGEL VARGAS
+          <br></br>
+        </motion.h1>
+
+        <motion.p
+          className="hero-lead"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          style={{ fontSize: '1.35rem', maxWidth: '620px', color: '#e6edf3' }}
+        >
+          Architecting robust ECU diagnostics for global platforms. 
+          Delivering measurable cost savings and system resilience.
+        </motion.p>
+
+        {/* Impact Ribbon */}
+        <motion.div 
+          className="impact-ribbon d-flex flex-wrap gap-4 justify-content-start mt-4 mb-5"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          style={{ 
+            background: 'rgba(16,18,24,0.92)', 
+            border: '1px solid rgba(0,212,255,0.35)', 
+            padding: '1rem 1.5rem', 
+            borderRadius: '12px' 
+          }}
+        >
+          {[
+            { value: '$3.4M', label: 'Warranty Cost Reduced' },
+            { value: '12', label: 'Innovation Disclosures' },
+            { value: '700+', label: 'Requirements Authored' },
+            { value: '3', label: 'Global OEM Programs' }
+          ].map((stat, i) => (
+            <div key={i} className="text-center">
+              <div style={{ 
+                fontSize: '1.45rem', 
+                fontWeight: 700, 
+                lineHeight: 1, 
+                color: '#00D4FF' 
+              }}>{stat.value}</div>
+              <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 500 }}>{stat.label}</div>
+            </div>
+          ))}
+        </motion.div>
+        
+        <motion.div
+          className="hero-cta-group"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
+          <Link to="/projects" className="btn-hero-primary">Explore My Work</Link>
+          <a 
+            href={`${import.meta.env.BASE_URL}assets/Curriculum Vitae_Id2026.pdf`} 
+            className="btn-rimac px-4 py-3 fw-bold" 
+            download
+          >
+            <i className="bi bi-file-earmark-pdf me-2"></i>Download CV
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Glitch Marquee with Pause on Hover */}
+      <div className="col-12 mt-5">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}
+        >
+          <div 
+            className="glitch-marquee"
+            style={{
+              display: 'inline-flex',
+              gap: '2.8rem',
+              animation: 'marquee 25s linear infinite',
+              padding: '0.75rem 0'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
+            onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
+          >
+            {skills.concat(skills).map((skill, i) => (
+              <span key={i}>{skill}</span>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ProgressIndicator />
       <div className="container"><div className="section-rule"></div></div>
 
       {/* CORE PILLARS - FIXED DARK MODE */}
-      <section id="skills" className="py-5 spotlight-section">
         <div className="container">
           <div className="text-center mb-5">
+            <br></br>
+            <br></br>
+            <br></br>
             <span className="section-eyebrow">Technical Mastery</span>
             <h2 style={{ 
               fontFamily: 'Lora, serif', 
@@ -223,7 +378,6 @@ export default function Home() {
           </div>
           <SkillStack />
         </div>
-      </section>
 
       <div className="container"><div className="section-rule"></div></div>
 
@@ -235,8 +389,8 @@ export default function Home() {
             <h2 style={{ fontFamily: 'Lora, serif', fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 500, lineHeight: 1.2, marginBottom: '1.5rem' }}>
               The engineer.<br />The <em style={{ fontStyle: 'italic', color: '#6c8ec4' }}>human</em> behind it.
             </h2>
-            <p>I am Angel Vargas — born in Guerrero, raised across five Mexican cities, trained at IPN, and shaped by every place I've worked and every team I've led. I specialize in automotive diagnostics and systems integration, with experience at Ford Motor Company and BMW Group across global vehicle programs.</p>
-            <p>My work connects the technical depth of ECU architecture and requirements governance with the human side of engineering: mentoring, cross-functional leadership, and the belief that what we build should be felt, not just measured.</p>
+            <p>I am Angel Vargas — born in Guerrero, raised across five Mexican cities, trained at IPN, and shaped by every place I've worked and every team I've led. I specialize in <span className="rimac-accent">automotive diagnostics and systems integration</span>, with experience at Ford Motor Company and BMW Group across global vehicle programs.</p>
+<p>My work connects the technical depth of <span className="rimac-accent">ECU architecture and requirements governance</span> with the human side of engineering: mentoring, cross-functional leadership, and the belief that what we build should be <span className="rimac-accent">felt, not just measured</span>.</p>
             <Link to="/about" className="btn-read-more mt-3 d-inline-block">The Full Story</Link>
           </motion.div>
           <motion.div className="col-md-5" {...fadeUp(0.15)}>
@@ -273,8 +427,8 @@ export default function Home() {
             <div className="summary-copy">
               <p className="text-uppercase text-muted mb-3" style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.72rem', fontWeight: 700, letterSpacing: 4 }}>Professional Overview</p>
               <h2>"Systems thinking meets diagnostics design."</h2>
-              <p className="mb-3">I build automotive diagnostics experiences with a clear focus on resilience, traceability, and measurable system outcomes.</p>
-              <p className="mb-4">This portfolio is a curated snapshot of technical leadership, collaborative program delivery, and the practical engineering mindset that turns requirements into robust, testable solutions.</p>
+              <p className="mb-3">I build <span className="rimac-accent">automotive diagnostics experiences</span> with a clear focus on resilience, traceability, and measurable system outcomes.</p>
+<p className="mb-4">This portfolio is a curated snapshot of <span className="rimac-accent">technical leadership</span>, collaborative program delivery, and the practical engineering mindset that turns requirements into robust, testable solutions.</p>
               <Link to="/about" className="btn-read-more">Read More</Link>
             </div>
           </motion.div>
@@ -342,10 +496,9 @@ export default function Home() {
 
       <div className="container"><div className="section-rule"></div></div>
 
-      <section className="spotlight-section" style={{ padding: '5rem 0' }}>
         <div className="container">
-          <h3 style={{ textAlign: 'center', marginBottom: '3rem', color: '#3B82F6', fontFamily: 'Lora, serif' }}>
-            Certifications and Continuous Learning
+          <h3 style={{ textAlign: 'center', marginBottom: '3rem', color: '#00D4FF', fontFamily: 'Orbitron, sans-serif', letterSpacing: '4px' }}>
+            CERTIFICATIONS &amp; CONTINUOUS LEARNING
           </h3>
           <div className="row g-4 justify-content-center" style={{ maxWidth: '1100px', margin: '0 auto' }}>
             {[
@@ -360,13 +513,13 @@ export default function Home() {
               <div key={i} className="col-md-6 col-lg-4">
                 <div style={{
                   background: '#161B22',
-                  border: '1px solid rgba(59,130,246,0.35)',
+                  border: '1px solid rgba(0,212,255,0.35)',
                   borderRadius: '16px',
                   padding: '1.75rem',
                   height: '100%',
                   transition: 'all 0.3s ease',
                 }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = '#3B82F6'}
+                onMouseEnter={e => e.currentTarget.style.borderColor = '#00D4FF'}
                 onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(59,130,246,0.35)'}
                 >
                   <div style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>{cert.icon}</div>
@@ -379,7 +532,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+
 
         <p className="text-center mt-5 text-muted">
           Currently based in México • Open to relocation for Global Senior Roles & MSc opportunities

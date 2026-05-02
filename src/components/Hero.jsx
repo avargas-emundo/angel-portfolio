@@ -2,7 +2,12 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 export default function Hero() {
-  const skills = ['Diagnostics Design', 'Systems Integration', 'Requirements Engineering', 'ECU Architecture', 'NVH Analysis', 'DFMEA', 'Traceability', 'Global Launch', 'Mentorship', 'Six Sigma']
+  const skills = [
+  'Diagnostics Design', 'ECU Architecture', 'Requirements Engineering',
+  'DFMEA', 'Systems Integration', 'UDS / ISO 14229', 'Traceability',
+  'NVH Analysis', 'Global Launch', 'Six Sigma', 'Calibration Design',
+  'Cross-functional Leadership'
+]
 
   return (
     <section 

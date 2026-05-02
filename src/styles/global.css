@@ -8,10 +8,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap');
 /* Add to global.css imports */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 /* Use only for impact numbers */
 .impact-number { font-family: 'Bebas Neue', sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 .hero-cta-group {
     display: flex;
@@ -564,4 +565,280 @@ body.dark-mode .glass-showcase-card,
 body.dark-mode .value-card,
 body.dark-mode .timeline-content.card {
     background: #161B22 !important;
+}
+
+/* ====================== McLaren Papaya Orange Theme ====================== */
+:root {
+  --papaya: #FF4D00;
+  --papaya-soft: #FF6A33;
+  --slate: #1C2526;
+  --cream: #F5EDE1;
+}
+
+body.dark-mode {
+  --papaya: #FF4D00;
+  --papaya-soft: #FF7A4D;
+}
+
+/* Orange headers and accents */
+.about-orange-header {
+  color: var(--papaya) !important;
+}
+
+.btn-papaya {
+  background: var(--papaya) !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-papaya:hover {
+  background: var(--papaya-soft) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 77, 0, 0.45);
+}
+
+/* Life in Motion gradient line */
+.life-in-motion-line {
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--papaya) 0%, 
+    #FF9A66 45%, 
+    #ffffff 75%, 
+    rgba(255,255,255,0.2) 100%);
+  border-radius: 9999px;
+}
+
+/* Baking Easter Egg */
+.baking-easter-egg {
+  position: fixed;
+  bottom: 90px;
+  right: 2rem;
+  font-size: 2rem;
+  opacity: 0.22;
+  transition: all 0.4s ease;
+  z-index: 100;
+  cursor: help;
+}
+
+.baking-easter-egg:hover {
+  opacity: 0.9;
+  transform: scale(1.2) rotate(12deg);
+}
+
+/* ====================== Aston Martin Racing Green Theme ====================== */
+:root {
+  --amr-green: #0A2F1F;           /* Deep Aston Martin Racing Green */
+  --amr-accent: #A8E6A1;          /* Elegant lime green (AMR stripe) */
+  --amr-soft: #4A7A5F;
+  --amr-text: #F0F5F0;
+  --amr-muted: #A3B5A3;
+}
+
+.aston-projects-page {
+  background: var(--amr-green) !important;
+  color: var(--amr-text) !important;
+}
+
+/* Elegant accent for headers */
+.amr-header {
+  color: var(--amr-accent) !important;
+}
+
+/* Refined cards */
+.aston-card {
+  background: rgba(15, 45, 30, 0.85) !important;
+  border: 1px solid rgba(168, 230, 161, 0.25) !important;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+.aston-card:hover {
+  border-color: var(--amr-accent) !important;
+  box-shadow: 0 20px 45px -10px rgba(168, 230, 161, 0.15),
+              0 0 0 1px rgba(168, 230, 161, 0.3) !important;
+  transform: translateY(-4px);
+}
+
+/* Subtle lime top accent on hover */
+.aston-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--amr-accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.aston-card:hover::before {
+  opacity: 1;
+}
+
+/* Refined buttons */
+.btn-amr {
+  background: transparent !important;
+  color: var(--amr-text) !important;
+  border: 1px solid var(--amr-accent) !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease !important;
+}
+
+.btn-amr:hover {
+  background: var(--amr-accent) !important;
+  color: #0A2F1F !important;
+  box-shadow: 0 0 20px rgba(168, 230, 161, 0.4) !important;
+}
+
+/* Download Resume - Aston Martin style */
+.amr-resume-btn {
+  background: #0A2F1F !important;
+  color: var(--amr-accent) !important;
+  border: 1px solid var(--amr-accent) !important;
+  box-shadow: 0 0 15px rgba(168, 230, 161, 0.25) !important;
+}
+
+.amr-resume-btn:hover {
+  background: var(--amr-accent) !important;
+  color: #0A2F1F !important;
+  box-shadow: 0 0 25px rgba(168, 230, 161, 0.6) !important;
+}
+
+/* ====================== Bugatti/Rimac Hypercar Theme (Home) ====================== */
+:root {
+  --rimac-blue: #00D4FF;
+  --rimac-red: #FF2D55;
+  --rimac-dark: #0A0C10;
+}
+
+.rimac-hero {
+  background: var(--rimac-dark) !important;
+}
+
+.rimac-title {
+  color: var(--rimac-blue) !important;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.btn-rimac {
+  background: var(--rimac-red) !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(255, 45, 85, 0.4);
+}
+
+.btn-rimac:hover {
+  background: #ff5e7a !important;
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(255, 45, 85, 0.6);
+}
+
+/* Glitch Marquee */
+.glitch-marquee {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 1.05rem;
+  letter-spacing: 3px;
+  color: #ffffff;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.glitch-marquee:hover {
+  color: var(--rimac-blue);
+  animation: glitch 0.4s linear infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* ====================== Site-wide Hypercar Typography (Orbitron) ====================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&display=swap');
+
+h1, h2, .hero-name, .rimac-title {
+  font-family: 'Orbitron', 'Michroma', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+}
+
+h1 { letter-spacing: 4px !important; }
+h2 { letter-spacing: 2.5px !important; }
+
+/* Zero-to-Sixty Button Responsiveness */
+.btn-hero-primary,
+.btn-rimac,
+.btn-amr,
+.btn-papaya,
+.btn-read-more {
+  transition: all 0.1s cubic-bezier(0.23, 1, 0.32, 1) !important; /* Instant reaction */
+}
+
+.btn-hero-primary:hover,
+.btn-rimac:hover,
+.btn-amr:hover,
+.btn-papaya:hover {
+  transform: translateY(-3px) scale(1.02);
+  letter-spacing: 2px;
+}
+
+/* Extra punch on primary CTAs */
+.btn-rimac {
+  box-shadow: 0 0 25px rgba(255, 45, 85, 0.5) !important;
+}
+
+.btn-rimac:hover {
+  box-shadow: 0 0 40px rgba(255, 45, 85, 0.7) !important;
+}
+
+/* Rimac Electric Progress & Dock Polish */
+.scroll-progress-fill {
+  background: linear-gradient(180deg, #00D4FF, #3B82F6) !important;
+}
+
+.progress-dot.active {
+  background: #00D4FF !important;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.6) !important;
+  border-color: #00D4FF !important;
+}
+
+.dock-link {
+  color: #94a3b8;
+  transition: all 0.15s ease !important;
+}
+
+.dock-link:hover, .dock-link.active {
+  color: #00D4FF !important;
+  transform: scale(1.15);
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+}
+/* Rimac Dock Polish */
+.floating-dock {
+  border: 1px solid rgba(0, 212, 255, 0.35) !important;
+}
+
+.dock-link {
+  transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1) !important;
+  color: #94a3b8;
+}
+
+.dock-link:hover,
+.dock-link.active {
+  color: #00D4FF !important;
+  transform: scale(1.18);
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
 }

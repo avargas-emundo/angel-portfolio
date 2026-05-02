@@ -16,9 +16,9 @@ const cases = [
     num: '01',
     id: 'power-running-boards',
     eyebrow: 'Ford Motor Company · 2021–2025',
-    title: 'Power Running Boards',
+    title: <>Feature Ownership <span style={{color:'#C6D840',fontWeight:600}}>Design to Validation</span></>,
     subtitle: 'Feature Systems Engineer — Full Ownership',
-    lead: 'Took full ownership of a feature at the start of its systems engineering journey. Delivered a complete design to the 2025 Navigator & Expedition global launch — including the first-ever calibration framework for the feature.',
+    lead: <>Took <span style={{color:'#C6D840',fontWeight:600}}>full ownership</span> of a feature at the start of its systems engineering journey. Delivered a complete design to the 2025 Navigator & Expedition global launch — including the <span style={{color:'#C6D840',fontWeight:600}}>first-ever calibration framework</span> for the feature.</>,
     img: `${import.meta.env.BASE_URL}images/Expedition-Wall.jpg`,
     imgCaption: '2025 Lincoln Navigator / Ford Expedition — Global Launch Program',
     tags: ['Requirements Engineering','Calibration Design','NVH Analysis','Thermal Testing','DFMEA','Supplier Integration'],
@@ -46,10 +46,11 @@ const cases = [
   },
   {
     num: '02',
+    id: 'e2e-ecu-diagnostics',
     eyebrow: 'Ford Motor Company · July 2025–Present',
-    title: 'E2E ECU\nDiagnostics\nRobustness',
+    title: <>E2E ECU  <span style={{color:'#C6D840',fontWeight:600}}>Diagnostics Robustness</span></>,
     subtitle: 'Diagnostics Design Engineer — Standard Creation',
-    lead: 'Built a diagnostic reasoning framework from first principles — not to prevent failures, but to ensure every failure mode can be detected, flagged, and resolved with precision. Now the operating standard for a newly established team.',
+    lead: <>Built a diagnostic reasoning framework <span style={{color:'#C6D840',fontWeight:600}}>from first principles</span> — not to prevent failures, but to ensure every failure mode can be detected, flagged, and resolved with precision. Now the <span style={{color:'#C6D840',fontWeight:600}}>operating standard</span> for a newly established team.</>,
     img: `${import.meta.env.BASE_URL}images/BMW2021.jpg`,
     imgCaption: 'E2E Diagnostics Robustness — Active Program',
     tags: ['Diagnostics Architecture','Gap Analysis','DFMEA Integration','DTC Methodology','Requirements Engineering','Noisy DTC Investigation'],
@@ -75,10 +76,11 @@ const cases = [
   },
   {
     num: '03',
+    id: 'bmw-quality-system',
     eyebrow: 'BMW Group · July 2020–June 2021',
-    title: 'Quality\nManagement\nSystem',
+    title: <>Quality <span style={{color:'#C6D840',fontWeight:600}}>Management System</span></>,
     subtitle: 'Quality Management Engineer — Plant San Luis Potosí',
-    lead: 'Deployed a digital quality management infrastructure at a global BMW manufacturing plant — transforming manual processes into a connected Power BI/Power Apps ecosystem while achieving zero-finding ISO 9001 compliance.',
+    lead: <>Deployed a <span style={{color:'#C6D840',fontWeight:600}}>digital quality management infrastructure</span> at a global BMW manufacturing plant — transforming manual processes into a connected Power BI/Power Apps ecosystem while achieving <span style={{color:'#C6D840',fontWeight:600}}>zero-finding</span> ISO 9001 compliance.</>,
     img: `${import.meta.env.BASE_URL}images/BMW3.jpg`,
     imgCaption: 'BMW Group — Plant San Luis Potosí, México',
     tags: ['Power BI','Power Apps','ISO 9001','IATF 16949','Change Management','Process Design'],
@@ -96,10 +98,9 @@ const cases = [
     ],
     quote: '"The hardest part wasn\'t the dashboards — it was the people. Getting 120 process leaders to own quality data, not just report it, required a different kind of engineering: organizational."'
   }
-]
+];
 
 const additionalAchievements = [
-  // Feature Systems Engineer - Ford (2021–2025)
   {
     role: "Feature Systems Engineer - Ford",
     icon: "bi-graph-up",
@@ -121,8 +122,6 @@ const additionalAchievements = [
     impact: "Successfully integrated into Systems Engineering & Validation",
     description: "Provided hands-on coaching in requirements engineering, validation methodology, and cross-functional collaboration."
   },
-
-  // Diagnostics Design Engineer - Ford (2025–Present)
   {
     role: "Diagnostics Design Engineer - Ford",
     icon: "bi-lightbulb",
@@ -144,8 +143,6 @@ const additionalAchievements = [
     impact: "Improving remote troubleshooting capability",
     description: "Designing next-gen methods for better field issue resolution and engineering diagnostics."
   },
-
-  // Quality Management Engineer - BMW (2020–2021)
   {
     role: "Quality Management Engineer - BMW",
     icon: "bi-bar-chart",
@@ -166,33 +163,51 @@ export default function Projects() {
   return (
     <main style={{ 
       minHeight: '100vh', 
-      background: 'var(--bg-page)', 
-      color: 'var(--text-main)' 
+      color: '#e6edf3' 
     }}>
       <div className="container">
-        <header style={{ padding: '6rem 0 4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        <header style={{ padding: '6rem 0 4rem', borderBottom: '1px solid rgba(28,72,46,0.30)' }}>
           <motion.p 
             initial={{ y: 20, opacity: 0 }} 
             animate={{ y: 0, opacity: 1 }} 
             transition={{ duration: 0.5 }}
-            style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase', color: '#3B82F6', marginBottom: '1rem' }}
+            style={{ 
+              fontFamily: 'Barlow Condensed,sans-serif', 
+              fontSize: '0.82rem', 
+              fontWeight: 700, 
+              letterSpacing: 4, 
+              textTransform: 'uppercase', 
+              color: '#C6D840', 
+              marginBottom: '1rem' 
+            }}
           >
             Engineering Case Studies
           </motion.p>
+          
           <motion.h1 
             initial={{ y: 50, opacity: 0 }} 
             animate={{ y: 0, opacity: 1 }} 
             transition={{ duration: 0.9, delay: 0.1 }}
-            style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: 'clamp(3rem,8vw,6rem)', fontWeight: 900, lineHeight: 0.95, color: '#ffffff', textTransform: 'uppercase', letterSpacing: -1 }}
+            style={{ 
+              fontFamily: 'Michroma, sans-serif', 
+              fontSize: 'clamp(2.8rem, 7vw, 5.2rem)', 
+              fontWeight: 400, 
+              lineHeight: 1.05, 
+              color: '#EAE8E2', 
+              textTransform: 'uppercase', 
+              letterSpacing: 2 
+            }}
           >
-            The <em style={{ fontStyle: 'italic', fontWeight: 300, color: '#3B82F6' }}>Work</em><br />Speaks.
+            The <span style={{ color: '#C6D840' }}>Work</span><br />Speaks.
           </motion.h1>
         </header>
 
-        {/* Radar Chart Section */}
-        <section style={{ margin: '4rem 0', padding: '2rem', background: 'rgba(59,130,246,0.05)', borderRadius: '24px' }}>
-          <h3 style={{ textAlign: 'center', marginBottom: '2rem', color: '#3B82F6' }}>Technical Proficiency (Self‑Assessment)</h3>
-          <ResponsiveContainer width="100%" height={350}>
+        {/* Radar Chart */}
+        <section style={{ margin: '4rem 0', padding: '3rem', background: 'rgba(14,16,15,0.80)', borderRadius: '20px', border: '1px solid rgba(28,72,46,0.30)' }}>
+          <h3 style={{ textAlign: 'center', marginBottom: '2rem', color: '#C6D840', fontFamily: 'Michroma, sans-serif', letterSpacing: 3, textTransform: 'uppercase' }}>
+            Technical Proficiency
+          </h3>
+          <ResponsiveContainer width="100%" height={360}>
             <RadarChart data={[
               { skill: 'Requirements Engineering', value: 95 },
               { skill: 'Diagnostics Design', value: 92 },
@@ -201,15 +216,15 @@ export default function Projects() {
               { skill: 'Mentorship & Coaching', value: 90 },
               { skill: 'Problem Solving', value: 96 }
             ]}>
-              <PolarGrid />
-              <PolarAngleAxis dataKey="skill" tick={{ fontSize: 10 }} />
-              <PolarRadiusAxis domain={[0, 100]} />
-              <Radar dataKey="value" stroke="#3B82F6" fill="#3B82F6" fillOpacity={0.4} />
+              <PolarGrid stroke="rgba(28,72,46,0.30)" />
+              <PolarAngleAxis dataKey="skill" tick={{ fontSize: 11, fill: '#A3B5A3' }} />
+              <PolarRadiusAxis domain={[0, 100]} tick={{ fill: '#6B8A75' }} />
+              <Radar dataKey="value" stroke="#C6D840" fill="#C6D840" fillOpacity={0.08} />
             </RadarChart>
           </ResponsiveContainer>
         </section>
 
-        {/* Case Studies with Deep Dive Links */}
+        {/* Case Studies */}
         {cases.map((cs) => (
           <CaseStudy key={cs.num} cs={cs} />
         ))}
@@ -219,11 +234,10 @@ export default function Projects() {
 }
 
 function CaseStudy({ cs }) {
-  const [activeTab, setActiveTab] = useState(0)
-  const [modalAchievement, setModalAchievement] = useState(null)
-  const s = { color: '#8892a4', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }
+  const [activeTab, setActiveTab] = useState(0);
+  const [modalAchievement, setModalAchievement] = useState(null);
+  const s = { color: '#C5D5C5', fontSize: '0.95rem', lineHeight: 1.75, margin: 0 };
 
-  // Better role matching
   const getRoleKey = (eyebrow) => {
     if (eyebrow.includes("2021–2025") || eyebrow.includes("Feature Systems")) return "Feature Systems Engineer - Ford";
     if (eyebrow.includes("2025–Present") || eyebrow.includes("Diagnostics Design")) return "Diagnostics Design Engineer - Ford";
@@ -231,221 +245,232 @@ function CaseStudy({ cs }) {
     return "";
   };
 
-  const roleHighlights = additionalAchievements.filter(
-    ach => ach.role === getRoleKey(cs.eyebrow)
-  );
+  const roleHighlights = additionalAchievements.filter(ach => ach.role === getRoleKey(cs.eyebrow));
 
-  return (
+return (
     <section style={{ padding: '6rem 0', borderBottom: '1px solid rgba(255,255,255,0.05)', position: 'relative' }}>
-      <span style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '8rem', fontWeight: 900, color: 'rgba(255,255,255,0.04)', lineHeight: 1, position: 'absolute', top: '4rem', right: 0, userSelect: 'none', letterSpacing: -4 }}>{cs.num}</span>
+      <span style={{ 
+        fontFamily: 'Barlow Condensed,sans-serif', 
+        fontSize: '8rem', 
+        fontWeight: 900, 
+        color: 'rgba(28,72,46,0.12)', 
+        position: 'absolute', 
+        top: '3rem', 
+        right: '2rem', 
+        userSelect: 'none' 
+      }}>{cs.num}</span>
 
       <div className="row gy-5">
         <motion.div className="col-lg-5" {...fadeUp()}>
-          <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#6c8ec4', marginBottom: '0.75rem' }}>{cs.eyebrow}</p>
-          <h2 style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: 'clamp(2rem,5vw,3.5rem)', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff', lineHeight: 1, letterSpacing: -0.5, whiteSpace: 'pre-line' }}>{cs.title}</h2>
-          <p style={{ fontSize: '1rem', color: '#6c8ec4', fontWeight: 600, margin: '0.5rem 0 1.5rem' }}>{cs.subtitle}</p>
-          <p style={{ fontSize: '1.05rem', color: '#8892a4', lineHeight: 1.75, maxWidth: 540 }}>{cs.lead}</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '2rem' }}>
+          <p style={{ fontFamily: 'Michroma, monospace', fontSize: '0.70rem', fontWeight: 400, letterSpacing: 3, textTransform: 'uppercase', color: '#4A7A5C', marginBottom: '0.75rem' }}>
+            {cs.eyebrow}
+          </p>
+          <h2 style={{ 
+            fontFamily: 'Michroma, sans-serif', 
+            fontSize: 'clamp(1.8rem,4.5vw,3rem)', 
+            fontWeight: 400, 
+            textTransform: 'uppercase', 
+            color: '#EAE8E2', 
+            lineHeight: 1.15, 
+            letterSpacing: 1.5 
+          }}>{cs.title}</h2>
+          
+          <p style={{ fontSize: '0.78rem', color: '#4A7A5C', fontWeight: 700, margin: '0.5rem 0 1.8rem', fontFamily: 'Michroma, monospace', letterSpacing: '2px', textTransform: 'uppercase' }}>{cs.subtitle}</p>
+          <p style={{ fontSize: '1.08rem', color: '#A8B8B0', lineHeight: 1.80, maxWidth: 540 }}>{cs.lead}</p>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '2.2rem' }}>
             {cs.tags.map(t => (
-              <span key={t} style={{ padding: '0.35rem 0.85rem', border: '1px solid rgba(108,142,196,0.25)', borderRadius: 4, fontSize: '0.72rem', fontWeight: 700, letterSpacing: 0.5, textTransform: 'uppercase', color: '#6c8ec4', background: 'rgba(108,142,196,0.05)' }}>{t}</span>
+              <span key={t} style={{ 
+                padding: '0.4rem 0.95rem', 
+                border: '1px solid rgba(28,72,46,0.55)', 
+                borderRadius: 6, 
+                fontSize: '0.74rem', 
+                fontWeight: 600, 
+                letterSpacing: 0.6, 
+                textTransform: 'uppercase', 
+                color: '#C6D840', 
+                background: 'rgba(28,72,46,0.25)' 
+              }}>{t}</span>
             ))}
           </div>
         </motion.div>
+
         <motion.div className="col-lg-7" {...fadeUp(0.15)}>
-          <img src={cs.img} alt={cs.title} style={{ width: '100%', height: 300, objectFit: 'cover', borderRadius: 12, filter: 'grayscale(20%) contrast(1.05)', transition: 'filter 0.4s ease', display: 'block' }}
-            onMouseEnter={e => e.target.style.filter = 'grayscale(0%) contrast(1.1)'}
-            onMouseLeave={e => e.target.style.filter = 'grayscale(20%) contrast(1.05)'} />
-          <p style={{ fontSize: '0.7rem', color: '#3a4455', textTransform: 'uppercase', letterSpacing: 1, marginTop: '0.75rem' }}>{cs.imgCaption}</p>
-            <Link 
+          <img 
+            src={cs.img} 
+            alt={cs.title} 
+            style={{ 
+              width: '100%', 
+              height: 320, 
+              objectFit: 'cover', 
+              borderRadius: 16,
+              boxShadow: '0 15px 35px rgba(0,0,0,0.5)'
+            }} 
+          />
+          <p style={{ fontSize: '0.72rem', color: '#8A9E8A', textTransform: 'uppercase', letterSpacing: 1, marginTop: '1rem' }}>
+            {cs.imgCaption}
+          </p>
+          <Link 
             to={`/projects/${cs.id}`} 
-            className="btn-hero-primary mt-4 d-inline-flex align-items-center gap-2"
+            className="btn-amr mt-4 d-inline-flex align-items-center gap-2 px-5 py-3"
           >
             Read Full Deep Dive →
           </Link>
         </motion.div>
       </div>
 
-      {/* KPI STRIP, STORY GRID, TAXONOMY, CALIBRATION, QUOTE — unchanged */}
-      {/* ANIMATED KPI STRIP */}
-      <motion.div {...fadeUp(0.1)} style={{ display: 'flex', flexWrap: 'wrap', gap: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, overflow: 'hidden', margin: '2.5rem 0' }}>
+      {/* KPI Strip - Elegant Green */}
+      <motion.div {...fadeUp(0.1)} style={{ display: 'flex', flexWrap: 'wrap', gap: 1, borderRadius: 12, overflow: 'hidden', margin: '2.5rem 0', background: '#0E100F', border: '1px solid rgba(28,72,46,0.40)' }}>
         {cs.kpis.map((k, i) => (
-          <div key={i} style={{ flex: 1, minWidth: 100, padding: '1.5rem 1.25rem', background: '#var(--bg-page)', textAlign: 'center', transition: 'background 0.2s ease', cursor: 'default' }}
-            onMouseEnter={e => e.currentTarget.style.background = 'rgba(108,142,196,0.08)'}
-            onMouseLeave={e => e.currentTarget.style.background = '#var(--bg-page)'}>
-            <span style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '2.2rem', fontWeight: 900, color: '#6c8ec4', lineHeight: 1, display: 'block' }}>
+          <div key={i} style={{ flex: 1, minWidth: 100, padding: '1.5rem 1.25rem', background: '#0E100F', textAlign: 'center', transition: 'background 0.2s ease', cursor: 'default' }}
+            onMouseEnter={e => e.currentTarget.style.background = 'rgba(15,46,28,0.35)'}
+            onMouseLeave={e => e.currentTarget.style.background = '#0E100F'}>
+            <span style={{ fontFamily: 'Michroma, monospace', fontSize: '2rem', fontWeight: 400, color: '#C6D840', lineHeight: 1, display: 'block', textShadow: '0 0 6px rgba(198,216,64,0.18)' }}>
               <AnimatedCounter end={k.value} suffix={k.suffix || ''} />
             </span>
-            <span style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1, color: '#4a5568', marginTop: '0.4rem', display: 'block' }}>{k.label}</span>
+            <span style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1, color: '#A3CBA3', marginTop: '0.4rem', display: 'block' }}>{k.label}</span>
           </div>
         ))}
       </motion.div>
 
-      {/* STORY GRID */}
-      <motion.div {...fadeUp(0.1)} style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, overflow: 'hidden', marginBottom: '2.5rem' }}>
+      {/* Story Grid */}
+      <motion.div {...fadeUp(0.1)} style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(28,72,46,0.30)', borderRadius: 12, overflow: 'hidden', marginBottom: '2.5rem' }}>
         {cs.story.map((col, i) => (
-          <div key={i} style={{ padding: '2rem 1.75rem', background: '#var(--bg-page)' }}>
-            <div style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#4a5568', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ display: 'inline-block', width: 20, height: 1, background: '#6c8ec4' }}></span>{col.label}
+          <div key={i} style={{ padding: '2rem 1.75rem', background: '#0E100F' }}>
+            <div style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.7rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#4A7A5C', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ display: 'inline-block', width: 20, height: 1, background: '#C6D840' }}></span>{col.label}
             </div>
             <p style={s}>{col.text}</p>
           </div>
         ))}
       </motion.div>
 
-      {/* TAXONOMY, CALIBRATION, QUOTE — keep as is */}
+      {/* Taxonomy / Calibration */}
       {cs.taxonomy && (
         <motion.div {...fadeUp(0.1)}>
-          <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#4a5568', marginBottom: '1rem' }}>Original Diagnostic Reasoning Taxonomy</p>
+          <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#4A7A5C', marginBottom: '1rem' }}>Original Diagnostic Reasoning Taxonomy</p>
           <div className="d-flex gap-2 mb-3">
             {cs.taxonomy.map((t, i) => (
-              <button key={i} className={`btn ${activeTab === i ? 'btn-primary' : 'btn-outline-light'}`} onClick={() => setActiveTab(i)}>{t.tier}</button>
+              <button key={i} className={`btn ${activeTab === i ? 'btn-primary' : 'btn-outline-light'}`} style={activeTab === i ? { background: 'rgba(15,46,28,0.60)', color: '#C6D840', border: '1px solid rgba(44,110,68,0.85)', letterSpacing: '2px', fontSize: '0.78rem' } : { borderColor: 'rgba(44,90,62,0.50)', color: '#8A9490', background: 'transparent', letterSpacing: '2px', fontSize: '0.78rem' }} onClick={() => setActiveTab(i)}>{t.tier}</button>
             ))}
           </div>
-          <div style={{ padding: '2rem', background: '#var(--bg-page)', borderRadius: 12 }}>
-            <h4 className="fw-bold text-white">{cs.taxonomy[activeTab].title}</h4>
-            <p style={{ color: '#c8d0e0', lineHeight: 1.7 }}>{cs.taxonomy[activeTab].desc}</p>
+          <div style={{ padding: '2rem', background: '#0E100F', borderRadius: 12, border: '1px solid rgba(28,72,46,0.40)' }}>
+            <h4 className="fw-bold" style={{ color: '#C6D840' }}>{cs.taxonomy[activeTab].title}</h4>
+            <p style={{ color: '#C5D5C5', lineHeight: 1.7 }}>{cs.taxonomy[activeTab].desc}</p>
           </div>
         </motion.div>
       )}
 
       {cs.methods && (
-        <motion.div {...fadeUp(0.1)} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: '2rem', marginBottom: '2rem' }}>
-          <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#4a5568', marginBottom: '1.5rem' }}>Calibration Framework — Original Design</p>
+        <motion.div {...fadeUp(0.1)} style={{ background: '#0E100F', border: '1px solid rgba(28,72,46,0.40)', borderRadius: 12, padding: '2rem', marginBottom: '2rem' }}>
+          <p style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#4A7A5C', marginBottom: '1.5rem' }}>Calibration Framework — Original Design</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(160px,1fr))', gap: '1rem' }}>
             {cs.methods.map(m => (
               <div key={m.num}>
-                <span style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '2rem', fontWeight: 900, color: 'rgba(108,142,196,0.3)', lineHeight: 1, display: 'block' }}>{m.num}</span>
-                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#c8d0e0', textTransform: 'uppercase', letterSpacing: 0.5, display: 'block' }}>{m.title}</span>
-                <span style={{ fontSize: '0.8rem', color: '#586070', lineHeight: 1.5 }}>{m.desc}</span>
+                <span style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '2rem', fontWeight: 900, color: 'rgba(198,216,64,0.18)', lineHeight: 1, display: 'block' }}>{m.num}</span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#EAE8E2', textTransform: 'uppercase', letterSpacing: 0.5, display: 'block' }}>{m.title}</span>
+                <span style={{ fontSize: '0.8rem', color: '#A3B5A3', lineHeight: 1.5 }}>{m.desc}</span>
               </div>
             ))}
           </div>
         </motion.div>
       )}
 
-      <motion.blockquote {...fadeUp(0.1)} style={{ borderLeft: '3px solid #6c8ec4', padding: '1.25rem 1.75rem', margin: '2rem 0 0', background: 'rgba(108,142,196,0.04)', borderRadius: '0 8px 8px 0' }}>
-        <p style={{ fontStyle: 'italic', color: '#8892a4', lineHeight: 1.7, margin: 0 }}>{cs.quote}</p>
+      <motion.blockquote {...fadeUp(0.1)} style={{ borderLeft: '3px solid #C6D840', padding: '1.25rem 1.75rem', margin: '2rem 0 0', background: 'rgba(15,46,28,0.20)', borderRadius: '0 8px 8px 0' }}>
+        <p style={{ fontStyle: 'italic', color: '#C5D5C5', lineHeight: 1.7, margin: 0 }}>{cs.quote}</p>
       </motion.blockquote>
 
-      {/* MORE HIGHLIGHTS FROM THIS ROLE */}
+      {/* More Highlights */}
       {roleHighlights.length > 0 && (
-        <div style={{ marginTop: '4rem', paddingTop: '3rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-          <h4 style={{ color: '#6c8ec4', marginBottom: '1.5rem', textAlign: 'center' }}>
+        <div style={{ marginTop: '4rem', paddingTop: '3rem', borderTop: '1px solid rgba(44,110,68,0.15)' }}>
+          <h4 style={{ color: '#C6D840', marginBottom: '1.5rem', textAlign: 'center', fontFamily: 'Michroma, monospace', fontSize: '0.85rem', letterSpacing: 3, textTransform: 'uppercase' }}>
             More Highlights from this Role
           </h4>
-          
           <div className="row row-cols-1 row-cols-md-2 g-3">
             {roleHighlights.map((ach, i) => (
               <motion.div key={i} className="col" {...fadeUp(i * 0.1)}>
-                <div 
-                  className="glass-showcase-card p-4"
-                  style={{
-                    borderRadius: '14px',
-                    cursor: 'default',
-                    minHeight: 'auto',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.75rem',
-                  }}
-                >
-                  {/* Icon + Title row */}
+                <div className="glass-showcase-card p-4" style={{ borderRadius: '14px', background: '#0E100F', border: '1px solid rgba(28,72,46,0.45)', minHeight: 'auto', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                    <div style={{
-                      width: '44px', height: '44px', flexShrink: 0,
-                      borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.2)',
-                      fontSize: '1.3rem', color: '#3B82F6'
-                    }}>
+                    <div style={{ width: '44px', height: '44px', flexShrink: 0, borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(44,110,68,0.15)', border: '1px solid rgba(44,110,68,0.18)', fontSize: '1.3rem', color: '#C6D840' }}>
                       <i className={`bi ${ach.icon}`}></i>
                     </div>
                     <div style={{ flex: 1 }}>
-                      <h5 className="fw-bold mb-1" style={{ color: '#ffffff', fontSize: '1rem', lineHeight: 1.3 }}>{ach.title}</h5>
-                      <p className="mb-0" style={{ color: '#3B82F6', fontSize: '0.82rem', fontWeight: 600 }}>{ach.impact}</p>
+                      <h5 className="fw-bold mb-1" style={{ color: '#EAE8E2', fontSize: '1rem', lineHeight: 1.3 }}>{ach.title}</h5>
+                      <p className="mb-0" style={{ color: '#C6D840', fontSize: '0.82rem', fontWeight: 600 }}>{ach.impact}</p>
                     </div>
                   </div>
-
-                  {/* Divider */}
-                  <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-
-                  {/* Description */}
-                  <p style={{ color: '#8892a4', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>
-                    {ach.description}
-                  </p>
+                  <div style={{ height: '1px', background: 'rgba(255,255,255,0.04)' }} />
+                  <p style={{ color: '#A3B5A3', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{ach.description}</p>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
       )}
-        <section style={{ padding: '3rem 0', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
-          <h3 style={{ textAlign: 'center', marginBottom: '2rem', color: '#6c8ec4' }}>Tools & Technologies</h3>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', justifyContent: 'center' }}>
-            {[
-              'CANalyzer / CAPL', 'Diagnostic Engineering Tool', 'MagicDraw / JAMA',
-              'Power BI / Tableau', 'VS Code (Python, C++)', 'Minitab', 'Siemens TestLab',
-              'Jira (Atlassian)', 'Microsoft 365', 'AUTOSAR (básico)', 'Machine Learning (básico)'
-            ].map(tool => (
-              <span key={tool} style={{
-                background: 'rgba(108,142,196,0.1)',
-                border: '1px solid rgba(108,142,196,0.25)',
-                borderRadius: '40px',
-                padding: '0.4rem 1.2rem',
-                fontSize: '0.8rem',
-                fontWeight: 500,
-                color: '#6c8ec4'
-              }}>
-                {tool}
-              </span>
-            ))}
-          </div>
-        </section>
+      
+      <section style={{ padding: '3rem 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+        <h3 style={{ textAlign: 'center', marginBottom: '2rem', color: '#4A7A5C', fontFamily: 'Michroma, monospace', fontSize: '0.9rem', letterSpacing: 3, textTransform: 'uppercase' }}>Tools &amp; Technologies</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', justifyContent: 'center' }}>
+          {[
+            'CANalyzer / CAPL', 'Diagnostic Engineering Tool', 'MagicDraw / JAMA',
+            'Power BI / Tableau', 'VS Code (Python, C++)', 'Minitab', 'Siemens TestLab',
+            'Jira (Atlassian)', 'Microsoft 365', 'AUTOSAR (básico)', 'Machine Learning (básico)'
+          ].map(tool => (
+            <span key={tool} style={{ background: 'rgba(14,16,15,0.80)', border: '1px solid rgba(28,72,46,0.45)', borderRadius: '40px', padding: '0.4rem 1.2rem', fontSize: '0.78rem', fontWeight: 500, color: '#C6D840', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.5px' }}>
+              {tool}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Fixed buttons - refined green / lime */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className="scroll-to-top"
         style={{
           position: 'fixed',
           bottom: '2rem',
-          left: '2rem',          // changed from right to left
-          background: '#6c8ec4',
-          border: 'none',
+          left: '2rem',
+          background: '#0E100F',
+          border: '1px solid rgba(44,90,62,0.60)',
           borderRadius: '50%',
           width: '48px',
           height: '48px',
           fontSize: '1.5rem',
-          color: 'white',
+          color: '#8A9490',
           cursor: 'pointer',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-          zIndex: 99
+          boxShadow: '0 4px 12px rgba(0,0,0,0.4)',
+          zIndex: 99,
+          transition: 'all 0.3s ease'
         }}
+        onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#C6D840'; e.currentTarget.style.color = '#C6D840'; }}
+        onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(44,90,62,0.60)'; e.currentTarget.style.color = '#8A9490'; }}
       >
         ↑
       </button>
-      {/* Centered Floating Download Resume */}
-      <a 
+
+<a 
         href={`${import.meta.env.BASE_URL}assets/Curriculum Vitae_Id2026.pdf`} 
         download="Angel-Vargas-CV-2026.pdf"
+        className="amr-resume-btn"
         style={{
           position: 'fixed',
           bottom: '30px',
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 10006,
-          background: '#3B82F6',
-          color: 'white',
-          padding: '14px 28px',
+          padding: '14px 32px',
           borderRadius: '9999px',
-          fontSize: '1rem',
-          fontWeight: 600,
-          boxShadow: '0 12px 30px rgba(59, 130, 246, 0.5)',
+          fontSize: '1.02rem',
+          fontWeight: 700,
           display: 'flex',
           alignItems: 'center',
           gap: '10px',
-          textDecoration: 'none',
-          whiteSpace: 'nowrap'
+          textDecoration: 'none'
         }}
       >
         <i className="bi bi-download"></i> Download Resume
       </a>
     </section>
-  )
+  );
 }

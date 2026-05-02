@@ -168,12 +168,27 @@ body.dark-mode .glass-showcase-card:hover {
 
 /* ── Primary hero buttons glow ────────────────────────
 ────────────────────────────────────────────────────── */
+.btn-hero-primary {
+    transition: background 0.2s ease, transform 0.2s ease,
+                box-shadow 0.35s ease !important;
+}
+
 .btn-hero-primary:hover {
-    box-shadow: 0 0 20px rgba(108, 142, 196, 0.25), 0 4px 12px rgba(0,0,0,0.2) !important;
+    box-shadow:
+        0 0 0 1px rgba(59, 130, 246, 0.55),
+        0 0 18px rgba(59, 130, 246, 0.45),
+        0 0 38px rgba(59, 130, 246, 0.20),
+        0 6px 16px rgba(0, 0, 0, 0.25) !important;
+    transform: translateY(-2px) !important;
 }
 
 body.dark-mode .btn-hero-primary:hover {
-    box-shadow: 0 0 24px rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0,0,0,0.3) !important;
+    box-shadow:
+        0 0 0 1px rgba(59, 130, 246, 0.65),
+        0 0 22px rgba(59, 130, 246, 0.55),
+        0 0 48px rgba(59, 130, 246, 0.25),
+        0 6px 20px rgba(0, 0, 0, 0.4) !important;
+    transform: translateY(-2px) !important;
 }
 
 .btn-hero-secondary {
@@ -515,4 +530,158 @@ main > .container {
 main > .container > * {
   position: relative;
   z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════════════
+   GHOST PROJECTS — Aston Martin × Koenigsegg
+   The reference: AM Ghost, DB12, Vantage F1 Edition
+   ─────────────────────────────────────────────────────
+   Philosophy:
+     • Carbon Black is the canvas. Always.
+     • BRG lives only in the DEPTH of surfaces — never as fills
+     • AMR Lime (#C6D840) appears ONCE, like a racing stripe:
+       only on hover, only as a line/glow, never as a bg
+     • Scanline = light reflecting off deep lacquer, not a screen
+     • Michroma = instrument cluster, used only for titles/labels
+════════════════════════════════════════════════════════ */
+
+/* AM Ghost correct palette:
+   Carbon base:   #080808  #0C0C0C  #111111
+   Card surface:  #0E100F  (carbon with imperceptible warmth)
+   BRG depth:     #0F2E1C  used only in shadows/glows, never fills
+   Border resting:#1C3828  at 45% opacity — dark forest, not olive
+   AMR Lime:      #C6D840  used ONLY on hover, thin lines only
+   Text primary:  #EAE8E2  (warm paper white, like alcantara)
+   Text secondary:#8A9490  (cool slate)
+*/
+
+/* ── Page ── */
+.ghost-projects-page {
+  background: #080808 !important;
+  color: #EAE8E2 !important;
+}
+
+/* Section separators: near-invisible carbon lines */
+.ghost-projects-page section {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Blockquote: BRG rail, carbon interior */
+.ghost-projects-page blockquote {
+  border-left-color: #1C4A2E !important;
+  background: rgba(15, 46, 28, 0.25) !important;
+  color: #C8D0CC !important;
+}
+
+/* ── Michroma titles: warm white at rest, AMR lime glow on hover ── */
+/* The glow should feel like instrument cluster backlight, not neon */
+.ghost-neon-title {
+  color: #EAE8E2;
+  text-shadow: none;
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+.ghost-neon-title:hover {
+  color: #D4E055;
+  text-shadow:
+    0 0 25px rgba(198, 216, 64, 0.20),
+    0 0 60px rgba(198, 216, 64, 0.08);
+}
+
+/* ── Cards: carbon surface, BRG depth border ── */
+/* Think: carbon fibre interior trim with deep green stitching */
+.ghost-projects-page .glass-showcase-card {
+  background: #0E100F !important;
+  border: 1px solid rgba(28, 72, 46, 0.55) !important;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+  overflow: hidden;
+  position: relative;
+  transition:
+    border-color 0.55s ease,
+    box-shadow 0.55s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* Hover state:
+   The border lifts to a brighter forest green.
+   The AMR lime appears as a 1px top edge — the racing stripe.
+   Shadow deepens like looking into dark glass. */
+.ghost-projects-page .glass-showcase-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent          0%,
+    rgba(198,216,64,0)  20%,
+    rgba(198,216,64,0.75) 50%,
+    rgba(198,216,64,0)  80%,
+    transparent         100%
+  );
+  opacity: 0;
+  transition: opacity 0.55s ease;
+  z-index: 10;
+}
+
+.ghost-projects-page .glass-showcase-card:hover::before {
+  opacity: 1;
+}
+
+.ghost-projects-page .glass-showcase-card:hover {
+  border-color: rgba(44, 110, 68, 0.85) !important;
+  box-shadow:
+    0 0 0 1px rgba(44, 110, 68, 0.25),
+    0 12px 40px rgba(0, 0, 0, 0.70),
+    0 0 35px rgba(15, 46, 28, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* ── KPI strip: true carbon, green seam ── */
+.ghost-kpi-strip {
+  background: #0C0E0D !important;
+  border: 1px solid rgba(28, 72, 46, 0.40) !important;
+  border-radius: 12px;
+}
+
+/* KPI cell hover: surface picks up faint green warmth */
+.ghost-kpi-strip > div:hover {
+  background: rgba(15, 46, 28, 0.30) !important;
+}
+
+/* ── CTA button: ghost outline, barely there at rest ── */
+/* On hover: the racing stripe colour appears, precise and restrained */
+.ghost-projects-page .btn-hero-primary {
+  background: transparent !important;
+  color: #8A9490 !important;
+  border: 1px solid rgba(44, 90, 62, 0.60) !important;
+  box-shadow: none !important;
+  letter-spacing: 3px !important;
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+.ghost-projects-page .btn-hero-primary:hover {
+  background: rgba(15, 46, 28, 0.35) !important;
+  color: #C6D840 !important;
+  border-color: rgba(44, 110, 68, 0.90) !important;
+  box-shadow:
+    0 0 0 1px rgba(44, 110, 68, 0.20),
+    0 0 20px rgba(15, 46, 28, 0.40),
+    0 6px 24px rgba(0, 0, 0, 0.50) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── Tier buttons in taxonomy section ── */
+.ghost-projects-page .btn-outline-light {
+  border-color: rgba(44, 90, 62, 0.55) !important;
+  color: #8A9490 !important;
+  background: transparent !important;
+}
+.ghost-projects-page .btn-outline-light:hover {
+  border-color: rgba(44, 110, 68, 0.85) !important;
+  color: #C6D840 !important;
+  background: rgba(15, 46, 28, 0.25) !important;
 }
