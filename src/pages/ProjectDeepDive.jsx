@@ -181,6 +181,36 @@ export default function ProjectDeepDive() {
 
           {/* COLLABORATION & LEADERSHIP */}
           <section style={{ marginBottom: '4.5rem' }}>
+
+            {/* Contextual image for PRB — shows the vehicle platform */}
+            {project.id === 'power-running-boards' && (
+              <div style={{ marginBottom: '3rem' }}>
+                <img
+                  src={`${import.meta.env.BASE_URL}images/expedition-detail.jpg`}
+                  alt="Ford Expedition — Feature Platform"
+                  style={{
+                    width: '100%',
+                    height: '260px',
+                    objectFit: 'cover',
+                    objectPosition: 'center 40%',
+                    borderRadius: '16px',
+                    border: '1px solid rgba(28,72,46,0.40)',
+                    opacity: 0.88,
+                    display: 'block'
+                  }}
+                />
+                <p style={{
+                  fontSize: '0.68rem',
+                  color: '#4A7A5C',
+                  textTransform: 'uppercase',
+                  letterSpacing: '2px',
+                  marginTop: '0.6rem',
+                  fontFamily: 'Michroma, monospace'
+                }}>
+                  2025 Ford Expedition — Feature Platform
+                </p>
+              </div>
+            )}
             <h2 style={{ color: '#C6D840', fontFamily: 'Michroma, monospace', letterSpacing: '2px', fontSize: '0.85rem', textTransform: 'uppercase', marginBottom: '1.6rem' }}>
               Collaboration & Leadership
             </h2>

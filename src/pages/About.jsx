@@ -41,7 +41,7 @@ const values = [
 
 const passions = [
   { icon: 'bi-dribbble', title: 'Tennis — The Sport of My Life', text: 'Picked up a racket in Mérida around mid-elementary school and never truly put it down. At its peak, 2–4 hours a day, every day — the only sport I\'ve ever wanted to repeat. I\'ve tried football, basketball, volleyball, athletics, swimming. Tennis is the one I still watch on television even when I don\'t follow the season. I\'ve coached beginner and intermediate players at university.' },
-  { icon: 'bi-collection', title: 'Hot Wheels — A Serious Collection', text: 'Started as a child\'s obsession, became a lifelong archive. Each car chosen with intention — every piece a small, precise thing that held meaning before I had words for it. The most honest version of my origin story: I loved cars before I understood them.' },
+  { icon: 'bi-collection', title: 'Hot Wheels — A Collection', text: 'Started as a child\'s obsession, became a lifelong archive. Each car chosen with intention — every piece a small, precise thing that held meaning before I had words for it. The most honest version of my origin story: I loved cars before I understood them.' },
   { icon: 'bi-egg-fried', title: 'Baking — Canolis & Family Tradition', text: 'My father\'s family carries a tradition of bread-making. When Christmas trips to Ciudad Altamirano ended as my grandparents passed, we started our own family dinner at home. That first year, I made Canolis. I am a critic about bread, which means I hold my own work to the same standard.' },
   { icon: 'bi-airplane', title: 'Travel — A Lifelong Practice', text: 'I didn\'t choose to travel — I was raised doing it. Mexico end to end as a child. Europe before I was a teenager, made possible by my parents\' years of careful effort. Back to Europe two years ago. Multiple visits to the US and Canada for work and pleasure.' },
 ]
@@ -65,57 +65,94 @@ export default function About() {
         padding: '7rem 0 5rem', 
         borderBottom: '1px solid rgba(255,77,0,0.18)' 
       }}>
-        <motion.span 
-          initial={{ y: 20, opacity: 0 }} 
-          animate={{ y: 0, opacity: 1 }} 
-          transition={{ duration: 0.5 }}
-          style={{ 
-            fontFamily: 'Barlow Condensed,sans-serif', 
-            fontSize: '0.85rem', 
-            fontWeight: 700, 
-            letterSpacing: 4, 
-            textTransform: 'uppercase', 
-            color: 'var(--papaya)', 
-            marginBottom: '1.5rem', 
-            display: 'block' 
-          }}
-        >
-          The Human Behind the Engineer
-        </motion.span>
+        <div className="row align-items-center gy-5">
+          <div className="col-lg-7">
+            <motion.span 
+              initial={{ y: 20, opacity: 0 }} 
+              animate={{ y: 0, opacity: 1 }} 
+              transition={{ duration: 0.5 }}
+              style={{ 
+                fontFamily: 'Barlow Condensed,sans-serif', 
+                fontSize: '0.85rem', 
+                fontWeight: 700, 
+                letterSpacing: 4, 
+                textTransform: 'uppercase', 
+                color: 'var(--papaya)', 
+                marginBottom: '1.5rem', 
+                display: 'block' 
+              }}
+            >
+              The Human Behind the Engineer
+            </motion.span>
 
-        <motion.h1 
-          initial={{ y: 50, opacity: 0 }} 
-          animate={{ y: 0, opacity: 1 }} 
-          transition={{ duration: 0.9, delay: 0.1 }}
-          style={{ 
-            fontFamily: 'Lora,serif', 
-            fontSize: 'clamp(2.8rem,6.5vw,4.8rem)', 
-            fontWeight: 500, 
-            lineHeight: 1.05, 
-            marginBottom: '2rem',
-            color: '#e6edf3'
-          }}
-        >
-          I build systems that move.<br />
-          I lead teams that <span className="about-orange-header">deliver.</span>
-        </motion.h1>
+            <motion.h1 
+              initial={{ y: 50, opacity: 0 }} 
+              animate={{ y: 0, opacity: 1 }} 
+              transition={{ duration: 0.9, delay: 0.1 }}
+              style={{ 
+                fontFamily: 'Lora,serif', 
+                fontSize: 'clamp(1.8rem,4.5vw,3.8rem)', 
+                fontWeight: 500, 
+                lineHeight: 1.05, 
+                marginBottom: '2rem',
+                color: '#e6edf3'
+              }}
+            >
+              I build systems that move.<br />
+              I lead teams that <span className="about-orange-header">deliver.</span>
+            </motion.h1>
 
-        <motion.p 
-          initial={{ y: 20, opacity: 0 }} 
-          animate={{ y: 0, opacity: 1 }} 
-          transition={{ duration: 0.6, delay: 0.3 }}
-          style={{ 
-            fontSize: '1.22rem', 
-            lineHeight: 1.8, 
-            color: '#cbd5e1', 
-            maxWidth: 720 
-          }}
-        >
-          I am Angel Vargas — an Automotive Systems Engineer who has 
-          <strong style={{color: 'var(--papaya)'}}>spearheaded</strong> diagnostic robustness programs, 
-          <strong style={{color: 'var(--papaya)'}}>orchestrated</strong> global launches, and 
-          <strong style={{color: 'var(--papaya)'}}>standardized</strong> engineering processes across Ford and BMW.
-        </motion.p>
+            <motion.p 
+              initial={{ y: 20, opacity: 0 }} 
+              animate={{ y: 0, opacity: 1 }} 
+              transition={{ duration: 0.6, delay: 0.3 }}
+              style={{ 
+                fontSize: '1.22rem', 
+                lineHeight: 1.8, 
+                color: '#cbd5e1', 
+                maxWidth: 720 
+              }}
+            >
+              I am Angel Vargas — an Automotive Systems Engineer who has {' '}
+              <strong style={{color: 'var(--papaya)'}}>spearheaded</strong> diagnostic robustness programs, {' '}
+              <strong style={{color: 'var(--papaya)'}}>orchestrated</strong> global launches, and {' '}
+              <strong style={{color: 'var(--papaya)'}}>standardized</strong> engineering processes across Ford and BMW.
+            </motion.p>
+          </div>
+
+          {/* Profile photo column */}
+          <motion.div
+            className="col-lg-5 text-center"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}images/myself.jpg`}
+              alt="Angel Vargas"
+              style={{
+                width: '260px',
+                height: '260px',
+                objectFit: 'cover',
+                objectPosition: 'center top',
+                borderRadius: '50%',
+                border: '2px solid rgba(255,77,0,0.35)',
+                boxShadow: '0 0 40px rgba(255,77,0,0.12)',
+                display: 'block',
+                margin: '0 auto'
+              }}
+            />
+            <p style={{
+              marginTop: '1rem',
+              fontSize: '0.72rem',
+              color: '#6c8ec4',
+              fontFamily: 'JetBrains Mono, monospace',
+              letterSpacing: '1px'
+            }}>
+              Angel Vargas · Automotive Systems Engineer
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* Professional Intro / Summary */}
@@ -275,7 +312,7 @@ export default function About() {
               marginBottom: '1.5rem',
               color: '#e6edf3'
             }}>
-              Hot Wheels, a collection,<br />and an <em style={{ fontStyle: 'italic', color: 'var(--papaya)' }}>honest choice.</em>
+              The collection,<br />and my <em style={{ fontStyle: 'italic', color: 'var(--papaya)' }}>first approach.</em>
             </h2>
             <div style={{ fontSize: '1rem', lineHeight: 1.85, color: '#cbd5e1' }}>
               <p>I didn't have a childhood story of taking apart televisions or building machines in the garage. My story starts with a collection of Hot Wheels — die-cast cars lined up with the seriousness only a child can give small things...</p>
@@ -288,7 +325,7 @@ export default function About() {
             <div style={{ paddingLeft: '3rem', borderLeft: '1px solid rgba(255,77,0,0.2)' }}>
               {[
                 { num: '5', desc: 'Cities before university. Each one added a layer to how I listen, adapt, and connect.' },
-                { num: '1', desc: 'Brother. Somewhere in him lives the stubbornness and sensitivity I\'m still learning to carry well.' },
+                { num: '1', desc: 'The first step in my journey of understanding the world through the lens of design and engineering.' },
               ].map(s => (
                 <div key={s.num} style={{ marginBottom: '2.5rem' }}>
                   <span style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '3rem', fontWeight: 900, color: 'var(--papaya)', lineHeight: 1, display: 'block' }}>{s.num}</span>
@@ -489,6 +526,28 @@ export default function About() {
                 color: '#e6edf3'
               }}>{p.title}</h3>
               <p style={{ fontSize: '0.95rem', color: '#cbd5e1', lineHeight: 1.7, margin: 0 }}>{p.text}</p>
+
+              {/* Car show photos — only on the Hot Wheels / automotive passion entry */}
+              {p.icon === 'bi-collection' && (
+                <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.25rem', flexWrap: 'wrap' }}>
+                  {['carshow-1.jpg', 'carshow-2.jpg', 'carshow-3.jpg'].map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={`${import.meta.env.BASE_URL}images/${img}`}
+                      alt={`Car show Michigan 2023 — ${idx + 1}`}
+                      style={{
+                        width: '160px',
+                        height: '110px',
+                        objectFit: 'cover',
+                        borderRadius: '10px',
+                        opacity: 0.88,
+                        border: '1px solid rgba(108,142,196,0.15)',
+                        flexShrink: 0
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </motion.div>
         ))}

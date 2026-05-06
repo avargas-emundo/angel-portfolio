@@ -45,9 +45,9 @@ const showcaseCards = [
     img: `${import.meta.env.BASE_URL}images/26F150.jpg`,    category: 'Acoustic / Thermal Optimization',
     categoryColor: 'text-warning',
     title: 'Acoustic & Thermal Optimization',
-    kpi1: { value: 36, label: 'Noise Reduction', suffix: '%' },
+    kpi1: { value: 36, label: 'Noise Improvement', suffix: '%' },
     kpi2: { value: 2, label: 'Saved / Model Year', suffix: 'M' },
-    desc: 'Launched NVH lab testing protocol that cut Power Running Board noise 36% and eliminated ≈$2M in hardware cost per model year.',
+    desc: 'Launched NVH lab testing protocol that improved Power Running Board noise 36% and based on customer satisfaction analysis, eliminated ≈$2M in hardware cost per model year.',
     tags: ['NVH Analysis', 'Extreme Temp Testing', 'Feature Validation'],
     modalContent: (
       <div className="p-5">
@@ -55,7 +55,7 @@ const showcaseCards = [
         <p className="lead mb-4">Power Running Boards — from noisy prototype to premium silence.</p>
         <div className="row g-4 mb-5">
           <div className="col-md-6">
-            <div className="kpi-item"><span><AnimatedCounter end={36} suffix="%" /></span><label>Noise Reduction</label></div>
+            <div className="kpi-item"><span><AnimatedCounter end={36} suffix="%" /></span><label>Noise Improvement</label></div>
           </div>
           <div className="col-md-6">
             <div className="kpi-item"><span><AnimatedCounter end={2} suffix="M" /></span><label>Hardware Saved / Model Year</label></div>
@@ -118,9 +118,9 @@ const timelineEvents = [
     company: 'Ford Motor Company – GTBC Mx',
     summary: 'Led Power Running Boards, Onboard Scales & Smart Hitch, and Automatic Vehicle Shutdown from early concept to global launch — authoring ≈700 requirements and 400+ test cases.',
     bullets: [
-      'Launched NVH lab test cutting PRB noise 36% and saving ≈$2M per model year.',
-      'Cut PRB warranty spend ≈$1.4M (23MY baseline); zero open critical issues at launch.',
-      'Filed 12 innovation disclosures and mentored 6 engineers into the SE organization.'
+      'Launched NVH lab test cutting PRB noise 36% and performed cost reduction actions based on customer survey data, saving ≈$2M per model year.',
+      'Cut PRB warranty spend with customer experience improvements in HMI and Post-Selling services ≈$1.4M (23MY baseline); zero open critical issues at launch.',
+      'Filed 18 innovation disclosures,1 patent and mentored 6 engineers into the SE organization.'
     ]
   },
   {
@@ -158,7 +158,7 @@ function StatsGrid() {
 
   const stats = [
     { end: 700, prefix: '', suffix: '+', label: 'Requirements Authored' },
-    { end: 3.4, prefix: '≈$', suffix: 'M', label: 'Warranty Cost Reduced' },
+    { end: 3.4, prefix: '≈$', suffix: 'M', label: 'Cost Reduction Actions' },
     { end: 12, prefix: '', suffix: '', label: 'Innovation Disclosures' },
     { end: 3, prefix: '', suffix: '', label: 'Global OEM Programs' },
   ]
@@ -228,17 +228,7 @@ return (
     background: 'linear-gradient(135deg, rgba(10,12,16,0.85) 0%, rgba(26,31,46,0.92) 100%)',
   }} />
 
-  {/* Subtle performance grid overlay */}
-  <div style={{
-    position: 'absolute',
-    inset: 0,
-    backgroundImage: `
-      linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px)
-    `,
-    backgroundSize: '60px 60px',
-    pointerEvents: 'none'
-  }} />
+  {/* Grid overlay removed — background image speaks for itself */}
 
   <div className="container" style={{ position: 'relative', zIndex: 2 }}>
     <div className="row align-items-center gy-5">
@@ -250,7 +240,7 @@ return (
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          AUTOMOTIVE SYSTEMS ENGINEER
+          <p className="text-uppercase text-muted mb-3" style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.72rem', fontWeight: 700, letterSpacing: 4 }}>Automotive Systems &amp; Diagnostics Engineer</p>
         </motion.span>
 
         <motion.h1
@@ -259,12 +249,12 @@ return (
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.1 }}
           style={{ 
-            fontSize: 'clamp(3.2rem, 8vw, 6.2rem)', 
+            fontSize: 'clamp(1.2rem, 8vw, 3.2rem)', 
             lineHeight: 1.05,
             fontWeight: 600 
           }}
         >
-          ANGEL VARGAS
+          <em style={{ fontStyle: 'italic', color: '#f1f1f1' }}>Angel</em> <em style={{ fontStyle: 'italic', color: '#00D4FF' }}>Vargas</em>
           <br></br>
         </motion.h1>
 
@@ -281,7 +271,7 @@ return (
 
         {/* Impact Ribbon */}
         <motion.div 
-          className="impact-ribbon d-flex flex-wrap gap-4 justify-content-start mt-4 mb-5"
+          className="impact-ribbon d-flex gap-4 justify-content-start mt-4 mb-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
@@ -293,10 +283,10 @@ return (
           }}
         >
           {[
-            { value: '$3.4M', label: 'Warranty Cost Reduced' },
+            { value: '$3.4M', label: 'Cost Reduction Actions' },
             { value: '12', label: 'Innovation Disclosures' },
             { value: '700+', label: 'Requirements Authored' },
-            { value: '3', label: 'Global OEM Programs' }
+            { value: '3', label: 'Global OEM Experiences' }
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <div style={{ 
@@ -321,6 +311,7 @@ return (
             href={`${import.meta.env.BASE_URL}assets/Curriculum Vitae_Id2026.pdf`} 
             className="btn-rimac px-4 py-3 fw-bold" 
             download
+            style={{ borderRadius: '6px', display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
           >
             <i className="bi bi-file-earmark-pdf me-2"></i>Download CV
           </a>
@@ -332,7 +323,7 @@ return (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          transition={{ delay: 2.2 }}
           style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}
         >
           <div 
@@ -381,42 +372,72 @@ return (
 
       <div className="container"><div className="section-rule"></div></div>
 
-      {/* ABOUT PREVIEW */}
-      <section id="about" className="container">
-        <div className="row align-items-center gy-4">
-          <motion.div className="col-md-7" {...fadeUp()}>
-            <span className="section-eyebrow">About</span>
-            <h2 style={{ fontFamily: 'Lora, serif', fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 500, lineHeight: 1.2, marginBottom: '1.5rem' }}>
-              The engineer.<br />The <em style={{ fontStyle: 'italic', color: '#6c8ec4' }}>human</em> behind it.
+      <section id="about" className="container py-5">
+        <div className="row align-items-center justify-content-between gy-5">
+          
+          {/* LEFT COLUMN: NARRATIVE (SCALED DOWN) */}
+          <motion.div className="col-lg-6 col-md-6" {...fadeUp()}>
+            <p className="text-uppercase text-muted mb-3" style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.72rem', fontWeight: 700, letterSpacing: 4 }}>About</p>
+            <h2 style={{ 
+              fontFamily: 'Lora, serif', 
+              fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', /* Reduced from 2.8rem */
+              fontWeight: 500, 
+              lineHeight: 1.2, 
+              marginBottom: '1.2rem', 
+              color: '#e6edf3' 
+            }}>
+              The engineer and,<br />The <em style={{ fontStyle: 'italic', color: '#00D4FF' }}>human</em> behind.
             </h2>
-            <p>I am Angel Vargas — born in Guerrero, raised across five Mexican cities, trained at IPN, and shaped by every place I've worked and every team I've led. I specialize in <span className="rimac-accent">automotive diagnostics and systems integration</span>, with experience at Ford Motor Company and BMW Group across global vehicle programs.</p>
-<p>My work connects the technical depth of <span className="rimac-accent">ECU architecture and requirements governance</span> with the human side of engineering: mentoring, cross-functional leadership, and the belief that what we build should be <span className="rimac-accent">felt, not just measured</span>.</p>
-            <Link to="/about" className="btn-read-more mt-3 d-inline-block">The Full Story</Link>
+            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.7 }}> {/* Reduced from 1.1rem */}
+              I am Angel Vargas — born in México, raised across five Mexican cities, with bachelor studies in the <span style={{ fontStyle: 'italic', color: '#00D4FF' }}>Instituto Politécnico Nacional (IPN)</span>. I specialize in <span className="text-white fw-bold">automotive diagnostics and systems integration</span>, with experience at Ford Motor Company and BMW Group.
+            </p>
+            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.7, marginBottom: '1.8rem' }}>
+              My work connects <span className="text-white fw-bold">ECU-Features architecture and requirements governance</span> with the human side of engineering: mentoring, leadership, and the belief that what we build should be <span className="text-white fw-bold">felt, not just measured</span>.
+            </p>
+            <Link to="/about" className="btn-hero-primary d-inline-block" style={{ padding: '0.6rem 1.5rem', fontSize: '0.9rem' }}>
+              The Full Story
+            </Link>
           </motion.div>
-          <motion.div className="col-md-5" {...fadeUp(0.15)}>
-            <div className="about-visual rounded-4 p-4">
-              <StatsGrid />
-              <div className="text-center mt-4">
-                <div style={{
-                  width: '148px',
-                  height: '148px',
-                  margin: '0 auto',
-                  background: 'linear-gradient(135deg, #6c8ec4, #25314a)',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#ffffff',
-                  fontSize: '2.2rem',
-                  fontWeight: '700',
-                  border: '0px solid rgba(108,142,196,0.3)'
-                }}>
-                  AV
-                </div>
-                <p className="mt-3 text-muted" style={{ fontSize: '0.82rem' }}>Professional photo coming soon</p>
+          
+          {/* RIGHT COLUMN: COMPACT IDENTITY CARD */}
+          <motion.div className="col-lg-5 col-md-6" {...fadeUp(0.15)}>
+            <div style={{
+              background: '#161B22', 
+              border: '1px solid rgba(0,212,255,0.2)',
+              borderRadius: '20px', 
+              overflow: 'hidden',
+              boxShadow: '0 15px 35px rgba(0,0,0,0.4)'
+            }}>
+              
+              {/* Photo: Compact & Centered on Chin */}
+              <div style={{ position: 'relative', height: '350px', width: '100%' }}> {/* Reduced height for better scaling */}
+                <img
+                  src={`${import.meta.env.BASE_URL}images/myself.jpg`}
+                  alt="Angel Vargas"
+                  style={{ 
+                    width: '100%', 
+                    height: '100%', 
+                    objectFit: 'cover', 
+                    objectPosition: 'center 45%', /* Crucial: This pushes the image UP to fit your chin */
+                    display: 'block'
+                  }}
+                />
+                <div style={{ 
+                  position: 'absolute', 
+                  bottom: 0, left: 0, right: 0, 
+                  height: '3px', 
+                  background: 'linear-gradient(90deg, #3B82F6, #00D4FF)' 
+                }}></div>
               </div>
+              
+              {/* Stats: Tighter Padding to reduce total card height */}
+              <div style={{ padding: '0.5rem 0.5rem' }}>
+                <StatsGrid />
+              </div>
+              
             </div>
           </motion.div>
+
         </div>
       </section>
 
@@ -428,29 +449,23 @@ return (
               <p className="text-uppercase text-muted mb-3" style={{ fontFamily: 'Barlow Condensed,sans-serif', fontSize: '0.72rem', fontWeight: 700, letterSpacing: 4 }}>Professional Overview</p>
               <h2>"Systems thinking meets diagnostics design."</h2>
               <p className="mb-3">I build <span className="rimac-accent">automotive diagnostics experiences</span> with a clear focus on resilience, traceability, and measurable system outcomes.</p>
-<p className="mb-4">This portfolio is a curated snapshot of <span className="rimac-accent">technical leadership</span>, collaborative program delivery, and the practical engineering mindset that turns requirements into robust, testable solutions.</p>
+              <p className="mb-4">This portfolio is a curated snapshot of <span className="rimac-accent">technical leadership</span>, collaborative program delivery, and the practical engineering mindset that turns requirements into robust, testable solutions.</p>
               <Link to="/about" className="btn-read-more">Read More</Link>
             </div>
           </motion.div>
           <motion.div className="col-lg-6" {...fadeUp(0.15)}>
             <div className="skill-cloud p-4">
-              <div className="cloud-graphic">
-                <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" aria-label="Systems architecture diagram">
-                  <circle cx="70" cy="70" r="28" fill="#6c8ec4" opacity=".95"/>
-                  <circle cx="290" cy="60" r="22" fill="#25314a" opacity=".9"/>
-                  <circle cx="190" cy="190" r="32" fill="#6c8ec4" opacity=".88"/>
-                  <circle cx="90" cy="210" r="18" fill="#25314a" opacity=".85"/>
-                  <circle cx="250" cy="140" r="16" fill="#6c8ec4" opacity=".9"/>
-                  <path d="M98 85 C140 60 210 80 250 70" stroke="#25314a" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                  <path d="M80 90 C110 160 130 190 180 170" stroke="#6c8ec4" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                  <path d="M210 180 C230 130 260 120 290 140" stroke="#25314a" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                  <path d="M110 220 C165 205 210 170 250 155" stroke="#6c8ec4" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <div className="skill-cloud-tags">
-                {['MBSE','Diagnostics','Traceability','CANalyzer','Python','Leadership'].map(tag => (
-                  <span className="skill-cloud-tag" key={tag}>{tag}</span>
-                ))}
+              <div className="cloud-graphic" style={{ position: 'relative', width: '100%', height: '100%' }}>
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/Trace.jpg`}
+                    alt="Systems architecture illustration"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '0.5rem', padding: '1rem' }}>
+                    {['Systems Engineering','Diagnostics & Data','Traceability','CAN BUS Analysis','Frontend Development','Leadership'].map(tag => (
+                    <span className="skill-cloud-tag" key={tag} style={{ opacity: 0.7 }}>{tag}</span>
+                  ))}
+                  </div>
               </div>
             </div>
           </motion.div>

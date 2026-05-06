@@ -12,7 +12,7 @@ const projects = [
     impact: [
       { point: "Core Challenge", desc: "Excessive NVH in deploy/retract cycle" },
       { point: "Action", desc: "Designed first-ever NVH lab calibration protocol" },
-      { point: "Result", desc: "36% noise reduction + ~$2M hardware savings per MY" }
+      { point: "Result", desc: "36% noise actuation improvement + ~$2M savings per MY in customer satisfaction" }
     ]
   },
   { 

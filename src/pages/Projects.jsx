@@ -18,7 +18,7 @@ const cases = [
     eyebrow: 'Ford Motor Company · 2021–2025',
     title: <>Feature Ownership <span style={{color:'#C6D840',fontWeight:600}}>Design to Validation</span></>,
     subtitle: 'Feature Systems Engineer — Full Ownership',
-    lead: <>Took <span style={{color:'#C6D840',fontWeight:600}}>full ownership</span> of a feature at the start of its systems engineering journey. Delivered a complete design to the 2025 Navigator & Expedition global launch — including the <span style={{color:'#C6D840',fontWeight:600}}>first-ever calibration framework</span> for the feature.</>,
+    lead: <>Took <span style={{color:'#C6D840',fontWeight:600}}>full ownership</span> of a feature at the start of its systems engineering journey. Delivered a complete design to the 2025 Navigator & Expedition global launch — including the <span style={{color:'#C6D840',fontWeight:600}}>improvement of calibration framework</span> for the feature.</>,
     img: `${import.meta.env.BASE_URL}images/Expedition-Wall.jpg`,
     imgCaption: '2025 Lincoln Navigator / Ford Expedition — Global Launch Program',
     tags: ['Requirements Engineering','Calibration Design','NVH Analysis','Thermal Testing','DFMEA','Supplier Integration'],
@@ -31,9 +31,9 @@ const cases = [
       { value: 0, label: 'Open Critical Issues at Launch' }
     ],
     story: [
-      { label: 'The Situation', text: 'Joined a newly formed Feature Systems Engineering team at an early stage of maturity — requirements were being established, documentation was nascent, and no calibration standard had yet been defined for the feature.' },
+      { label: 'The Situation', text: 'Joined a newly formed Feature Systems Engineering team at an early stage of maturity — requirements were being established and the calibration methodology for the feature was still an open design space — an opportunity to define it from the ground up' },
       { label: 'The Ownership', text: 'Took full systems engineering ownership: requirements authoring, calibration framework definition, testing execution, and supplier alignment — roles that historically spanned multiple engineers, now consolidated into one accountable point of contact.' },
-      { label: 'The Outcome', text: 'Delivered all three features — PRB, OBS/SH, and AVS — to global launch with zero open critical issues. Filed 12 innovation disclosures. Mentored 6 engineers. Still the primary technical contact for the feature across organizational moves.' }
+      { label: 'The Outcome', text: 'Delivered all three features — PRB, OBS/SH, and AVS — to global launch with zero open critical issues. Worked on 18 innovation disclosures and 1 patent. Mentored 6 engineers. Still the primary technical contact for the feature across organizational moves.' }
     ],
     methods: [
       { num: '01', title: 'Cycle Time', desc: 'Deploy/retract timing per operational context and user expectation.' },
@@ -50,7 +50,7 @@ const cases = [
     eyebrow: 'Ford Motor Company · July 2025–Present',
     title: <>E2E ECU  <span style={{color:'#C6D840',fontWeight:600}}>Diagnostics Robustness</span></>,
     subtitle: 'Diagnostics Design Engineer — Standard Creation',
-    lead: <>Built a diagnostic reasoning framework <span style={{color:'#C6D840',fontWeight:600}}>from first principles</span> — not to prevent failures, but to ensure every failure mode can be detected, flagged, and resolved with precision. Now the <span style={{color:'#C6D840',fontWeight:600}}>operating standard</span> for a newly established team.</>,
+    lead: <>Built a diagnostic reasoning framework <span style={{color:'#C6D840',fontWeight:600}}>from first principles</span> — to ensure every failure mode can be detected, flagged, and resolved with precision. Now the <span style={{color:'#C6D840',fontWeight:600}}>operating standard</span> for a newly established team.</>,
     img: `${import.meta.env.BASE_URL}images/BMW2021.jpg`,
     imgCaption: 'E2E Diagnostics Robustness — Active Program',
     tags: ['Diagnostics Architecture','Gap Analysis','DFMEA Integration','DTC Methodology','Requirements Engineering','Noisy DTC Investigation'],
@@ -63,7 +63,7 @@ const cases = [
       { value: 4, label: 'Features in Scope (Pilot)' }
     ],
     story: [
-      { label: 'The Problem', text: 'A newly created diagnostics team with no established standard. Features had DFMEAs accounting for failures — but no structured framework defining how to detect, flag, and diagnose those failures from a diagnostics engineering standpoint.' },
+      { label: 'The Problem', text: 'As the diagnostics team was established, there was a clear opportunity to build the diagnostic reasoning standard from scratch — one that would formally bridge existing DFMEAs to structured detection, flagging, and resolution requirements.' },
       { label: 'The Approach', text: 'Executed a 5-phase program: system audit, gap analysis across legacy documentation, requirements creation, test case definition, and validation planning. Treated existing DFMEAs as the input — diagnostics requirements as the structured output.' },
       { label: 'The Standard', text: 'The 3-tier taxonomy is now the working methodology for the team. What took months to develop for PRB\'s obstacle detection function — 68 requirements closing 12 gaps — becomes the template for every feature that follows.' }
     ],
@@ -92,11 +92,11 @@ const cases = [
       { value: 2, label: 'Global Audits Passed' }
     ],
     story: [
-      { label: 'The Context', text: 'A global BMW manufacturing plant running quality management on largely manual, siloed processes. Audit cycles were approaching and the Quality Management System needed both a digital transformation and a cultural one.' },
+      { label: 'The Context', text: 'A global BMW manufacturing plant at a moment of digital transformation — with audit cycles approaching and a clear opportunity to modernize quality management into a connected, data-driven system. Audit cycles were approaching and the Quality Management System needed both a digital transformation and a cultural one.' },
       { label: 'The Delivery', text: 'Designed and deployed an integrated Power BI dashboard and Power Apps workflow suite for the full QMS — enabling real-time issue tracking, escalation routing, and containment visibility across 120+ process leaders.' },
       { label: 'The Culture', text: 'Technical delivery alone wasn\'t enough. Launched a "Quality Mindset" campaign that trained 120+ process leads — shifting defect response from reactive to proactive, with a measurable 25% improvement in containment actions within 6 months.' }
     ],
-    quote: '"The hardest part wasn\'t the dashboards — it was the people. Getting 120 process leaders to own quality data, not just report it, required a different kind of engineering: organizational."'
+    quote: '"The hardest part wasn\'t the dashboards. Getting 120 process leaders to own quality data, not just report it, required a different kind of engineering: organizational."'
   }
 ];
 
@@ -125,7 +125,7 @@ const additionalAchievements = [
   {
     role: "Diagnostics Design Engineer - Ford",
     icon: "bi-lightbulb",
-    title: "12 Innovation Disclosures & 1 Patent",
+    title: "18 Innovation Disclosures & 1 Patent",
     impact: "Patent application approved and in prosecution",
     description: "Creative contributions in diagnostics robustness, enhanced data recording, and ECU troubleshooting."
   },
