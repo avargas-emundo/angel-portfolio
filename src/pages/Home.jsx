@@ -47,7 +47,8 @@ const showcaseCards = [
     title: 'Acoustic & Thermal Optimization',
     kpi1: { value: 36, label: 'Noise Improvement', suffix: '%' },
     kpi2: { value: 2, label: 'Saved / Model Year', suffix: 'M' },
-    desc: 'Launched NVH lab testing protocol that improved Power Running Board noise 36% and based on customer satisfaction analysis, eliminated ≈$2M in hardware cost per model year.',
+    tags: ['NVH Analysis', 'Extreme Temp Testing', 'Feature Validation'],
+    desc: 'Launched NVH lab testing protocol that improved Power Running Board noise 36% and based on customer satisfaction analysis, identified optimization opportunities that yielded ≈$2M in hardware savings per model year.',
     tags: ['NVH Analysis', 'Extreme Temp Testing', 'Feature Validation'],
     modalContent: (
       <div className="p-5">
@@ -101,9 +102,9 @@ const timelineEvents = [
     location: 'Naucalpan de Juárez, México',
     title: 'Diagnostics Design Engineer',
     company: 'Ford Motor Company – GTBC Mx',
-    summary: 'Spearheading the E2E ECU Diagnostics Robustness project, delivering 150+ requirements and targeting high-warranty Noisy DTCs across TPMS, Key Fob, and VIN Authentication systems.',
+    summary: 'Proposed and formalized the End-to-End ECU Diagnostics Robustness framework, delivering 150+ requirements during the first Program Incrementand targeting high-warranty Noisy DTCs across TPMS, Key Fob, and VIN Authentication systems.',
     bullets: [
-      'Authored 23+ requirements eliminating false-positive DTC triggers.',
+      'Authored 23+ requirements to optimize DTC logic and mitigate false-positive triggers during high traffic communication.',
       'Bridging Architecture, SW, and Module D&R teams to close diagnostic coverage gaps.',
       'Designing next-gen Enhanced Data Recording methods.',
       'Managed cross-functional alignment between Mexico and US-based teams for global vehicle launches.'
@@ -119,7 +120,7 @@ const timelineEvents = [
     summary: 'Led Power Running Boards, Onboard Scales & Smart Hitch, and Automatic Vehicle Shutdown from early concept to global launch — authoring ≈700 requirements and 400+ test cases.',
     bullets: [
       'Launched NVH lab test cutting PRB noise 36% and performed cost reduction actions based on customer survey data, saving ≈$2M per model year.',
-      'Cut PRB warranty spend with customer experience improvements in HMI and Post-Selling services ≈$1.4M (23MY baseline); zero open critical issues at launch.',
+      'Optimized PRB warranty spend through customer experience enhancements in HMI and Post-Selling services ≈$1.4M (23MY baseline); zero open critical issues at launch.',
       'Filed 18 innovation disclosures,1 patent and mentored 6 engineers into the SE organization.'
     ]
   },

@@ -32,7 +32,7 @@ const cases = [
     ],
     story: [
       { label: 'The Situation', text: 'Joined a newly formed Feature Systems Engineering team at an early stage of maturity — requirements were being established and the calibration methodology for the feature was still an open design space — an opportunity to define it from the ground up' },
-      { label: 'The Ownership', text: 'Took full systems engineering ownership: requirements authoring, calibration framework definition, testing execution, and supplier alignment — roles that historically spanned multiple engineers, now consolidated into one accountable point of contact.' },
+      { label: 'The Ownership', text: 'Led the systems engineering lifecycle for flagship features—including Power Running Boards, Onboard Scales, and Automatic Vehicle Shutdown—streamlining processes into a unified, accountable framework.' },
       { label: 'The Outcome', text: 'Delivered all three features — PRB, OBS/SH, and AVS — to global launch with zero open critical issues. Worked on 18 innovation disclosures and 1 patent. Mentored 6 engineers. Still the primary technical contact for the feature across organizational moves.' }
     ],
     methods: [
@@ -50,7 +50,7 @@ const cases = [
     eyebrow: 'Ford Motor Company · July 2025–Present',
     title: <>E2E ECU  <span style={{color:'#C6D840',fontWeight:600}}>Diagnostics Robustness</span></>,
     subtitle: 'Diagnostics Design Engineer — Standard Creation',
-    lead: <>Built a diagnostic reasoning framework <span style={{color:'#C6D840',fontWeight:600}}>from first principles</span> — to ensure every failure mode can be detected, flagged, and resolved with precision. Now the <span style={{color:'#C6D840',fontWeight:600}}>operating standard</span> for a newly established team.</>,
+    lead: <>Proposed and formalized a diagnostic reasoning framework <span style={{color:'#C6D840',fontWeight:600}}>from first principles</span> — to ensure every failure mode can be detected, flagged, and resolved with precision. Now the <span style={{color:'#C6D840',fontWeight:600}}>operating standard</span> for a newly established team.</>,
     img: `${import.meta.env.BASE_URL}images/BMW2021.jpg`,
     imgCaption: 'E2E Diagnostics Robustness — Active Program',
     tags: ['Diagnostics Architecture','Gap Analysis','DFMEA Integration','DTC Methodology','Requirements Engineering','Noisy DTC Investigation'],
@@ -63,7 +63,7 @@ const cases = [
       { value: 4, label: 'Features in Scope (Pilot)' }
     ],
     story: [
-      { label: 'The Problem', text: 'As the diagnostics team was established, there was a clear opportunity to build the diagnostic reasoning standard from scratch — one that would formally bridge existing DFMEAs to structured detection, flagging, and resolution requirements.' },
+      { label: 'The Opportunity:', text: 'With the establishment of the new diagnostics team, there was a clear path to formally architect a scalable diagnostic reasoning standard from the ground up — one that would formally bridge existing DFMEAs to structured detection, flagging, and resolution requirements.' },
       { label: 'The Approach', text: 'Executed a 5-phase program: system audit, gap analysis across legacy documentation, requirements creation, test case definition, and validation planning. Treated existing DFMEAs as the input — diagnostics requirements as the structured output.' },
       { label: 'The Standard', text: 'The 3-tier taxonomy is now the working methodology for the team. What took months to develop for PRB\'s obstacle detection function — 68 requirements closing 12 gaps — becomes the template for every feature that follows.' }
     ],

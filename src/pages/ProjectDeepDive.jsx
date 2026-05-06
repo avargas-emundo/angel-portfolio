@@ -6,7 +6,7 @@ const deepDives = {
     id: "power-running-boards",
     title: "Power Running Boards",
     program: "2025 Lincoln Navigator & Ford Expedition Global Launch",
-    challenge: "Excessive NVH (Noise, Vibration, Harshness) in the deploy/retract cycle threatened premium feel and risked significant warranty costs on high-volume programs.",
+    challenge: "Identified an opportunity to refine the NVH profile during the deploy/retract cycle, proactively securing the premium feel and optimizing warranty profiles on high-volume programs.",
     systemsApproach: `
 • Owned full systems engineering scope from requirements to validation
 • Designed and implemented the first-ever NVH-specific lab calibration protocol
@@ -15,7 +15,7 @@ const deepDives = {
     `,
     leadership: "Coordinated cross-functional alignment between Mexico-based core team and US plant teams during launch rotations. Mentored junior engineers while maintaining single-point accountability for the feature.",
     results: [
-      { metric: "36%", label: "Noise Reduction" },
+      { metric: "36%", label: "Noise Improvement" },
       { metric: "~$2M", label: "Hardware Cost Saved per Model Year" },
       { metric: "~$1.4M", label: "Warranty Cost Reduction (23MY)" },
       { metric: "98%", label: "First-Time-Through Build Quality" },
@@ -31,7 +31,7 @@ const deepDives = {
     id: "e2e-ecu-diagnostics",
     title: "E2E ECU Diagnostics Robustness",
     program: "New Diagnostics Team Operating Standard – Ford GTBC",
-    challenge: "High-warranty Noisy DTCs with no standardized diagnostic framework across multiple features (TPMS, Key Fob, VIN Authentication).",
+    challenge: "An opportunity to establish a unified diagnostic framework across multiple complex features (TPMS, Key Fob, VIN Authentication) to mitigate high-warranty Noisy DTCs.",
     systemsApproach: `
 • Executed 5-phase program: System Audit → Gap Analysis → Requirements Creation → Test Case Definition → Validation Planning
 • Built 3-tier diagnostic reasoning taxonomy (Detection Control → Fault Detectability → Diagnostics Requirement)
@@ -53,7 +53,7 @@ const deepDives = {
     id: "bmw-quality-system",
     title: "Quality Management System Digital Transformation",
     program: "BMW Group – Plant San Luis Potosí",
-    challenge: "Manual, siloed quality processes risking audit failure during G42 Conformity-of-Production and ISO 9001 audits.",
+    challenge: "Transitioning legacy quality processes into a connected digital ecosystem to proactively ensure compliance during G42 Conformity-of-Production and ISO 9001 audits.",
     systemsApproach: `
 • Designed and deployed integrated Power BI dashboards + Power Apps workflow suite
 • Enabled real-time issue tracking, escalation, and containment visibility
